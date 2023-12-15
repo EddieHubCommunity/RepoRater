@@ -38,14 +38,14 @@ export default function Navbar() {
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a href="/">List Ratings</a>
+            <Link href="/">List Ratings</Link>
           </li>
           <li>
-            <a href="/rate">Add Rating</a>
+            <Link href="/rate">Add Rating</Link>
           </li>
           {!user && (
             <li>
-              <a href="/auth/login">Login</a>
+              <Link href="/auth/login">Login</Link>
             </li>
           )}
           {user && (

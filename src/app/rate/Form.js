@@ -1,10 +1,36 @@
 "use client";
 
-import action from "./action";
+import { account } from "@/config/appwrite-client";
 
-export default function Form() {
+export default async function Form() {
+  async function save(formData) {
+    const user = await account.getSession("current");
+    const jwt = await account.createJWT();
+    const res = await fetch("/api/rate", {
+      method: "POST",
+      body: JSON.stringify({
+        url: formData.get("url"),
+        rating: formData.get("rating"),
+      }),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: jwt.jwt,
+        SessionID: user.$id,
+      },
+    });
+    const data = await res.json();
+
+    if (data.success) {
+      alert("Rating saved!");
+    }
+
+    if (data.error) {
+      alert("Error saving rating!");
+    }
+  }
+
   return (
-    <form action={action} className="card-body">
+    <form action={save} className="card-body">
       <div className="form-control">
         <label className="label">
           <span className="label-text">URL</span>

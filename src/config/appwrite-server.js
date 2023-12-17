@@ -4,8 +4,13 @@ import sdk from "node-appwrite";
 
 const client = () =>
   new sdk.Client()
-    .setEndpoint("https://appwrite.jaoudestudios.co.uk/v1")
+    .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID)
+    .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID);
+
+const clientAdmin = () =>
+  new sdk.Client()
+    .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID)
     .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID)
     .setKey(process.env.APPWRITE_API_KEY);
 
-export default client;
+export { client, clientAdmin };

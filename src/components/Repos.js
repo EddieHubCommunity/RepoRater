@@ -2,21 +2,21 @@
 
 import sdk from "node-appwrite";
 
-import client from "@/config/appwrite-server";
+import { clientAdmin } from "@/config/appwrite-server";
 import Repo from "./Repo";
 
 export default async function Repos() {
-  const repos = await new sdk.Databases(client()).listDocuments(
+  const repos = await new sdk.Databases(clientAdmin()).listDocuments(
     process.env.APPWRITE_DATABASE_ID,
     "65533f2e29aee3045d6f",
     []
   );
-  console.log(repos.documents.length, repos.documents);
 
   return (
-    <>
+    <div className="flex flex-row flex-wrap">
       {repos.documents.map((repo) => (
         <Repo
+          key={repo.$id}
           stars={repo.rating}
           votes={repo.votes}
           owner={repo.owner}
@@ -25,6 +25,6 @@ export default async function Repos() {
           logo={repo.logo}
         />
       ))}
-    </>
+    </div>
   );
 }

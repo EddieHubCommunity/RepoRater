@@ -8,7 +8,7 @@ import Repo from "./Repo";
 export default async function Repos() {
   const repos = await new sdk.Databases(clientAdmin()).listDocuments(
     process.env.APPWRITE_DATABASE_ID,
-    "65533f2e29aee3045d6f",
+    process.env.APPWRITE_COLLECTION_REPOS_ID,
     []
   );
 

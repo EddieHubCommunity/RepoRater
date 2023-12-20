@@ -1,11 +1,20 @@
 "use client";
 
+import { redirect } from "next/navigation";
+
 import { account } from "@/config/appwrite-client";
 
 export default async function Form() {
   async function save(formData) {
-    const user = await account.getSession("current");
-    const jwt = await account.createJWT();
+    let user;
+    let jwt;
+    try {
+      user = await account.getSession("current");
+      jwt = await account.createJWT();
+    } catch (e) {
+      console.error(e);
+      return redirect("/auth/login");
+    }
     const res = await fetch("/api/rate", {
       method: "POST",
       body: JSON.stringify({
@@ -21,7 +30,7 @@ export default async function Form() {
     const data = await res.json();
 
     if (data.success) {
-      alert("Rating saved!");
+      redirect("/?alert=success&message=Rating saved!");
     }
 
     if (data.error) {
@@ -78,6 +87,7 @@ export default async function Form() {
             name="rating"
             value="5"
             className="mask mask-star-2 bg-green-500"
+            defaultChecked
           />
         </div>
       </div>

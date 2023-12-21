@@ -29,7 +29,7 @@ export default function Repo({ url, owner, name, logo, stars, votes }) {
             ></path>
           </svg>
         </div>
-        <div className="stat-title">Total Stars</div>
+        <div className="stat-title">Average Rating</div>
         <div className="stat-value text-primary">{abbreviateNumber(stars)}</div>
         <div className="stat-desc">
           <Link href={url} target="_blank">

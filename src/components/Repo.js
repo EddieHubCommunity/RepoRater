@@ -1,6 +1,8 @@
-import { classNames } from "@/utils/classNames";
 import Image from "next/image";
 import Link from "next/link";
+
+import { abbreviateNumber } from "@/utils/abbreviateNumbers";
+import { classNames } from "@/utils/classNames";
 
 export default function Repo({ url, owner, name, logo, stars, votes }) {
   const percentage = Math.round((stars / 5) * 100);
@@ -23,7 +25,7 @@ export default function Repo({ url, owner, name, logo, stars, votes }) {
           </svg>
         </div>
         <div className="stat-title">Total Stars</div>
-        <div className="stat-value text-primary">{stars}</div>
+        <div className="stat-value text-primary">{abbreviateNumber(stars)}</div>
         <div className="stat-desc">
           <Link href={url} target="_blank">
             GitHub

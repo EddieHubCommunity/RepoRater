@@ -13,7 +13,7 @@ export default async function Repos() {
   );
 
   return (
-    <div className="flex flex-row flex-wrap">
+    <div className="flex flex-row flex-wrap justify-center">
       {repos.documents.map((repo) => (
         <Repo
           key={repo.$id}

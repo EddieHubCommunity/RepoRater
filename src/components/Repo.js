@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { LinkIcon, ShareIcon } from "@heroicons/react/24/solid";
 
 import { abbreviateNumber } from "@/utils/abbreviateNumbers";
 import { classNames } from "@/utils/classNames";
@@ -32,7 +33,8 @@ export default function Repo({ url, owner, name, logo, stars, votes }) {
         <div className="stat-title">Average Rating</div>
         <div className="stat-value text-primary">{abbreviateNumber(stars)}</div>
         <div className="stat-desc">
-          <Link href={url} target="_blank">
+          <Link href={url} target="_blank" className="flex gap-2 items-center">
+            <LinkIcon className="h-4 w-4 text-blue-500" />
             GitHub
           </Link>
         </div>
@@ -94,7 +96,12 @@ export default function Repo({ url, owner, name, logo, stars, votes }) {
         {percentage < groups.research && (
           <div className="stat-title">Not recommended</div>
         )}
-        <div className="stat-desc text-secondary">{name}</div>
+        <div className="stat-desc text-secondary">
+          <Link href={url} target="_blank" className="flex gap-2 items-center">
+            {name}
+            <ShareIcon className="h-4 w-4 text-blue-500" />
+          </Link>
+        </div>
       </div>
     </div>
   );

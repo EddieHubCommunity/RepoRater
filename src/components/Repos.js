@@ -9,7 +9,7 @@ export default async function Repos() {
   const repos = await new Databases(clientAdmin()).listDocuments(
     process.env.APPWRITE_DATABASE_ID,
     process.env.APPWRITE_COLLECTION_REPOS_ID,
-    [Query.orderDesc("rating")]
+    [Query.orderDesc("rating"), Query.limit(100)]
   );
 
   return (

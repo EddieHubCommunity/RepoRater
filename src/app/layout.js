@@ -2,6 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -31,6 +32,7 @@ export default function RootLayout({ children }) {
         {alert && <Alert message={message} />}
         {children}
         <Footer />
+        <Analytics />
       </body>
     </html>
   );

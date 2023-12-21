@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.1.1",
     "appwrite": "^13.0.1",
     "next": "14.0.4",
     "node-appwrite": "^11.1.0",

@@ -1,15 +1,15 @@
 "use server";
 
-import sdk from "node-appwrite";
+import { Query, Databases } from "node-appwrite";
 
 import { clientAdmin } from "@/config/appwrite-server";
 import Repo from "./Repo";
 
 export default async function Repos() {
-  const repos = await new sdk.Databases(clientAdmin()).listDocuments(
+  const repos = await new Databases(clientAdmin()).listDocuments(
     process.env.APPWRITE_DATABASE_ID,
     process.env.APPWRITE_COLLECTION_REPOS_ID,
-    []
+    [Query.orderDesc("rating")]
   );
 
   return (

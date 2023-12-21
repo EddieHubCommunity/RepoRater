@@ -6,6 +6,11 @@ import { classNames } from "@/utils/classNames";
 
 export default function Repo({ url, owner, name, logo, stars, votes }) {
   const percentage = Math.round((stars / 5) * 100);
+  const groups = {
+    recommend: 70,
+    research: 40,
+  };
+
   return (
     <div className="stats shadow stats-vertical m-2">
       <div className="stat">
@@ -56,12 +61,17 @@ export default function Repo({ url, owner, name, logo, stars, votes }) {
 
       <div className="stat">
         <div className="stat-figure text-secondary">
-          <div
-            className={classNames([
-              "avatar",
-              percentage > 71 ? "online" : "offline",
-            ])}
-          >
+          <div className="avatar indicator">
+            <span
+              className={classNames([
+                "indicator-item badge",
+                percentage > groups.recommend && "badge-success",
+                percentage < groups.recommend &&
+                  percentage > groups.research &&
+                  "badge-warning",
+                percentage < groups.research && "badge-error",
+              ])}
+            ></span>
             <div className="w-16 rounded-full">
               {logo && (
                 <Image
@@ -75,8 +85,15 @@ export default function Repo({ url, owner, name, logo, stars, votes }) {
           </div>
         </div>
         <div className="stat-value">{percentage}%</div>
-        {percentage > 71 && <div className="stat-title">Recommend</div>}
-        {percentage < 70 && <div className="stat-title">Research</div>}
+        {percentage > groups.recommend && (
+          <div className="stat-title">Recommended</div>
+        )}
+        {percentage < groups.recommend && percentage > groups.research && (
+          <div className="stat-title">Research</div>
+        )}
+        {percentage < groups.research && (
+          <div className="stat-title">Not recommended</div>
+        )}
         <div className="stat-desc text-secondary">{name}</div>
       </div>
     </div>

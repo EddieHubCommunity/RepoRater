@@ -40,6 +40,9 @@ export default function Navbar() {
           <li>
             <Link href="/">List Ratings</Link>
           </li>
+          <li>
+            <Link href="/rankings">User Rankings</Link>
+          </li>
           {user && (
             <li>
               <Link href="/rate">Add Rating</Link>

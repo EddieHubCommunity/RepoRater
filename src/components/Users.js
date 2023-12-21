@@ -1,6 +1,6 @@
 "use server";
 
-import { Databases } from "node-appwrite";
+import { Query, Databases } from "node-appwrite";
 
 import { clientAdmin } from "@/config/appwrite-server";
 import User from "./User";
@@ -9,7 +9,7 @@ export default async function Repos() {
   const ratings = await new Databases(clientAdmin()).listDocuments(
     process.env.APPWRITE_DATABASE_ID,
     process.env.APPWRITE_COLLECTION_RATINGS_ID,
-    []
+    [Query.limit(10)]
   );
   const users = ratings.documents.reduce((acc, rating) => {
     if (!acc[rating.username]) {

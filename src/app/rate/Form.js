@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 
 import { account } from "@/config/appwrite-client";
 
-export default async function Form() {
+export default function Form() {
   async function save(formData) {
     let user;
     let jwt;

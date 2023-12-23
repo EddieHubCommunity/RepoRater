@@ -33,7 +33,9 @@ export async function POST(request) {
   if (repoPath.length !== 2) {
     return Response.json({ success: false, error: "Invalid URL" });
   }
-  const repoRes = await fetch(`https://api.github.com/repos/${repoPath[1]}`);
+  const path =
+    repoPath[1].slice(-1) === "/" ? repoPath[1].slice(0, -1) : repoPath[1];
+  const repoRes = await fetch(`https://api.github.com/repos/${path}`);
   const repoData = await repoRes.json();
   const githubRepo = {
     name: repoData.name,

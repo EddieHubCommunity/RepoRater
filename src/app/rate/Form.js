@@ -1,10 +1,13 @@
 "use client";
 
 import { redirect } from "next/navigation";
+import { useState } from "react";
 
 import { account } from "@/config/appwrite-client";
 
 export default function Form() {
+  const [sending, setSending] = useState(false);
+
   async function save(formData) {
     let user;
     let jwt;
@@ -30,16 +33,18 @@ export default function Form() {
     const data = await res.json();
 
     if (data.success) {
+      setSending(false);
       redirect("/?alert=success&message=Rating saved!");
     }
 
     if (data.error) {
+      setSending(false);
       alert("Error saving rating!");
     }
   }
 
   return (
-    <form action={save} className="card-body">
+    <form action={save} onSubmit={() => setSending(true)} className="card-body">
       <div className="form-control">
         <label className="label">
           <span className="label-text">URL</span>
@@ -92,7 +97,8 @@ export default function Form() {
         </div>
       </div>
       <div className="form-control mt-6">
-        <button className="btn btn-primary">Rate!</button>
+        {!sending && <button className="btn btn-primary">Rate!</button>}
+        {sending && <span className="loading loading-dots loading-lg"></span>}
       </div>
     </form>
   );

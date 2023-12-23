@@ -5,6 +5,7 @@ import { client, clientAdmin } from "@/config/appwrite-server";
 
 export async function POST(request) {
   const data = await request.json();
+  console.info(`Rating ${data.rating} for ${data.url} recieved`);
 
   const sessionId = request.headers.get("sessionId");
   const jwt = request.headers.get("Authorization");
@@ -27,6 +28,7 @@ export async function POST(request) {
   } catch (e) {
     return redirect("/auth/login");
   }
+  console.info(`User ${username} submitted rating for ${data.url}`);
 
   // 0. get repo from github api
   const repoPath = data.url.split("github.com/");
@@ -47,6 +49,7 @@ export async function POST(request) {
     description: repoData.description,
     logo: repoData.owner.avatar_url,
   };
+  console.info(`Repo ${githubRepo.name} found on GitHub`);
 
   // 1. check if user already rated this repo
   const userRepoRating = await new sdk.Databases(clientAdmin()).listDocuments(
@@ -57,6 +60,7 @@ export async function POST(request) {
 
   // 2a. update in ratings collection
   if (userRepoRating.total === 1) {
+    console.info(`User ${username} already rated ${data.url} updating rating`);
     await new sdk.Databases(clientAdmin()).updateDocument(
       process.env.APPWRITE_DATABASE_ID,
       process.env.APPWRITE_COLLECTION_RATINGS_ID,
@@ -69,6 +73,7 @@ export async function POST(request) {
     );
   } else {
     // 2b. create in ratings collection
+    console.info(`User ${username} rating ${data.url} for the first time`);
     await new sdk.Databases(clientAdmin()).createDocument(
       process.env.APPWRITE_DATABASE_ID,
       process.env.APPWRITE_COLLECTION_RATINGS_ID,
@@ -82,6 +87,7 @@ export async function POST(request) {
   }
 
   // 3. check if repo exists
+  console.info(`Checking if repo ${data.url} exists in database`);
   const repos = await new sdk.Databases(clientAdmin()).listDocuments(
     process.env.APPWRITE_DATABASE_ID,
     process.env.APPWRITE_COLLECTION_REPOS_ID,
@@ -90,6 +96,7 @@ export async function POST(request) {
 
   // 4a. update in repos collection + calculate new rating
   if (repos.total === 1) {
+    console.info(`Repo ${data.url} found in database update rating`);
     // get all ratings for this repo
     const ratings = await new sdk.Databases(clientAdmin()).listDocuments(
       process.env.APPWRITE_DATABASE_ID,
@@ -113,6 +120,9 @@ export async function POST(request) {
     );
   } else {
     // 4a. create in repos collection
+    console.info(
+      `Repo ${data.url} not found in database create repo and ratings`
+    );
     const repo = await new sdk.Databases(clientAdmin()).createDocument(
       process.env.APPWRITE_DATABASE_ID,
       process.env.APPWRITE_COLLECTION_REPOS_ID,

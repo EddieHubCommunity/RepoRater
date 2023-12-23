@@ -1,5 +1,6 @@
 import { abbreviateNumber } from "@/utils/abbreviateNumbers";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function User({ username, votes, stars }) {
   const average = (stars / 5 / votes) * 100;
@@ -51,12 +52,14 @@ export default function User({ username, votes, stars }) {
         <div className="stat-figure text-secondary">
           <div className="avatar">
             <div className="w-16 rounded-full">
-              <Image
-                src={`https://github.com/${username}.png`}
-                alt={`Profile picture for user ${username}`}
-                width="32"
-                height="32"
-              />
+              <Link href={`https://github.com/${username}`} target="_blank">
+                <Image
+                  src={`https://github.com/${username}.png`}
+                  alt={`Profile picture for user ${username}`}
+                  width="32"
+                  height="32"
+                />
+              </Link>
             </div>
           </div>
         </div>

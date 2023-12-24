@@ -5,11 +5,15 @@ import { Query, Databases } from "node-appwrite";
 import { clientAdmin } from "@/config/appwrite-server";
 import Repo from "./Repo";
 
-export default async function Repos() {
+export default async function Repos({ sort = "rating", minimumVotes = 5 }) {
   const repos = await new Databases(clientAdmin()).listDocuments(
     process.env.APPWRITE_DATABASE_ID,
     process.env.APPWRITE_COLLECTION_REPOS_ID,
-    [Query.orderDesc("rating"), Query.limit(100)]
+    [
+      Query.orderDesc(sort),
+      Query.greaterThanEqual("votes", minimumVotes),
+      Query.limit(100),
+    ]
   );
 
   return (

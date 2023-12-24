@@ -41,6 +41,9 @@ export default function Navbar() {
             <Link href="/">List Ratings</Link>
           </li>
           <li>
+            <Link href="/popular">Popular Ratings</Link>
+          </li>
+          <li>
             <Link href="/rankings">User Rankings</Link>
           </li>
           {user && (

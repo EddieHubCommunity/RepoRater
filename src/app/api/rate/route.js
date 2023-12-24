@@ -40,6 +40,15 @@ export async function POST(request) {
   };
   console.info(`Repo ${githubRepo.name} found on GitHub`);
 
+  // get app total stats to increment
+  const appTotal = (
+    await new sdk.Databases(clientAdmin()).listDocuments(
+      process.env.APPWRITE_DATABASE_ID,
+      process.env.APPWRITE_COLLECTION_APP_ID,
+      [Query.limit(1)]
+    )
+  ).documents[0];
+
   // 1. check if user already rated this repo
   const userRepoRating = await new sdk.Databases(clientAdmin()).listDocuments(
     process.env.APPWRITE_DATABASE_ID,
@@ -73,6 +82,17 @@ export async function POST(request) {
         rating: rating,
       }
     );
+
+    // 2c. update app rating count
+    console.info("Increment app total ratings");
+    await new sdk.Databases(clientAdmin()).updateDocument(
+      process.env.APPWRITE_DATABASE_ID,
+      process.env.APPWRITE_COLLECTION_APP_ID,
+      appTotal.$id,
+      {
+        ratings: appTotal.ratings + 1,
+      }
+    );
   }
 
   // 3. check if repo exists
@@ -97,7 +117,7 @@ export async function POST(request) {
     const averageRating =
       ratings.documents.reduce((acc, cur) => acc + cur.rating, 0) /
       ratings.total;
-    const repo = await new sdk.Databases(clientAdmin()).updateDocument(
+    await new sdk.Databases(clientAdmin()).updateDocument(
       process.env.APPWRITE_DATABASE_ID,
       process.env.APPWRITE_COLLECTION_REPOS_ID,
       repos.documents[0].$id,
@@ -112,7 +132,7 @@ export async function POST(request) {
     console.info(
       `Repo ${data.url} not found in database create repo and ratings`
     );
-    const repo = await new sdk.Databases(clientAdmin()).createDocument(
+    await new sdk.Databases(clientAdmin()).createDocument(
       process.env.APPWRITE_DATABASE_ID,
       process.env.APPWRITE_COLLECTION_REPOS_ID,
       sdk.ID.unique(),
@@ -121,6 +141,16 @@ export async function POST(request) {
         url: data.url,
         rating: rating,
         votes: 1,
+      }
+    );
+    // 4b. update app repo count
+    console.info("Increment app total repos");
+    await new sdk.Databases(clientAdmin()).updateDocument(
+      process.env.APPWRITE_DATABASE_ID,
+      process.env.APPWRITE_COLLECTION_APP_ID,
+      appTotal.$id,
+      {
+        repos: appTotal.repos + 1,
       }
     );
   }

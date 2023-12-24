@@ -2,6 +2,8 @@ import { redirect } from "next/navigation";
 import sdk, { Query } from "node-appwrite";
 
 import { client, clientAdmin } from "@/config/appwrite-server";
+import getUser from "@/utils/github/getUser";
+import getRepo from "@/utils/github/getRepo";
 
 export async function POST(request) {
   const data = await request.json();
@@ -17,13 +19,7 @@ export async function POST(request) {
   let rating = parseInt(data.rating);
   let username = "";
   try {
-    const gitHubUserRes = await fetch("https://api.github.com/user", {
-      headers: {
-        "Content-Type": "application/vnd.github+json",
-        Authorization: "Bearer " + session.providerAccessToken,
-      },
-    });
-    const gitHubUserData = await gitHubUserRes.json();
+    const gitHubUserData = await getUser(session.providerAccessToken);
     username = gitHubUserData.login;
   } catch (e) {
     return redirect("/auth/login");
@@ -35,14 +31,7 @@ export async function POST(request) {
   if (repoPath.length !== 2) {
     return Response.json({ success: false, error: "Invalid URL" });
   }
-  const path =
-    repoPath[1].slice(-1) === "/" ? repoPath[1].slice(0, -1) : repoPath[1];
-  const repoRes = await fetch(`https://api.github.com/repos/${path}`, {
-    headers: {
-      Authorization: "Bearer " + session.providerAccessToken,
-    },
-  });
-  const repoData = await repoRes.json();
+  const repoData = await getRepo(repoPath[1], session.providerAccessToken);
   const githubRepo = {
     name: repoData.name,
     owner: repoData.owner.login,

@@ -82,18 +82,19 @@ export async function POST(request) {
         rating: rating,
       }
     );
-
-    // 2c. update app rating count
-    console.info("Increment app total ratings");
-    await new sdk.Databases(clientAdmin()).updateDocument(
-      process.env.APPWRITE_DATABASE_ID,
-      process.env.APPWRITE_COLLECTION_APP_ID,
-      appTotal.$id,
-      {
-        ratings: appTotal.ratings + 1,
-      }
-    );
   }
+
+  // 2c. update app rating count
+  console.info("Increment app total ratings");
+  await new sdk.Databases(clientAdmin()).updateDocument(
+    process.env.APPWRITE_DATABASE_ID,
+    process.env.APPWRITE_COLLECTION_APP_ID,
+    appTotal.$id,
+    {
+      ratings: appTotal.ratings + 1,
+      stars: appTotal.stars + rating,
+    }
+  );
 
   // 3. check if repo exists
   console.info(`Checking if repo ${data.url} exists in database`);

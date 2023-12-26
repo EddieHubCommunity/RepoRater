@@ -8,13 +8,32 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 - NextJS
 - Appwrite
-- DaisyUI
+- DaisyUI (Tailwind)
 
 ## Getting Started
 
-First, run the development server:
-
-Copy `.env.example` to `.env` and fill in the values.
+1. Sign up to Appwrite and create a project (free)
+1. Create database
+1. Create collections `app` with the attributes
+   - `ratings`: integer
+   - `repos`: integer
+   - `stars`: integer
+   - create empty document with `0` for each attribute
+1. Create collections `ratings` with the attributes
+   - `url`: url
+   - `username`: string
+   - `rating`: integer
+1. Create collections `repos` with the attributes
+   - `url`: url
+   - `description`: string
+   - `name`: string
+   - `votes`: integer
+   - `rating`: double
+   - `owner`: string
+   - `logo`: string
+1. Copy `.env.example` template file to `.env`
+1. Get you private keys from Appwrite and add them to `.env` template (all data are required)
+1. Run the development server with:
 
 ```bash
 npm ci

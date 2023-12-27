@@ -5,7 +5,7 @@ import { useState } from "react";
 
 import { account } from "@/config/appwrite-client";
 
-export default function Form() {
+export default function Form({ name = "", owner = "" }) {
   const [sending, setSending] = useState(false);
 
   async function save(formData) {
@@ -53,6 +53,7 @@ export default function Form() {
           name="url"
           id="url"
           type="url"
+          value={owner && name && `https://github.com/${owner}/${name}`}
           placeholder="GitHub Repo URL"
           className="input input-bordered"
           required

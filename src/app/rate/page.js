@@ -2,11 +2,14 @@
 
 import { useEffect } from "react";
 import Form from "./Form";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { account } from "@/config/appwrite-client";
 
 export default function Rate() {
   const router = useRouter();
+  const params = useSearchParams();
+  const owner = params.get("owner");
+  const name = params.get("name");
 
   const getUser = async () => {
     try {
@@ -32,7 +35,7 @@ export default function Rate() {
           </p>
         </div>
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <Form />
+          <Form owner={owner} name={name} />
         </div>
       </div>
     </main>

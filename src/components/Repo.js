@@ -97,7 +97,10 @@ export default function Repo({ url, owner, name, logo, stars, votes }) {
           <div className="stat-title">Not recommended</div>
         )}
         <div className="stat-desc text-secondary">
-          <Link href={url} target="_blank" className="flex gap-2 items-center">
+          <Link
+            href={`/rate?owner=${owner}&name=${name}`}
+            className="flex gap-2 items-center"
+          >
             {name}
             <ShareIcon className="h-4 w-4 text-blue-500" />
           </Link>

@@ -1,6 +1,25 @@
+"use client";
+
+import { useEffect } from "react";
 import Form from "./Form";
+import { useRouter } from "next/navigation";
+import { account } from "@/config/appwrite-client";
 
 export default function Rate() {
+  const router = useRouter();
+
+  const getUser = async () => {
+    try {
+      const user = await account.getSession("current");
+    } catch (e) {
+      router.push("/auth/login");
+    }
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
   return (
     <main className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse">

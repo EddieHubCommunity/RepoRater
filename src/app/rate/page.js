@@ -12,7 +12,7 @@ export default function Rate() {
     try {
       const user = await account.getSession("current");
     } catch (e) {
-      router.push('/auth/login');
+      router.push("/auth/login");
     }
   };
 

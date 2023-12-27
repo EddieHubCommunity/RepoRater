@@ -11,6 +11,11 @@ export default function Form({ name = "", owner = "" }) {
   async function save(formData) {
     let user;
     let jwt;
+    const githubUrlRegex = /^(https:\/\/github\.com\/[a-zA-Z0-9_.-]+\/[a-zA-Z0-9_.-]+)$/;
+    if(!githubUrlRegex.test(formData.get("url"))){
+      setSending(false);
+      return alert("Invalid Github Repository URL");
+    }
     try {
       user = await account.getSession("current");
       jwt = await account.createJWT();

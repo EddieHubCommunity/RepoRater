@@ -42,9 +42,9 @@ export default function Navbar() {
       </div>
       <div className="navbar bg-base-100">
         <div className="flex-1">
-          <p className="text-xl m-2">
+          <p className="text-xl m-2 hidden sm:inline">
             GitHub Repo Rater{" "}
-            <span className="text-sm text-gray-400">
+            <span className="text-sm text-gray-400 hidden md:inline">
               ... more than a vanity star rating!
             </span>
           </p>

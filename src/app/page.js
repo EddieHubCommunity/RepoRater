@@ -11,7 +11,7 @@ export default function Home() {
       <Navbar />
       <main className="min-h-screen bg-base-200 pt-6">
         <Stats />
-        <Repos sort="rating" minimumVotes={1} />
+        <Repos minimumVotes={1} />
       </main>
       <Footer />
     </>

@@ -1,6 +1,6 @@
 export default function Alert({ message }) {
   return (
-    <div role="alert" className="alert alert-success shadow-lg">
+    <div role="alert" className="alert alert-success shadow-lg m-4">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

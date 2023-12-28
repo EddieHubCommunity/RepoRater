@@ -7,6 +7,7 @@ export async function GET(request) {
   const params = request.nextUrl.searchParams;
   const owner = params.get("owner");
   const name = params.get("name");
+  const style = params.get("style");
 
   // get repo rating from database
   const repos = await new sdk.Databases(clientAdmin()).listDocuments(
@@ -22,7 +23,7 @@ export async function GET(request) {
       ? `${data.rating.toFixed(2)} (${data.votes})`
       : "No votes yet",
     color: "green",
-    style: "flat", // (Optional) One of: 'plastic', 'flat', 'flat-square', 'for-the-badge' or 'social'
+    style: style ? style : "flat", // (Optional) One of: 'plastic', 'flat', 'flat-square', 'for-the-badge' or 'social'
   };
 
   let svg = "";
@@ -30,6 +31,7 @@ export async function GET(request) {
     svg = makeBadge(format);
   } catch (e) {
     console.log(e);
+    // TODO: return error badge
   }
 
   return new Response(svg, {

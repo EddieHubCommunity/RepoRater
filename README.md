@@ -56,6 +56,18 @@ Add the following markdown to your README to show your RepoRater badge and link 
 
 Change the `owner` and `name` parameters to your GitHub org/username and repository name.
 
+### Customise your RepoRater Badge
+
+The default badge is "flat" but there are other styles if you prefer. Here are the options with examples:
+
+| style         | badge                                                                                                                 |
+| :------------ | :-------------------------------------------------------------------------------------------------------------------- |
+| flat          | ![flat](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater&style=flat)                   |
+| flat-square   | ![flat-square](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater&style=flat-square)     |
+| for-the-badge | ![for-the-badge](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater&style=for-the-badge) |
+| plastic       | ![plastic](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater&style=plastic)             |
+| social        | ![social](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater&style=social)               |
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

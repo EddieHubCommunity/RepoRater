@@ -30,14 +30,14 @@ export default function Repo({ url, owner, name, logo, stars, votes }) {
             ></path>
           </svg>
         </div>
-        <div className="stat-title">Average Rating</div>
-        <div className="stat-value text-primary">{abbreviateNumber(stars)}</div>
-        <div className="stat-desc">
+        <div className="stat-title">
           <Link href={url} target="_blank" className="flex gap-2 items-center">
             <LinkIcon className="h-4 w-4 text-blue-500" />
-            GitHub
+            {name}
           </Link>
         </div>
+        <div className="stat-value text-primary">{abbreviateNumber(stars)}</div>
+        <div className="stat-desc">Average rating</div>
       </div>
 
       <div className="stat">
@@ -101,7 +101,7 @@ export default function Repo({ url, owner, name, logo, stars, votes }) {
             href={`/rate?owner=${owner}&name=${name}`}
             className="flex gap-2 items-center"
           >
-            {name}
+            Add rating
             <ShareIcon className="h-4 w-4 text-blue-500" />
           </Link>
         </div>

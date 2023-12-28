@@ -46,7 +46,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## RepoRater Badge in your README
 
-Add the following markdown to your README to show your RepoRater badge:
+Add the following markdown to your README to show your RepoRater badge and link to rate your repository.
 
 [![RepoRater](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater)](https://repo-rater.eddiehub.io/rate?owner=EddieHubCommunity&name=RepoRater)
 

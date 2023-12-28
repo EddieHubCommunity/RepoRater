@@ -1,3 +1,5 @@
+[![RepoRater](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater)](https://repo-rater.eddiehub.io/rate?owner=EddieHubCommunity&name=RepoRater)
+
 <img width="1032" alt="Screenshot 2023-12-13 at 11 00 00" src="https://github.com/EddieHubCommunity/RepoRater/assets/624760/2c2d9bbf-ca00-4593-9174-ebeface86dc1">
 
 <img width="458" alt="Screenshot 2023-12-13 at 09 27 37" src="https://github.com/EddieHubCommunity/RepoRater/assets/624760/ccc20975-4788-4232-b9e8-c3356b387b32">
@@ -42,9 +44,17 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## RepoRater Badge in your README
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Add the following markdown to your README to show your RepoRater badge:
+
+[![RepoRater](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater)](https://repo-rater.eddiehub.io/rate?owner=EddieHubCommunity&name=RepoRater)
+
+```markdown
+[![RepoRater](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater)](https://repo-rater.eddiehub.io/rate?owner=EddieHubCommunity&name=RepoRater)
+```
+
+Change the `owner` and `name` parameters to your GitHub org/username and repository name.
 
 ## Learn More
 
@@ -54,9 +64,3 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

@@ -11,7 +11,7 @@ export default function Popular() {
       <Navbar />
       <main className="min-h-screen bg-base-200 pt-6">
         <Stats />
-        <Repos minimumVotes={3} />
+        <Repos minimumVotes={5} />
       </main>
       <Footer />
     </>

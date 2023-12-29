@@ -76,6 +76,10 @@ The default badge is "flat" but there are other styles if you prefer. Here are t
 name: repo-rater
 run-name: repo-rater (#${{ github.event.issue.number || github.event.pull_request.number }})
 
+permissions:
+  issues: write
+  pull-requests: write
+
 on:
   issues:
     types: [closed]
@@ -88,6 +92,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: xkrishguptaa/action-repo-rater@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 More details https://github.com/xkrishguptaa/action-repo-rater

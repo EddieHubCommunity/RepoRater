@@ -68,6 +68,30 @@ The default badge is "flat" but there are other styles if you prefer. Here are t
 | plastic       | ![plastic](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater&style=plastic)             |
 | social        | ![social](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater&style=social)               |
 
+## GitHub Action
+
+> Automatically comment on issues and pull requests to get votes
+
+```yml
+name: repo-rater
+run-name: repo-rater (#${{ github.event.issue.number || github.event.pull_request.number }})
+
+on:
+  issues:
+    types: [closed]
+  pull_request:
+    types: [closed]
+
+jobs:
+  repo-rater:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: xkrishguptaa/action-repo-rater@v1
+```
+
+More details https://github.com/xkrishguptaa/action-repo-rater
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

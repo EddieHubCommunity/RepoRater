@@ -28,7 +28,7 @@ export async function POST(request) {
 
   // 0. get repo from github api
   const repoPath = data.url.split("github.com/");
-  if (repoPath.length !== 2) {
+  if (repoPath.length !== 2 || !repoPath[1]) {
     return Response.json({ success: false, error: "Invalid URL" });
   }
   const repoData = await getRepo(repoPath[1], session.providerAccessToken);

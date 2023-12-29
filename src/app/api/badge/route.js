@@ -17,6 +17,18 @@ export async function GET(request) {
   );
   const data = repos.documents[0];
 
+  // increment views using badge
+  if (data) {
+    await new sdk.Databases(clientAdmin()).updateDocument(
+      process.env.APPWRITE_DATABASE_ID,
+      process.env.APPWRITE_COLLECTION_REPOS_ID,
+      data.$id,
+      {
+        badgeViews: data.badgeViews + 1,
+      }
+    );
+  }
+
   const format = {
     label: "RepoRater",
     message: data

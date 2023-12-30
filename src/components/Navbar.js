@@ -22,7 +22,6 @@ export default function Navbar() {
 
 
   const handleResize = (e) => {
-    console.log('handle resixe ===>')
     if (e.currentTarget.innerWidth > 767) {
         setIsMobileMenuVisible(false);
     }

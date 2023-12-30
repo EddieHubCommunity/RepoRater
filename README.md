@@ -35,6 +35,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
    - `logo`: string
 1. Copy `.env.example` template file to `.env`
 1. Get you private keys from Appwrite and add them to `.env` template (all data are required)
+1. Create an OAuth app on GitHub and connect it with Appwrite Authentication
 1. Run the development server with:
 
 ```bash

@@ -4,6 +4,7 @@ import sdk, { Query } from "node-appwrite";
 import { clientAdmin } from "@/config/appwrite-server";
 
 export async function GET(request) {
+  const styles = ["plastic", "flat", "flat-square", "for-the-badge", "social"];
   const params = request.nextUrl.searchParams;
   const owner = params.get("owner");
   const name = params.get("name");
@@ -32,10 +33,10 @@ export async function GET(request) {
   const format = {
     label: "RepoRater",
     message: data
-      ? `${data.rating.toFixed(2)} (${data.votes})`
+      ? `${((data.rating / 5) * 100).toFixed(0)}% (${data.votes})`
       : "No votes yet",
     color: "green",
-    style: style ? style : "flat", // (Optional) One of: 'plastic', 'flat', 'flat-square', 'for-the-badge' or 'social'
+    style: style && styles.includes(style) ? style : "flat",
   };
 
   let svg = "";

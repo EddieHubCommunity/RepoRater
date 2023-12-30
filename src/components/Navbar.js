@@ -12,10 +12,28 @@ export default function Navbar() {
   const alert = params.get("alert");
   const message = params.get("message");
   const [user, setUser] = useState(null);
+
+  const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(false);  
+
   const logout = async () => {
     await account.deleteSession("current");
     setUser(null);
   };
+
+
+  const handleResize = (e) => {
+    console.log('handle resixe ===>')
+    if (e.currentTarget.innerWidth > 767) {
+        setIsMobileMenuVisible(false);
+    }
+}
+
+useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => {
+        window.removeEventListener('resize', handleResize);
+    };
+}, [handleResize]);
 
   const getUser = async () => {
     try {
@@ -42,34 +60,50 @@ export default function Navbar() {
       </div>
 
 
-      {/* <div className="navbar bg-base-100">
+      <div className="navbar bg-base-100 relative">
         <div className="flex-1">
-          <p className="text-xl m-2 hidden sm:inline">
+          <p className="text-xl m-2 inline">
             GitHub Repo Rater{" "}
             <span className="text-sm text-gray-400 hidden md:inline">
               ... more than a vanity star rating!
             </span>
           </p>
         </div>
+        <button className="md:hidden inline-block ms-auto" onClick={()=>setIsMobileMenuVisible(!isMobileMenuVisible)}>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-6 w-6 -mb-1.5 ms-1"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16">
+
+                            </path>
+                        </svg>
+        </button>
         <div className="flex-none">
-          <ul className="menu menu-horizontal px-1">
+          <ul className={`menu menu-horizontal px-1 
+          ${!isMobileMenuVisible ? 'md:flex hidden'
+          :
+          'absolute top-12 left-0 right-0 bottom-0 h-[82dvh] flex flex-col bg-base-100 mobile-navbar'}`}>
             <li>
-              <Link href="/">List Ratings</Link>
+              <Link href="/" onClick={()=>setIsMobileMenuVisible(false)}>List Ratings</Link>
             </li>
             <li>
-              <Link href="/popular">Popular Ratings</Link>
+              <Link href="/popular" onClick={()=>setIsMobileMenuVisible(false)}>Popular Ratings</Link>
             </li>
             <li>
-              <Link href="/rankings">User Rankings</Link>
+              <Link href="/rankings" onClick={()=>setIsMobileMenuVisible(false)}>User Rankings</Link>
             </li>
             {user && (
               <li>
-                <Link href="/rate">Add Rating</Link>
+                <Link href="/rate" onClick={()=>setIsMobileMenuVisible(false)}>Add Rating</Link>
               </li>
             )}
             {!user && (
               <li>
-                <Link href="/auth/login">Login</Link>
+                <Link href="/auth/login" onClick={()=>setIsMobileMenuVisible(false)}>Login</Link>
               </li>
             )}
             {user && (
@@ -81,7 +115,7 @@ export default function Navbar() {
             )}
           </ul>
         </div>
-      </div> */}
+      </div>
 
 
 

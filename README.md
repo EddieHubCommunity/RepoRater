@@ -30,7 +30,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
    - `description`: string
    - `name`: string
    - `votes`: integer
-   - `rating`: double
+   - `rating`: float
    - `owner`: string
    - `logo`: string
 1. Copy `.env.example` template file to `.env`

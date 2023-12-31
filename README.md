@@ -82,9 +82,9 @@ The default badge format is to show the average rating out of 5. You can also sh
 ```
 
 | format     | badge                                                                                                                                                                                         |
-| :--------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
-| number     | [![RepoRater](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater)](https://repo-rater.eddiehub.io/rate?owner=EddieHubCommunity&name=RepoRater&format=number)     |     |
-| percentage | [![RepoRater](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater)](https://repo-rater.eddiehub.io/rate?owner=EddieHubCommunity&name=RepoRater&format=percentage) |     |
+| :--------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| number     | [![RepoRater](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater&format=number)](https://repo-rater.eddiehub.io/rate?owner=EddieHubCommunity&name=RepoRater)     |
+| percentage | [![RepoRater](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater&format=percentage)](https://repo-rater.eddiehub.io/rate?owner=EddieHubCommunity&name=RepoRater) |
 
 ## GitHub Action
 

@@ -34,7 +34,7 @@ Want to see any other features? [Open an issue](https://github.com/EddieHubCommu
 - [Appwrite](https://appwrite.io)
 - [DaisyUI](https://daisyui.com) ([Tailwind](https://tailwindcss.com))
 
-## Getting Started
+## Quickstart for development
 
 1. Sign up to Appwrite and create a project (free)
 1. Create database

@@ -49,7 +49,7 @@ export default function Navbar() {
             <p className="text-xl m-2 hidden sm:inline">
               RepoRater{" "}
               <span className="text-sm text-gray-400 hidden md:inline">
-                ... community ratings for GitHub repositories
+                ... community ratings for GitHub Repositories
               </span>
             </p>
           </div>

@@ -1,5 +1,17 @@
 [![RepoRater](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater)](https://repo-rater.eddiehub.io/rate?owner=EddieHubCommunity&name=RepoRater)
 
+# RepoRater
+
+This project allows you to rate GitHub Repositories from Developer Experience (DX) perspective.
+
+When considering your rating here are a few points you might like to think about:
+
+- does the Repo have a helpful community?
+- does the Repo have good documentation to enable you to get started?
+- are the maintainers supportive and do they provide useful feedback?
+
+## Screenshots
+
 <img width="1032" alt="Screenshot 2023-12-13 at 11 00 00" src="https://github.com/EddieHubCommunity/RepoRater/assets/624760/2c2d9bbf-ca00-4593-9174-ebeface86dc1">
 
 <img width="458" alt="Screenshot 2023-12-13 at 09 27 37" src="https://github.com/EddieHubCommunity/RepoRater/assets/624760/ccc20975-4788-4232-b9e8-c3356b387b32">
@@ -8,9 +20,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Technologies used
 
-- NextJS
-- Appwrite
-- DaisyUI (Tailwind)
+- [NextJS](https://nextjs.org)
+- [Appwrite](https://appwrite.io)
+- [DaisyUI](https://daisyui.com) ([Tailwind](https://tailwindcss.com))
 
 ## Getting Started
 

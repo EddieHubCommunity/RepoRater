@@ -2,7 +2,7 @@
 
 # RepoRater
 
-This project allows you to rate GitHub Repositories from Developer Experience (DX) perspective.
+This project allows you to rate GitHub Repositories from the Developer Experience (DX) perspective.
 
 When considering your rating here are a few points you might like to think about:
 
@@ -65,7 +65,7 @@ npm ci
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+10. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## RepoRater Badge in your README
 
@@ -95,7 +95,7 @@ Here are the options with examples:
 
 ### Badge Format
 
-The default badge format is to show the average rating out of 5. You can also show the percentage. This is done by appending the url with the `format` parameter.
+The default badge format is to show the average rating out of `5`. You can also show the percentage. This is done by appending the url with the `format` parameter.
 
 [![RepoRater](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater)](https://repo-rater.eddiehub.io/rate?owner=EddieHubCommunity&name=RepoRater&format=percentage)
 
@@ -110,7 +110,7 @@ The default badge format is to show the average rating out of 5. You can also sh
 
 ## GitHub Action
 
-> Automatically comment on issues and pull requests to get votes
+> Automatically comment on Issues and Pull Requests to get votes
 
 ```yml
 name: repo-rater
@@ -138,11 +138,6 @@ jobs:
 
 More details https://github.com/xkrishguptaa/action-repo-rater
 
-## Learn More
+## Community
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Come and chat with the community in the EddieHub Discord http://discord.eddiehub.org

@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 
 import { account } from "@/config/appwrite-client";
 import Alert from "./Alert";
+import Logo from "@/assets/repo-rater-logo.svg";
+import Image from "next/image";
 
 export default function Navbar() {
   const params = useSearchParams();
@@ -37,17 +39,20 @@ export default function Navbar() {
           href="https://github.com/EddieHubCommunity/RepoRater"
           target="_blank"
         >
-          Support by giving the GitHub repo a STAR
+          Support by giving the RepoRater a STAR on GitHub
         </Link>
       </div>
       <div className="navbar bg-base-100">
         <div className="flex-1">
-          <p className="text-xl m-2 hidden sm:inline">
-            GitHub Repo Rater{" "}
-            <span className="text-sm text-gray-400 hidden md:inline">
-              ... more than a vanity star rating!
-            </span>
-          </p>
+          <div className="flex flex-row">
+            <Image src={Logo} alt="RepoRater Logo" width={40} height={40} />
+            <p className="text-xl m-2 hidden sm:inline">
+              RepoRater{" "}
+              <span className="text-sm text-gray-400 hidden md:inline">
+                ... community ratings for GitHub repositories
+              </span>
+            </p>
+          </div>
         </div>
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1">

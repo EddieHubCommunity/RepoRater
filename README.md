@@ -24,9 +24,7 @@ Want to see any other features? [Open an issue](https://github.com/EddieHubCommu
 
 ## Screenshots
 
-<img width="1032" alt="Screenshot 2023-12-13 at 11 00 00" src="https://github.com/EddieHubCommunity/RepoRater/assets/624760/2c2d9bbf-ca00-4593-9174-ebeface86dc1">
-
-<img width="458" alt="Screenshot 2023-12-13 at 09 27 37" src="https://github.com/EddieHubCommunity/RepoRater/assets/624760/ccc20975-4788-4232-b9e8-c3356b387b32">
+![repo-rater-laptop](https://github.com/EddieHubCommunity/RepoRater/assets/624760/6795c662-b9d2-45ee-9cbb-cf8a84064aa7)
 
 ## Technologies used
 

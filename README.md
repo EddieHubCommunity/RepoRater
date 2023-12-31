@@ -57,9 +57,11 @@ Add the following markdown to your README to show your RepoRater badge and link 
 
 Change the `owner` and `name` parameters to your GitHub org/username and repository name.
 
-### Customise your RepoRater Badge
+### Badge Style
 
-The default badge is "flat" but there are other styles if you prefer. Here are the options with examples:
+The default badge is "flat" but there are other styles if you prefer. This is done by appending the url with the `style` parameter.
+
+Here are the options with examples:
 
 | style         | badge                                                                                                                 |
 | :------------ | :-------------------------------------------------------------------------------------------------------------------- |
@@ -68,6 +70,21 @@ The default badge is "flat" but there are other styles if you prefer. Here are t
 | for-the-badge | ![for-the-badge](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater&style=for-the-badge) |
 | plastic       | ![plastic](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater&style=plastic)             |
 | social        | ![social](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater&style=social)               |
+
+### Badge Format
+
+The default badge format is to show the average rating out of 5. You can also show the percentage. This is done by appending the url with the `format` parameter.
+
+[![RepoRater](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater)](https://repo-rater.eddiehub.io/rate?owner=EddieHubCommunity&name=RepoRater&format=percentage)
+
+```markdown
+[![RepoRater](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater)](https://repo-rater.eddiehub.io/rate?owner=EddieHubCommunity&name=RepoRater&format=percentage)
+```
+
+| format     | badge                                                                                                                                                                                         |
+| :--------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+| number     | [![RepoRater](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater)](https://repo-rater.eddiehub.io/rate?owner=EddieHubCommunity&name=RepoRater&format=number)     |     |
+| percentage | [![RepoRater](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater)](https://repo-rater.eddiehub.io/rate?owner=EddieHubCommunity&name=RepoRater&format=percentage) |     |
 
 ## GitHub Action
 

@@ -1,6 +1,20 @@
-export default function Alert({ message }) {
+import { classNames } from "@/utils/classNames";
+
+export default function Alert({ type = "success", message }) {
+  const labels = {
+    success: "Success",
+    error: "Error",
+  };
+
   return (
-    <div role="alert" className="alert alert-success shadow-lg">
+    <div
+      role="alert"
+      className={classNames([
+        "alert shadow-lg",
+        type === "success" && "alert-success",
+        type === "error" && "alert-error",
+      ])}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -15,7 +29,7 @@ export default function Alert({ message }) {
         ></path>
       </svg>
       <div>
-        <h3 className="font-bold">Success</h3>
+        <h3 className="font-bold">{labels[type]}</h3>
         <div className="text-xs">{message}</div>
       </div>
       {/* <button className="btn btn-sm" onClick={() => onClick(false)}>

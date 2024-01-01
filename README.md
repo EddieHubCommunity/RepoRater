@@ -140,7 +140,7 @@ More details https://github.com/xkrishguptaa/action-repo-rater
 
 You can consume our data for your own apps.
 
-### Leaderboard
+### User Leaderboard
 
 GET https://repo-rater.eddiehub.org/api/leaderboard
 
@@ -160,6 +160,37 @@ GET https://repo-rater.eddiehub.org/api/leaderboard
     "username": "test2",
     "votes": 2,
     "stars": 9
+  }
+]
+```
+
+### Popular Repos
+
+GET https://repo-rater.eddiehub.org/api/popular
+
+Optional paramater `?minimumVotes=5` (default is `5`)
+
+```json
+[
+  {
+    "url": "https://github.com/EddieHubCommunity/BioDrop",
+    "logo": "https://avatars.githubusercontent.com/u/66388388?v=4",
+    "description": "Connect to your audience with a single link. Showcase the content you create and your projects in one place. Make it easier for people to find, follow and subscribe.",
+    "rating": 4.75,
+    "votes": 49,
+    "owner": "EddieHubCommunity",
+    "name": "BioDrop",
+    "badgeViews": null
+  },
+  {
+    "url": "https://github.com/appwrite/appwrite",
+    "logo": "https://avatars.githubusercontent.com/u/25003669?v=4",
+    "description": "Build like a team of hundreds_",
+    "rating": 4.3333333333333,
+    "votes": 310,
+    "owner": "appwrite",
+    "name": "appwrite",
+    "badgeViews": null
   }
 ]
 ```

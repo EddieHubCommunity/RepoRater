@@ -136,6 +136,34 @@ jobs:
 
 More details https://github.com/xkrishguptaa/action-repo-rater
 
+## API (3rd party apps)
+
+You can consume our data for your own apps.
+
+### Leaderboard
+
+GET https://repo-rater.eddiehub.org/api/leaderboard
+
+```json
+[
+  {
+    "username": "eddiejaoude",
+    "votes": 5,
+    "stars": 13
+  },
+  {
+    "username": "SaraJaoude",
+    "votes": 3,
+    "stars": 5
+  },
+  {
+    "username": "test2",
+    "votes": 2,
+    "stars": 9
+  }
+]
+```
+
 ## Community
 
 Come and chat with the community in the EddieHub Discord http://discord.eddiehub.org

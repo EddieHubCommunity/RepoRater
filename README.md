@@ -180,7 +180,7 @@ Optional paramater `?minimumVotes=5` (default is `5`)
     "votes": 49,
     "owner": "EddieHubCommunity",
     "name": "BioDrop",
-    "badgeViews": null
+    "badgeViews": 143
   },
   {
     "url": "https://github.com/appwrite/appwrite",
@@ -190,7 +190,7 @@ Optional paramater `?minimumVotes=5` (default is `5`)
     "votes": 310,
     "owner": "appwrite",
     "name": "appwrite",
-    "badgeViews": null
+    "badgeViews": 768
   }
 ]
 ```

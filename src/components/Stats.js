@@ -16,8 +16,8 @@ export default function Stats() {
       { name: "Total Repos", value: data.repos, unit: "GitHub" },
       { name: "Total Stars", value: data.stars, unit: "⭐️" },
       {
-        name: "Average Rating",
-        value: ((data.stars / data.ratings) * 100).toFixed(1),
+        name: "Recommended Repos",
+        value: ((data.ratings / data.stars) * 100).toFixed(1),
         unit: "%",
       },
     ];

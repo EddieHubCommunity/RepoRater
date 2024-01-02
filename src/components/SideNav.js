@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState, Fragment, useEffect } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import {
@@ -92,6 +93,7 @@ export default function SideNav({ children }) {
     {
       id: 4,
       name: "Logout",
+      href: "/",
       onClick: logout,
       initial: "L",
       current: false,
@@ -169,7 +171,7 @@ export default function SideNav({ children }) {
                         <ul role="list" className="-mx-2 space-y-1">
                           {navigation.map((item) => (
                             <li key={item.name}>
-                              <a
+                              <Link
                                 href={item.href}
                                 className={classNames([
                                   item.current
@@ -183,7 +185,7 @@ export default function SideNav({ children }) {
                                   aria-hidden="true"
                                 />
                                 {item.name}
-                              </a>
+                              </Link>
                             </li>
                           ))}
                         </ul>
@@ -196,7 +198,7 @@ export default function SideNav({ children }) {
                           <ul role="list" className="-mx-2 mt-2 space-y-1">
                             {secure.map((team) => (
                               <li key={team.name}>
-                                <a
+                                <Link
                                   href={team.href}
                                   onClick={team.onClick}
                                   className={classNames([
@@ -210,7 +212,7 @@ export default function SideNav({ children }) {
                                     {team.initial}
                                   </span>
                                   <span className="truncate">{team.name}</span>
-                                </a>
+                                </Link>
                               </li>
                             ))}
                           </ul>
@@ -218,7 +220,7 @@ export default function SideNav({ children }) {
                       )}
                       {!user && (
                         <li className="-mx-6 mt-auto">
-                          <a
+                          <Link
                             href="#"
                             onClick={login}
                             className="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-white hover:bg-gray-800"
@@ -231,7 +233,7 @@ export default function SideNav({ children }) {
                               height={8}
                             />
                             <span>Login</span>
-                          </a>
+                          </Link>
                         </li>
                       )}
                       {user && (
@@ -276,7 +278,7 @@ export default function SideNav({ children }) {
                 <ul role="list" className="-mx-2 space-y-1">
                   {navigation.map((item) => (
                     <li key={item.name}>
-                      <a
+                      <Link
                         href={item.href}
                         className={classNames([
                           item.current
@@ -290,7 +292,7 @@ export default function SideNav({ children }) {
                           aria-hidden="true"
                         />
                         {item.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -303,7 +305,7 @@ export default function SideNav({ children }) {
                   <ul role="list" className="-mx-2 mt-2 space-y-1">
                     {secure.map((team) => (
                       <li key={team.name}>
-                        <a
+                        <Link
                           href={team.href}
                           onClick={team.onClick}
                           className={classNames([
@@ -317,7 +319,7 @@ export default function SideNav({ children }) {
                             {team.initial}
                           </span>
                           <span className="truncate">{team.name}</span>
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -325,7 +327,7 @@ export default function SideNav({ children }) {
               )}
               {!user && (
                 <li className="-mx-6 mt-auto">
-                  <a
+                  <Link
                     href="#"
                     onClick={login}
                     className="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-white hover:bg-gray-800"
@@ -338,7 +340,7 @@ export default function SideNav({ children }) {
                       height={8}
                     />
                     <span>Login</span>
-                  </a>
+                  </Link>
                 </li>
               )}
               {user && (

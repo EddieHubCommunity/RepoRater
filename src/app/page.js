@@ -75,7 +75,7 @@ export default function Page() {
             </Menu> */}
           </header>
 
-          <Repos />
+          <Repos minimumVotes={0} />
         </main>
 
         <aside className="bg-black/10 lg:fixed lg:bottom-0 lg:right-0 lg:top-16 lg:w-96 lg:overflow-y-auto lg:border-l lg:border-white/5">

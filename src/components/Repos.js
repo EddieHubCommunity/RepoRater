@@ -32,14 +32,14 @@ const calStatus = (percentage) => {
   return "caution";
 };
 
-export default async function Repos() {
+export default async function Repos({ minimumVotes = 5 }) {
   let repos = await new Databases(clientAdmin()).listDocuments(
     process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
     process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_REPOS_ID,
     [
       Query.orderDesc("rating"),
       Query.orderDesc("votes"),
-      Query.greaterThanEqual("votes", 5),
+      Query.greaterThanEqual("votes", minimumVotes),
       Query.limit(100),
     ]
   );

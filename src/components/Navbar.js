@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { account } from "@/config/appwrite-client";
@@ -14,6 +14,7 @@ export default function Navbar() {
   const alert = params.get("alert");
   const message = params.get("message");
   const [user, setUser] = useState(null);
+  const router = useRouter();
   const logout = async () => {
     await account.deleteSession("current");
     setUser(null);
@@ -45,7 +46,7 @@ export default function Navbar() {
       <div className="navbar bg-base-100">
         <div className="flex-1">
           <div className="flex flex-row">
-            <Image src={Logo} alt="RepoRater Logo" width={40} height={40} />
+            <Image src={Logo} alt="RepoRater Logo" width={40} height={40} className="cursor-pointer" onClick={() => router.push("/")} />
             <p className="text-xl m-2 hidden sm:inline">
               RepoRater{" "}
               <span className="text-sm text-gray-400 hidden md:inline">

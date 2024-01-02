@@ -17,7 +17,7 @@ export default function Stats() {
       { name: "Total Stars", value: data.stars, unit: "⭐️" },
       {
         name: "Recommended Repos",
-        value: ((data.ratings / data.stars) * 100).toFixed(1),
+        value: ((data.stars / data.ratings / 5) * 100).toFixed(1),
         unit: "%",
       },
     ];

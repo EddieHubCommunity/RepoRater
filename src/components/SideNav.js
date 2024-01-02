@@ -28,7 +28,7 @@ const navigation = [
   },
   {
     name: "User Rankings",
-    href: "#",
+    href: "/rankings",
     icon: ChartBarSquareIcon,
     current: false,
   },
@@ -71,23 +71,23 @@ export default function SideNav({ children }) {
   const secure = [
     {
       id: 1,
+      name: "Add Rating",
+      href: "/rate",
+      initial: "+",
+      current: false,
+    },
+    {
+      id: 2,
       name: "Your Ratings",
       href: "/account/ratings",
       initial: "S",
       current: false,
     },
     {
-      id: 2,
+      id: 3,
       name: "Your Repos",
       href: "/account/repos",
       initial: "R",
-      current: false,
-    },
-    {
-      id: 3,
-      name: "Add Rating",
-      href: "/rate",
-      initial: "+",
       current: false,
     },
     {

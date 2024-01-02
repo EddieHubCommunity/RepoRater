@@ -25,6 +25,7 @@
     "@types/node": "20.10.4",
     "@types/react": "18.2.45",
     "autoprefixer": "^10.0.1",
+    "daisyui": "^4.4.24",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "postcss": "^8",

@@ -228,6 +228,20 @@ Optional paramater `?keyword=EddieHub`
 ]
 ```
 
+### App stats
+
+GET https://repo-rater.eddiehub.org/api/stats
+
+```json
+{
+  "ratings": 1137,
+  "repos": 657,
+  "stars": 53,
+  "$createdAt": "2023-12-24T07:41:21.204+00:00",
+  "$updatedAt": "2024-01-02T20:42:33.660+00:00"
+}
+```
+
 ## Community
 
 Come and chat with the community in the EddieHub Discord http://discord.eddiehub.org

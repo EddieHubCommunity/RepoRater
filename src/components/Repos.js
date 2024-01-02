@@ -1,10 +1,10 @@
-"use server";
+"use client";
 
 import Image from "next/image";
-import { Query, Databases } from "node-appwrite";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
 
-import { clientAdmin } from "@/config/appwrite-server";
 import { classNames } from "@/utils/classNames";
 
 const statuses = {
@@ -32,31 +32,37 @@ const calStatus = (percentage) => {
   return "caution";
 };
 
-export default async function Repos({ minimumVotes = 5 }) {
-  let repos = await new Databases(clientAdmin()).listDocuments(
-    process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
-    process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_REPOS_ID,
-    [
-      Query.orderDesc("rating"),
-      Query.orderDesc("votes"),
-      Query.greaterThanEqual("votes", minimumVotes),
-      Query.limit(100),
-    ]
-  );
-  repos = repos.documents.map((repo) => {
-    const percentage = Math.round((repo.rating / 5) * 100);
-    return {
-      ...repo,
-      percentage,
-      status: calStatus(percentage),
-    };
-  });
+export default function Repos({ keyword }) {
+  const [repos, setRepos] = useState([]);
+  const getRepos = async () => {
+    let url = "/api/repos";
+    if (keyword) {
+      url += `?keyword=${keyword}`;
+    }
+    const res = await fetch(url);
+    const data = await res.json();
+
+    const repos = data.map((repo) => {
+      const percentage = Math.round((repo.rating / 5) * 100);
+      return {
+        ...repo,
+        percentage,
+        status: calStatus(percentage),
+      };
+    });
+
+    setRepos(repos);
+  };
+
+  useEffect(() => {
+    getRepos();
+  }, [keyword]);
 
   return (
     <ul role="list" className="divide-y divide-white/5">
-      {repos.map((repo) => (
+      {repos.map((repo, idx) => (
         <li
-          key={repo.id}
+          key={idx}
           className="relative flex items-center space-x-4 px-4 py-4 sm:px-6 lg:px-8"
         >
           <Image
@@ -77,12 +83,15 @@ export default async function Repos({ minimumVotes = 5 }) {
                 <div className="h-2 w-2 rounded-full bg-current" />
               </div>
               <h2 className="min-w-0 text-sm font-semibold leading-6 text-white">
-                <a href={repo.url} className="flex gap-x-2" target="_blank">
+                <Link
+                  href={`/rate?owner=${repo.owner}&name=${repo.name}`}
+                  className="flex gap-x-2"
+                >
                   <span className="truncate">{repo.owner}</span>
                   <span className="text-gray-400">/</span>
                   <span className="whitespace-nowrap">{repo.name}</span>
                   <span className="absolute inset-0" />
-                </a>
+                </Link>
               </h2>
             </div>
             <div className="mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-400">

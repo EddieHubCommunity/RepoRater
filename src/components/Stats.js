@@ -1,29 +1,36 @@
-"use server";
+"use client";
 
-import { Query, Databases } from "node-appwrite";
+import { useEffect, useState } from "react";
 
-import { clientAdmin } from "@/config/appwrite-server";
+import { client } from "@/config/appwrite-client";
 import { abbreviateNumber } from "@/utils/abbreviateNumbers";
 
-export default async function Stats() {
-  const data = (
-    await new Databases(clientAdmin()).listDocuments(
-      process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
-      process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_APP_ID,
-      [Query.limit(1)]
-    )
-  ).documents[0];
+export default function Stats() {
+  const [stats, setStats] = useState([]);
 
-  const stats = [
-    { name: "Total Ratings", value: data.ratings, unit: "⭐️" },
-    { name: "Total Repos", value: data.repos, unit: "GitHub" },
-    { name: "Total Stars", value: data.stars, unit: "⭐️" },
-    {
-      name: "Average Rating",
-      value: ((data.stars / data.ratings) * 100).toFixed(1),
-      unit: "%",
-    },
-  ];
+  const getStats = async () => {
+    const res = await fetch("/api/stats");
+    const data = await res.json();
+    const stats = [
+      { name: "Total Ratings", value: data.ratings, unit: "⭐️" },
+      { name: "Total Repos", value: data.repos, unit: "GitHub" },
+      { name: "Total Stars", value: data.stars, unit: "⭐️" },
+      {
+        name: "Average Rating",
+        value: ((data.stars / data.ratings) * 100).toFixed(1),
+        unit: "%",
+      },
+    ];
+    setStats(stats);
+  };
+
+  useEffect(() => {
+    const events = [
+      `databases.${process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID}.collections.${process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_APP_ID}.documents`,
+    ];
+    client.subscribe(events, () => getStats());
+    getStats();
+  }, []);
 
   return (
     <div className="bg-gray-900 flex grow">
@@ -39,7 +46,7 @@ export default async function Stats() {
               </p>
               <p className="mt-2 flex items-baseline gap-x-2">
                 <span className="text-4xl font-semibold tracking-tight text-white">
-                  {stat.value}
+                  {abbreviateNumber(stat.value)}
                 </span>
                 {stat.unit ? (
                   <span className="text-sm text-gray-400">{stat.unit}</span>

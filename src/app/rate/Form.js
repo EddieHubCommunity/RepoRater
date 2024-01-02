@@ -7,6 +7,7 @@ import { account } from "@/config/appwrite-client";
 
 export default function Form({ name = "", owner = "" }) {
   const [sending, setSending] = useState(false);
+  const [rating, setRating] = useState(5);
 
   async function save(formData) {
     let user;
@@ -99,40 +100,46 @@ export default function Form({ name = "", owner = "" }) {
                 </a>
               </div> */}
             </div>
-            <div className="mt-2">
+            <div className="mt-2 flex flex-row items-center gap-2">
               <div className="rating rating-lg">
                 <input
                   type="radio"
                   name="rating"
                   value="1"
                   className="mask mask-star-2 bg-green-500"
+                  onChange={(e) => setRating(e.target.value)}
                 />
                 <input
                   type="radio"
                   name="rating"
                   value="2"
                   className="mask mask-star-2 bg-green-500"
+                  onChange={(e) => setRating(e.target.value)}
                 />
                 <input
                   type="radio"
                   name="rating"
                   value="3"
                   className="mask mask-star-2 bg-green-500"
+                  onChange={(e) => setRating(e.target.value)}
                 />
                 <input
                   type="radio"
                   name="rating"
                   value="4"
                   className="mask mask-star-2 bg-green-500"
+                  onChange={(e) => setRating(e.target.value)}
                 />
                 <input
                   type="radio"
                   name="rating"
                   value="5"
                   className="mask mask-star-2 bg-green-500"
+                  onChange={(e) => setRating(e.target.value)}
                   defaultChecked
                 />
               </div>
+              <div className="text-3xl">({rating})</div>
             </div>
           </div>
 

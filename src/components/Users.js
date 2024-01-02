@@ -6,6 +6,7 @@ import { ChevronRightIcon } from "@heroicons/react/20/solid";
 
 import { clientAdmin } from "@/config/appwrite-server";
 import { classNames } from "@/utils/classNames";
+import Link from "next/link";
 
 const statuses = {
   research: "text-orange-500 bg-orange-100/10",
@@ -75,7 +76,7 @@ export default async function Users() {
                   <div className="h-2 w-2 rounded-full bg-current" />
                 </div>
                 <h2 className="min-w-0 text-sm font-semibold leading-6 text-white">
-                  <a
+                  <Link
                     href={`https://github.com/${user.username}`}
                     className="flex gap-x-2"
                     target="_blank"
@@ -84,7 +85,7 @@ export default async function Users() {
                     <span className="text-gray-400">/</span>
                     <span className="whitespace-nowrap">{user.username}</span>
                     <span className="absolute inset-0" />
-                  </a>
+                  </Link>
                 </h2>
               </div>
               <div className="mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-400">

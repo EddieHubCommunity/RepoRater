@@ -30,7 +30,7 @@ Want to see any other features? [Open an issue](https://github.com/EddieHubCommu
 
 - [NextJS](https://nextjs.org)
 - [Appwrite](https://appwrite.io)
-- [DaisyUI](https://daisyui.com) ([Tailwind](https://tailwindcss.com))
+- [Tailwind](https://tailwindcss.com)
 
 ## Quickstart for development
 
@@ -56,6 +56,8 @@ Want to see any other features? [Open an issue](https://github.com/EddieHubCommu
 1. Copy `.env.example` template file to `.env`
 1. Get you private keys from Appwrite and add them to `.env` template (all data are required)
 1. Create an OAuth app on GitHub and connect it with Appwrite Authentication
+1. On collections `ratings` and `repos` enable read permissions for `all` users
+1. Create index on collection `repos`, named `url_search` with the attribute `url` and type `fulltext`
 1. Run the development server with:
 
 ```bash
@@ -136,7 +138,7 @@ jobs:
 
 More details https://github.com/xkrishguptaa/action-repo-rater
 
-## API (3rd party apps)
+## API (for your 3rd party apps)
 
 You can consume our data for your own apps.
 
@@ -173,6 +175,16 @@ Optional paramater `?minimumVotes=5` (default is `5`)
 ```json
 [
   {
+    "url": "https://github.com/appwrite/appwrite",
+    "logo": "https://avatars.githubusercontent.com/u/25003669?v=4",
+    "description": "Build like a team of hundreds_",
+    "rating": 4.9,
+    "votes": 310,
+    "owner": "appwrite",
+    "name": "appwrite",
+    "badgeViews": 321
+  },
+  {
     "url": "https://github.com/EddieHubCommunity/BioDrop",
     "logo": "https://avatars.githubusercontent.com/u/66388388?v=4",
     "description": "Connect to your audience with a single link. Showcase the content you create and your projects in one place. Make it easier for people to find, follow and subscribe.",
@@ -180,17 +192,38 @@ Optional paramater `?minimumVotes=5` (default is `5`)
     "votes": 49,
     "owner": "EddieHubCommunity",
     "name": "BioDrop",
-    "badgeViews": null
+    "badgeViews": 109
+  }
+]
+```
+
+### All Repos with Search
+
+GET https://repo-rater.eddiehub.org/api/repos
+
+Optional paramater `?keyword=EddieHub`
+
+```json
+[
+  {
+    "url": "https://github.com/EddieHubCommunity/BioDrop",
+    "logo": "https://avatars.githubusercontent.com/u/66388388?v=4",
+    "description": "Connect to your audience with a single link. Showcase the content you create and your projects in one place. Make it easier for people to find, follow and subscribe.",
+    "rating": 4.75,
+    "votes": 49,
+    "owner": "EddieHubCommunity",
+    "name": "BioDrop",
+    "badgeViews": 321
   },
   {
-    "url": "https://github.com/appwrite/appwrite",
-    "logo": "https://avatars.githubusercontent.com/u/25003669?v=4",
-    "description": "Build like a team of hundreds_",
-    "rating": 4.3333333333333,
-    "votes": 310,
-    "owner": "appwrite",
-    "name": "appwrite",
-    "badgeViews": null
+    "url": "https://github.com/EddieHubCommunity/RepoRater",
+    "logo": "https://avatars.githubusercontent.com/u/66388388?v=4",
+    "description": "Connect to your audience with a single link. Showcase the content you create and your projects in one place. Make it easier for people to find, follow and subscribe.",
+    "rating": 4.6,
+    "votes": 12,
+    "owner": "EddieHubCommunity",
+    "name": "RepoRater",
+    "badgeViews": 98
   }
 ]
 ```

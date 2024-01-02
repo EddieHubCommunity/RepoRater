@@ -43,16 +43,16 @@ export async function POST(request) {
   // get app total stats to increment
   const appTotal = (
     await new sdk.Databases(clientAdmin()).listDocuments(
-      process.env.APPWRITE_DATABASE_ID,
-      process.env.APPWRITE_COLLECTION_APP_ID,
+      process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
+      process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_APP_ID,
       [Query.limit(1)]
     )
   ).documents[0];
 
   // 1. check if user already rated this repo
   const userRepoRating = await new sdk.Databases(clientAdmin()).listDocuments(
-    process.env.APPWRITE_DATABASE_ID,
-    process.env.APPWRITE_COLLECTION_RATINGS_ID,
+    process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
+    process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_RATINGS_ID,
     [Query.equal("url", [data.url]), Query.equal("username", [username])]
   );
 
@@ -60,8 +60,8 @@ export async function POST(request) {
   if (userRepoRating.total === 1) {
     console.info(`User ${username} already rated ${data.url} updating rating`);
     await new sdk.Databases(clientAdmin()).updateDocument(
-      process.env.APPWRITE_DATABASE_ID,
-      process.env.APPWRITE_COLLECTION_RATINGS_ID,
+      process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
+      process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_RATINGS_ID,
       userRepoRating.documents[0].$id,
       {
         username: username,
@@ -73,8 +73,8 @@ export async function POST(request) {
     // 2b. create in ratings collection
     console.info(`User ${username} rating ${data.url} for the first time`);
     await new sdk.Databases(clientAdmin()).createDocument(
-      process.env.APPWRITE_DATABASE_ID,
-      process.env.APPWRITE_COLLECTION_RATINGS_ID,
+      process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
+      process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_RATINGS_ID,
       sdk.ID.unique(),
       {
         username: username,
@@ -87,8 +87,8 @@ export async function POST(request) {
   // 2c. update app rating count
   console.info("Increment app total ratings");
   await new sdk.Databases(clientAdmin()).updateDocument(
-    process.env.APPWRITE_DATABASE_ID,
-    process.env.APPWRITE_COLLECTION_APP_ID,
+    process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
+    process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_APP_ID,
     appTotal.$id,
     {
       ratings: appTotal.ratings + 1,
@@ -99,8 +99,8 @@ export async function POST(request) {
   // 3. check if repo exists
   console.info(`Checking if repo ${data.url} exists in database`);
   const repos = await new sdk.Databases(clientAdmin()).listDocuments(
-    process.env.APPWRITE_DATABASE_ID,
-    process.env.APPWRITE_COLLECTION_REPOS_ID,
+    process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
+    process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_REPOS_ID,
     [Query.equal("url", [data.url])]
   );
 
@@ -109,8 +109,8 @@ export async function POST(request) {
     console.info(`Repo ${data.url} found in database update rating`);
     // get all ratings for this repo
     const ratings = await new sdk.Databases(clientAdmin()).listDocuments(
-      process.env.APPWRITE_DATABASE_ID,
-      process.env.APPWRITE_COLLECTION_RATINGS_ID,
+      process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
+      process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_RATINGS_ID,
       [Query.equal("url", [data.url])]
     );
 
@@ -119,8 +119,8 @@ export async function POST(request) {
       ratings.documents.reduce((acc, cur) => acc + cur.rating, 0) /
       ratings.total;
     await new sdk.Databases(clientAdmin()).updateDocument(
-      process.env.APPWRITE_DATABASE_ID,
-      process.env.APPWRITE_COLLECTION_REPOS_ID,
+      process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
+      process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_REPOS_ID,
       repos.documents[0].$id,
       {
         ...githubRepo,
@@ -134,8 +134,8 @@ export async function POST(request) {
       `Repo ${data.url} not found in database create repo and ratings`
     );
     await new sdk.Databases(clientAdmin()).createDocument(
-      process.env.APPWRITE_DATABASE_ID,
-      process.env.APPWRITE_COLLECTION_REPOS_ID,
+      process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
+      process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_REPOS_ID,
       sdk.ID.unique(),
       {
         ...githubRepo,
@@ -147,8 +147,8 @@ export async function POST(request) {
     // 4b. update app repo count
     console.info("Increment app total repos");
     await new sdk.Databases(clientAdmin()).updateDocument(
-      process.env.APPWRITE_DATABASE_ID,
-      process.env.APPWRITE_COLLECTION_APP_ID,
+      process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
+      process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_APP_ID,
       appTotal.$id,
       {
         repos: appTotal.repos + 1,

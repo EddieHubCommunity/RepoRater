@@ -4,7 +4,7 @@ import { clientAdmin } from "@/config/appwrite-server";
 
 export async function GET(request) {
   const params = request.nextUrl.searchParams;
-  const minimumVotes = params.get("minimumVotes");
+  const keyword = params.get("keyword");
 
   const repos = await new Databases(clientAdmin()).listDocuments(
     process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
@@ -22,12 +22,12 @@ export async function GET(request) {
       ]),
       Query.orderDesc("rating"),
       Query.orderDesc("votes"),
-      Query.greaterThanEqual("votes", parseInt(minimumVotes) || 5),
       Query.limit(100),
+      keyword && Query.search("url", keyword),
     ]
   );
 
-  const top = repos.documents.map((repo) => ({
+  const all = repos.documents.map((repo) => ({
     url: repo.url,
     logo: repo.logo,
     description: repo.description,
@@ -38,5 +38,5 @@ export async function GET(request) {
     badgeViews: repo.badgeViews,
   }));
 
-  return Response.json(top);
+  return Response.json(all);
 }

@@ -46,7 +46,9 @@ export default function Navbar() {
       <div className="navbar bg-base-100">
         <div className="flex-1">
           <div className="flex flex-row">
-            <Image src={Logo} alt="RepoRater Logo" width={40} height={40} className="cursor-pointer" onClick={() => router.push("/")} />
+            <Link href="/">
+              <Image src={Logo} alt="RepoRater Logo" width={40} height={40} />
+            </Link>
             <p className="text-xl m-2 hidden sm:inline">
               RepoRater{" "}
               <span className="text-sm text-gray-400 hidden md:inline">

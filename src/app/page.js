@@ -8,7 +8,7 @@ import Repos from "@/components/Repos";
 import Activity from "@/components/Activity";
 import Stats from "@/components/Stats";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export default function Page() {
   const [keyword, setKeyword] = useState("");

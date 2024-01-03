@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { client } from "@/config/appwrite-client";
@@ -58,9 +59,9 @@ export default function Activity() {
             </div>
             <p className="mt-3 truncate text-sm text-gray-500">
               Rated{" "}
-              <span className="text-gray-400">
+              <Link className="text-gray-400" href={rating.url} target="_blank">
                 {rating.url.split("github.com/")[1]}
-              </span>
+              </Link>
             </p>
           </li>
         ))}

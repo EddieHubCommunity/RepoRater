@@ -35,28 +35,28 @@ Want to see any other features? [Open an issue](https://github.com/EddieHubCommu
 ## Quickstart for development
 
 1. Sign up to Appwrite and create a project (free)
-1. Create database
-1. Create collections `app` with the attributes
+2. Create database
+3. Create collections `app` with the attributes
    - `ratings`: integer
    - `repos`: integer
    - `stars`: integer
    - create empty document with `0` for each attribute
-1. Create collections `ratings` with the attributes
+4. Create collections `ratings` with the attributes
    - `url`: url
-   - `username`: string
+   - `username`: string (128)
    - `rating`: integer
-1. Create collections `repos` with the attributes
+5. Create collections `repos` with the attributes
    - `url`: url
-   - `description`: string
-   - `name`: string
+   - `description`: string (1024)
+   - `name`: string (128, required)
    - `votes`: integer
    - `rating`: float
-   - `owner`: string
-   - `logo`: string
-1. Copy `.env.example` template file to `.env`
-1. Get you private keys from Appwrite and add them to `.env` template (all data are required)
-1. Create an OAuth app on GitHub and connect it with Appwrite Authentication
-1. Run the development server with:
+   - `owner`: string (128)
+   - `logo`: string (512)
+6. Copy `.env.example` template file to `.env`
+7. Get you private keys from Appwrite (Overview > Integrations > "API Keys" tab > "+ Create API key" button) and add them to `.env` template (all data are required)
+8. Create an OAuth app on GitHub and connect it with Appwrite Authentication
+9. Run the development server with:
 
 ```bash
 npm ci

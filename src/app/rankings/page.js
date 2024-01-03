@@ -2,6 +2,8 @@ import SideNav from "@/components/SideNav";
 import Activity from "@/components/Activity";
 import Users from "@/components/Users";
 
+export const dynamic = "force-dynamic";
+
 export default function Page() {
   return (
     <SideNav>

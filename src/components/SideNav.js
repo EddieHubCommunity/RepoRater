@@ -8,6 +8,7 @@ import {
   ChartBarSquareIcon,
   FolderIcon,
   ServerIcon,
+  StarIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 
@@ -30,6 +31,13 @@ const navigation = [
     href: "/rankings",
     icon: ChartBarSquareIcon,
     current: false,
+  },
+  {
+    name: "GitHub",
+    href: "https://github.com/EddieHubCommunity/RepoRater",
+    icon: StarIcon,
+    current: false,
+    external: true,
   },
 ];
 
@@ -172,6 +180,7 @@ export default function SideNav({ children }) {
                             <li key={item.name}>
                               <Link
                                 href={item.href}
+                                target={item.external ? "_blank" : "_self"}
                                 className={classNames([
                                   item.current
                                     ? "bg-gray-800 text-white"
@@ -279,6 +288,7 @@ export default function SideNav({ children }) {
                     <li key={item.name}>
                       <Link
                         href={item.href}
+                        target={item.external ? "_blank" : "_self"}
                         className={classNames([
                           item.current
                             ? "bg-gray-800 text-white"

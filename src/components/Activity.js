@@ -40,16 +40,25 @@ export default function Activity() {
         {activity.map((rating, idx) => (
           <li key={idx} className="px-4 py-4 sm:px-6 lg:px-8">
             <div className="flex items-center gap-x-3">
-              <Image
-                className="h-6 w-6 flex-none rounded-full bg-gray-800"
-                src={`https://github.com/${rating.username}.png`}
-                alt={`Logo for ${rating.name}`}
-                width={20}
-                height={20}
-              />
-              <h3 className="flex-auto truncate text-sm font-semibold leading-6 text-white">
+              <Link
+                href={`https://github.com/${rating.username}`}
+                target="_blank"
+              >
+                <Image
+                  className="h-6 w-6 flex-none rounded-full bg-gray-800"
+                  src={`https://github.com/${rating.username}.png`}
+                  alt={`Logo for ${rating.name}`}
+                  width={20}
+                  height={20}
+                />
+              </Link>
+              <Link
+                href={`https://github.com/${rating.username}`}
+                target="_blank"
+                className="flex-auto truncate text-sm font-semibold leading-6 text-white"
+              >
                 {rating.username}
-              </h3>
+              </Link>
               <time
                 dateTime={rating.$updatedAt}
                 className="flex-none text-xs text-gray-600"

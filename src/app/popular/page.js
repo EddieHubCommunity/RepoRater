@@ -2,7 +2,7 @@ import SideNav from "@/components/SideNav";
 import Repos from "@/components/Repos";
 import Activity from "@/components/Activity";
 
-export const revalidate = 0;
+export const dynamic = "force-dynamic";
 
 export default function Page() {
   return (

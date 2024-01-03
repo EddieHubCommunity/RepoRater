@@ -8,6 +8,8 @@ import en from "javascript-time-ago/locale/en";
 TimeAgo.addDefaultLocale(en);
 const timeAgo = new TimeAgo("en-US");
 
+export const dynamic = "force-dynamic";
+
 export async function GET() {
   let ratings = await new Databases(clientAdmin()).listDocuments(
     process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,

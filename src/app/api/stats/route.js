@@ -2,6 +2,8 @@ import { Query, Databases } from "node-appwrite";
 
 import { clientAdmin } from "@/config/appwrite-server";
 
+export const dynamic = "force-dynamic";
+
 export async function GET() {
   const data = (
     await new Databases(clientAdmin()).listDocuments(

@@ -10,6 +10,8 @@ import Stats from "@/components/Stats";
 import Toast from "@/components/Toast";
 import { useSearchParams } from "next/navigation";
 
+export const dynamic = "force-dynamic";
+
 export default function Page() {
   const params = useSearchParams();
   const alert = params.get("alert");

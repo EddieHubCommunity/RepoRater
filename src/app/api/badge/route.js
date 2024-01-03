@@ -3,6 +3,8 @@ import sdk, { Query } from "node-appwrite";
 
 import { clientAdmin } from "@/config/appwrite-server";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(request) {
   const styles = ["plastic", "flat", "flat-square", "for-the-badge", "social"];
   const params = request.nextUrl.searchParams;

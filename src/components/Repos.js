@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
 
+import { client } from "@/config/appwrite-client";
 import { classNames } from "@/utils/classNames";
 
 const statuses = {
@@ -61,6 +62,10 @@ export default function Repos({ minimumVotes = 5, keyword }) {
   };
 
   useEffect(() => {
+    const events = [
+      `databases.${process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID}.collections.${process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_REPOS_ID}.documents`,
+    ];
+    client.subscribe(events, () => getRepos());
     getRepos();
   }, [keyword]);
 

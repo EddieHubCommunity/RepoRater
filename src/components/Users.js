@@ -36,13 +36,7 @@ export default async function Users() {
     acc[rating.username].stars += rating.rating;
     return acc;
   }, {});
-  console.log(
-    Object.entries(users).map(([username, user]) => ({
-      username,
-      votes: user.votes,
-      stars: user.stars,
-    }))
-  );
+
   return (
     <ul role="list" className="divide-y divide-white/5">
       {Object.entries(users)

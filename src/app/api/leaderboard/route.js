@@ -2,6 +2,8 @@ import { Query, Databases } from "node-appwrite";
 
 import { clientAdmin } from "@/config/appwrite-server";
 
+export const dynamic = "force-dynamic";
+
 export async function GET() {
   const ratings = await new Databases(clientAdmin()).listDocuments(
     process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,

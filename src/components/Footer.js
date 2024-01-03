@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="footer items-center p-8 bg-neutral text-neutral-content">
       <aside className="items-center grid-flow-col">
         <p>
-          Copyright © 2023 -{" "}
+          Copyright © {new Date().getFullYear()} -{" "}
           <Link href="https://github.com/EddieHubCommunity">EddieHub</Link>
         </p>
       </aside>

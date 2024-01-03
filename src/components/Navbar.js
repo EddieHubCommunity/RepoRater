@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { account } from "@/config/appwrite-client";
@@ -14,7 +14,6 @@ export default function Navbar() {
   const alert = params.get("alert");
   const message = params.get("message");
   const [user, setUser] = useState(null);
-  const router = useRouter();
   const logout = async () => {
     await account.deleteSession("current");
     setUser(null);

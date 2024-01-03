@@ -8,7 +8,9 @@ import Repos from "@/components/Repos";
 import Activity from "@/components/Activity";
 import Stats from "@/components/Stats";
 
+export const dynamic = "force-dynamic";
 export const revalidate = 0;
+export const fetchCache = "force-no-store";
 
 export default function Page() {
   const [keyword, setKeyword] = useState("");
@@ -121,7 +123,7 @@ export default function Page() {
             </Menu> */}
           </header>
 
-          <Repos keyword={keyword} />
+          <Repos keyword={keyword} minimumVotes={0} />
         </main>
 
         <aside className="bg-black/10 lg:fixed lg:bottom-0 lg:right-0 lg:top-16 lg:w-96 lg:overflow-y-auto lg:border-l lg:border-white/5">

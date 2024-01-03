@@ -4,6 +4,7 @@ import { clientAdmin } from "@/config/appwrite-server";
 
 export async function GET(request) {
   const params = request.nextUrl.searchParams;
+  const minimumVotes = params.get("minimumVotes");
   const keyword = params.get("keyword");
 
   const repos = await new Databases(clientAdmin()).listDocuments(
@@ -22,6 +23,7 @@ export async function GET(request) {
       ]),
       Query.orderDesc("rating"),
       Query.orderDesc("votes"),
+      minimumVotes && Query.greaterThanEqual("votes", parseInt(minimumVotes)),
       Query.limit(100),
       keyword && Query.search("url", keyword),
     ]

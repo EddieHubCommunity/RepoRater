@@ -32,14 +32,20 @@ const calStatus = (percentage) => {
   return "caution";
 };
 
-export default function Repos({ keyword }) {
+export default function Repos({ minimumVotes = 5, keyword }) {
   const [repos, setRepos] = useState([]);
   const getRepos = async () => {
-    let url = "/api/repos";
-    if (keyword) {
-      url += `?keyword=${keyword}`;
+    const params = [];
+    if (minimumVotes) {
+      params.push(`minimumVotes=${minimumVotes}`);
     }
-    const res = await fetch(url);
+    if (keyword) {
+      params.push(`keyword=${keyword}`);
+    }
+    const res = await fetch(
+      `/api/repos${params.length ? `?${params.join("&")}` : ""}`
+    );
+
     const data = await res.json();
 
     const repos = data.map((repo) => {

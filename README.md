@@ -51,29 +51,21 @@ Want to see any other features? [Open an issue](https://github.com/EddieHubCommu
    - `name`: string (128, required)
    - `votes`: integer
    - `rating`: float
-     <<<<<<< HEAD
-   - `owner`: string
-   - `logo`: string
+   - `owner`: string (128)
+   - `logo`: string (512)
 6. Copy `.env.example` template file to `.env`
-7. Get you private keys from Appwrite and add them to `.env` template (all data are required)
+7. Get you private keys from Appwrite (Overview > Integrations > "API Keys" tab > "+ Create API key" button) and add them to `.env` template (all data are required)
 8. Create an OAuth app on GitHub and connect it with Appwrite Authentication
 9. On collections `ratings` and `repos` enable read permissions for `all` users
 10. Create index on collection `repos`, named `url_search` with the attribute `url` and type `fulltext`
-11. # Run the development server with:
-    - `owner`: string (128)
-    - `logo`: string (512)
-12. Copy `.env.example` template file to `.env`
-13. Get you private keys from Appwrite (Overview > Integrations > "API Keys" tab > "+ Create API key" button) and add them to `.env` template (all data are required)
-14. Create an OAuth app on GitHub and connect it with Appwrite Authentication
-15. Run the development server with:
-    > > > > > > > prototype
+11. Run the development server with:
 
 ```bash
 npm ci
 npm run dev
 ```
 
-10. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+12. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## RepoRater Badge in your README
 
@@ -152,7 +144,7 @@ You can consume our data for your own apps.
 
 ### User Leaderboard
 
-GET https://repo-rater.eddiehub.org/api/leaderboard
+GET https://repo-rater.eddiehub.io/api/leaderboard
 
 ```json
 [
@@ -176,7 +168,7 @@ GET https://repo-rater.eddiehub.org/api/leaderboard
 
 ### Popular Repos
 
-GET https://repo-rater.eddiehub.org/api/popular
+GET https://repo-rater.eddiehub.io/api/popular
 
 Optional paramater `?minimumVotes=5` (default is `5`)
 
@@ -207,7 +199,7 @@ Optional paramater `?minimumVotes=5` (default is `5`)
 
 ### All Repos with Search
 
-GET https://repo-rater.eddiehub.org/api/repos
+GET https://repo-rater.eddiehub.io/api/repos
 
 Optional paramater `?keyword=EddieHub`
 
@@ -238,7 +230,7 @@ Optional paramater `?keyword=EddieHub`
 
 ### App stats
 
-GET https://repo-rater.eddiehub.org/api/stats
+GET https://repo-rater.eddiehub.io/api/stats
 
 ```json
 {
@@ -252,4 +244,4 @@ GET https://repo-rater.eddiehub.org/api/stats
 
 ## Community
 
-Come and chat with the community in the EddieHub Discord http://discord.eddiehub.org
+Come and chat with the community in the EddieHub Discord https://discord.eddiehub.org

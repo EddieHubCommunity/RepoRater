@@ -19,7 +19,7 @@ export default function Rate() {
     try {
       user = await account.getSession("current");
     } catch (e) {
-      router.push("/");
+      router.push("/?alert=error&message=Please login to rate a repository");
     }
   };
 

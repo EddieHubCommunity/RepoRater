@@ -33,11 +33,12 @@ const navigation = [
     current: false,
   },
   {
-    name: "GitHub",
+    name: "Star on GitHub",
     href: "https://github.com/EddieHubCommunity/RepoRater",
     icon: StarIcon,
     current: false,
     external: true,
+    css: "text-yellow-400",
   },
 ];
 
@@ -186,6 +187,7 @@ export default function SideNav({ children }) {
                                     ? "bg-gray-800 text-white"
                                     : "text-gray-400 hover:text-white hover:bg-gray-800",
                                   "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold",
+                                  item.css && item.css,
                                 ])}
                               >
                                 <item.icon
@@ -294,6 +296,7 @@ export default function SideNav({ children }) {
                             ? "bg-gray-800 text-white"
                             : "text-gray-400 hover:text-white hover:bg-gray-800",
                           "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold",
+                          item.css && item.css,
                         ])}
                       >
                         <item.icon

@@ -244,4 +244,4 @@ GET https://repo-rater.eddiehub.io/api/stats
 
 ## Community
 
-Come and chat with the community in the EddieHub Discord https://discord.eddiehub.org
+Come and chat with the community in the EddieHub Discord http://discord.eddiehub.org

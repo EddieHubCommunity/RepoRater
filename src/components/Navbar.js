@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import SearchBar from "./SearchBar";
 
 import { account } from "@/config/appwrite-client";
 import Alert from "./Alert";
@@ -86,6 +87,7 @@ export default function Navbar() {
             )}
           </ul>
         </div>
+        <SearchBar />
       </div>
       {alert && <Alert message={message} />}
     </>

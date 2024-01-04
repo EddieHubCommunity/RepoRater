@@ -99,7 +99,7 @@ export default function Repo({ url, owner, name, logo, stars, votes }) {
         <div className="stat-desc text-secondary">
           <Link
             href={`/rate?owner=${owner}&name=${name}`}
-            className="flex gap-2 items-center"
+            className="flex gap-2 items-center text-3xl"
           >
             Add rating
             <ShareIcon className="h-4 w-4 text-blue-500" />

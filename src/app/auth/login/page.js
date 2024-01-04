@@ -1,7 +1,6 @@
 "use client";
 
 import { account } from "@/config/appwrite-client";
-
 export default function Page() {
   const login = async () => {
     account.createOAuth2Session(

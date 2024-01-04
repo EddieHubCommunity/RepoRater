@@ -18,7 +18,7 @@ When considering your rating here are a few points you might like to think about
 - [x] List popular Repos
 - [x] Leaderboard of most active users
 - [x] README badges
-- [ ] Search Repos (coming soon)
+- [x] Search Repos
 
 Want to see any other features? [Open an issue](https://github.com/EddieHubCommunity/RepoRater/issues) and let us know.
 
@@ -30,7 +30,7 @@ Want to see any other features? [Open an issue](https://github.com/EddieHubCommu
 
 - [NextJS](https://nextjs.org)
 - [Appwrite](https://appwrite.io)
-- [DaisyUI](https://daisyui.com) ([Tailwind](https://tailwindcss.com))
+- [Tailwind](https://tailwindcss.com)
 
 ## Quickstart for development
 
@@ -51,12 +51,22 @@ Want to see any other features? [Open an issue](https://github.com/EddieHubCommu
    - `name`: string (128, required)
    - `votes`: integer
    - `rating`: float
-   - `owner`: string (128)
-   - `logo`: string (512)
+     <<<<<<< HEAD
+   - `owner`: string
+   - `logo`: string
 6. Copy `.env.example` template file to `.env`
-7. Get you private keys from Appwrite (Overview > Integrations > "API Keys" tab > "+ Create API key" button) and add them to `.env` template (all data are required)
+7. Get you private keys from Appwrite and add them to `.env` template (all data are required)
 8. Create an OAuth app on GitHub and connect it with Appwrite Authentication
-9. Run the development server with:
+9. On collections `ratings` and `repos` enable read permissions for `all` users
+10. Create index on collection `repos`, named `url_search` with the attribute `url` and type `fulltext`
+11. # Run the development server with:
+    - `owner`: string (128)
+    - `logo`: string (512)
+12. Copy `.env.example` template file to `.env`
+13. Get you private keys from Appwrite (Overview > Integrations > "API Keys" tab > "+ Create API key" button) and add them to `.env` template (all data are required)
+14. Create an OAuth app on GitHub and connect it with Appwrite Authentication
+15. Run the development server with:
+    > > > > > > > prototype
 
 ```bash
 npm ci
@@ -136,7 +146,7 @@ jobs:
 
 More details https://github.com/xkrishguptaa/action-repo-rater
 
-## API (3rd party apps)
+## API (for your 3rd party apps)
 
 You can consume our data for your own apps.
 
@@ -173,6 +183,16 @@ Optional paramater `?minimumVotes=5` (default is `5`)
 ```json
 [
   {
+    "url": "https://github.com/appwrite/appwrite",
+    "logo": "https://avatars.githubusercontent.com/u/25003669?v=4",
+    "description": "Build like a team of hundreds_",
+    "rating": 4.9,
+    "votes": 310,
+    "owner": "appwrite",
+    "name": "appwrite",
+    "badgeViews": 321
+  },
+  {
     "url": "https://github.com/EddieHubCommunity/BioDrop",
     "logo": "https://avatars.githubusercontent.com/u/66388388?v=4",
     "description": "Connect to your audience with a single link. Showcase the content you create and your projects in one place. Make it easier for people to find, follow and subscribe.",
@@ -180,19 +200,54 @@ Optional paramater `?minimumVotes=5` (default is `5`)
     "votes": 49,
     "owner": "EddieHubCommunity",
     "name": "BioDrop",
-    "badgeViews": 143
-  },
-  {
-    "url": "https://github.com/appwrite/appwrite",
-    "logo": "https://avatars.githubusercontent.com/u/25003669?v=4",
-    "description": "Build like a team of hundreds_",
-    "rating": 4.3333333333333,
-    "votes": 310,
-    "owner": "appwrite",
-    "name": "appwrite",
-    "badgeViews": 768
+    "badgeViews": 109
   }
 ]
+```
+
+### All Repos with Search
+
+GET https://repo-rater.eddiehub.org/api/repos
+
+Optional paramater `?keyword=EddieHub`
+
+```json
+[
+  {
+    "url": "https://github.com/EddieHubCommunity/BioDrop",
+    "logo": "https://avatars.githubusercontent.com/u/66388388?v=4",
+    "description": "Connect to your audience with a single link. Showcase the content you create and your projects in one place. Make it easier for people to find, follow and subscribe.",
+    "rating": 4.75,
+    "votes": 49,
+    "owner": "EddieHubCommunity",
+    "name": "BioDrop",
+    "badgeViews": 321
+  },
+  {
+    "url": "https://github.com/EddieHubCommunity/RepoRater",
+    "logo": "https://avatars.githubusercontent.com/u/66388388?v=4",
+    "description": "Connect to your audience with a single link. Showcase the content you create and your projects in one place. Make it easier for people to find, follow and subscribe.",
+    "rating": 4.6,
+    "votes": 12,
+    "owner": "EddieHubCommunity",
+    "name": "RepoRater",
+    "badgeViews": 98
+  }
+]
+```
+
+### App stats
+
+GET https://repo-rater.eddiehub.org/api/stats
+
+```json
+{
+  "ratings": 1137,
+  "repos": 657,
+  "stars": 53,
+  "$createdAt": "2023-12-24T07:41:21.204+00:00",
+  "$updatedAt": "2024-01-02T20:42:33.660+00:00"
+}
 ```
 
 ## Community

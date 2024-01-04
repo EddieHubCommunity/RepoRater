@@ -3,6 +3,8 @@ import sdk, { Query } from "node-appwrite";
 
 import { clientAdmin } from "@/config/appwrite-server";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(request) {
   const styles = ["plastic", "flat", "flat-square", "for-the-badge", "social"];
   const params = request.nextUrl.searchParams;
@@ -13,8 +15,8 @@ export async function GET(request) {
 
   // get repo rating from database
   const repos = await new sdk.Databases(clientAdmin()).listDocuments(
-    process.env.APPWRITE_DATABASE_ID,
-    process.env.APPWRITE_COLLECTION_REPOS_ID,
+    process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
+    process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_REPOS_ID,
     [Query.equal("owner", [owner]), Query.equal("name", [name]), Query.limit(1)]
   );
   const data = repos.documents[0];
@@ -22,8 +24,8 @@ export async function GET(request) {
   // increment views using badge
   if (data) {
     await new sdk.Databases(clientAdmin()).updateDocument(
-      process.env.APPWRITE_DATABASE_ID,
-      process.env.APPWRITE_COLLECTION_REPOS_ID,
+      process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
+      process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_REPOS_ID,
       data.$id,
       {
         badgeViews: data.badgeViews + 1,

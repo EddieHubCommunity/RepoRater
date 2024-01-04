@@ -1,7 +1,15 @@
-export default function Toast({ message }) {
+import { classNames } from "@/utils/classNames";
+
+export default function Toast({ type = "info", message }) {
   return (
-    <div className="toast toast-top toast-end">
-      <div className="alert alert-success">
+    <div className="toast toast-end">
+      <div
+        className={classNames([
+          "alert",
+          type === "info" && "alert-info",
+          type === "success" && "alert-success",
+        ])}
+      >
         <span>{message}</span>
       </div>
     </div>

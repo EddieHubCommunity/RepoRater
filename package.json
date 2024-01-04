@@ -9,10 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.1.1",
+    "@tailwindcss/forms": "^0.5.7",
     "@vercel/analytics": "^1.1.1",
     "appwrite": "^13.0.1",
     "badge-maker": "^3.3.1",
+    "javascript-time-ago": "^2.5.9",
     "next": "14.0.4",
     "node-appwrite": "^11.1.0",
     "react": "^18",
@@ -22,7 +25,7 @@
     "@types/node": "20.10.4",
     "@types/react": "18.2.45",
     "autoprefixer": "^10.0.1",
-    "daisyui": "^4.4.20",
+    "daisyui": "^4.4.24",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "postcss": "^8",

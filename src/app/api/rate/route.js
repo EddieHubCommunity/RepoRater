@@ -27,8 +27,9 @@ export async function POST(request) {
   console.info(`User ${username} submitted rating for ${data.url}`);
 
   // 0. get repo from github api
-  const repoPath = data.url.split("github.com/");
-  if (repoPath.length !== 2 || !repoPath[1]) {
+  const urlClean = data.url.endsWith("/") ? data.url.slice(0, -1) : data.url;
+  const repoPath = urlClean.split("github.com/");
+  if (repoPath.length !== 2) {
     return Response.json({ success: false, error: "Invalid URL" });
   }
   const repoData = await getRepo(repoPath[1], session.providerAccessToken);
@@ -43,42 +44,42 @@ export async function POST(request) {
   // get app total stats to increment
   const appTotal = (
     await new sdk.Databases(clientAdmin()).listDocuments(
-      process.env.APPWRITE_DATABASE_ID,
-      process.env.APPWRITE_COLLECTION_APP_ID,
+      process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
+      process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_APP_ID,
       [Query.limit(1)]
     )
   ).documents[0];
 
   // 1. check if user already rated this repo
   const userRepoRating = await new sdk.Databases(clientAdmin()).listDocuments(
-    process.env.APPWRITE_DATABASE_ID,
-    process.env.APPWRITE_COLLECTION_RATINGS_ID,
-    [Query.equal("url", [data.url]), Query.equal("username", [username])]
+    process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
+    process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_RATINGS_ID,
+    [Query.equal("url", [urlClean]), Query.equal("username", [username])]
   );
 
   // 2a. update in ratings collection
   if (userRepoRating.total === 1) {
-    console.info(`User ${username} already rated ${data.url} updating rating`);
+    console.info(`User ${username} already rated ${urlClean} updating rating`);
     await new sdk.Databases(clientAdmin()).updateDocument(
-      process.env.APPWRITE_DATABASE_ID,
-      process.env.APPWRITE_COLLECTION_RATINGS_ID,
+      process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
+      process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_RATINGS_ID,
       userRepoRating.documents[0].$id,
       {
         username: username,
-        url: data.url,
+        url: urlClean,
         rating: rating,
       }
     );
   } else {
     // 2b. create in ratings collection
-    console.info(`User ${username} rating ${data.url} for the first time`);
+    console.info(`User ${username} rating ${urlClean} for the first time`);
     await new sdk.Databases(clientAdmin()).createDocument(
-      process.env.APPWRITE_DATABASE_ID,
-      process.env.APPWRITE_COLLECTION_RATINGS_ID,
+      process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
+      process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_RATINGS_ID,
       sdk.ID.unique(),
       {
         username: username,
-        url: data.url,
+        url: urlClean,
         rating: rating,
       }
     );
@@ -87,8 +88,8 @@ export async function POST(request) {
   // 2c. update app rating count
   console.info("Increment app total ratings");
   await new sdk.Databases(clientAdmin()).updateDocument(
-    process.env.APPWRITE_DATABASE_ID,
-    process.env.APPWRITE_COLLECTION_APP_ID,
+    process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
+    process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_APP_ID,
     appTotal.$id,
     {
       ratings: appTotal.ratings + 1,
@@ -97,21 +98,21 @@ export async function POST(request) {
   );
 
   // 3. check if repo exists
-  console.info(`Checking if repo ${data.url} exists in database`);
+  console.info(`Checking if repo ${urlClean} exists in database`);
   const repos = await new sdk.Databases(clientAdmin()).listDocuments(
-    process.env.APPWRITE_DATABASE_ID,
-    process.env.APPWRITE_COLLECTION_REPOS_ID,
-    [Query.equal("url", [data.url])]
+    process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
+    process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_REPOS_ID,
+    [Query.equal("url", [urlClean])]
   );
 
   // 4a. update in repos collection + calculate new rating
   if (repos.total === 1) {
-    console.info(`Repo ${data.url} found in database update rating`);
+    console.info(`Repo ${urlClean} found in database update rating`);
     // get all ratings for this repo
     const ratings = await new sdk.Databases(clientAdmin()).listDocuments(
-      process.env.APPWRITE_DATABASE_ID,
-      process.env.APPWRITE_COLLECTION_RATINGS_ID,
-      [Query.equal("url", [data.url])]
+      process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
+      process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_RATINGS_ID,
+      [Query.equal("url", [urlClean])]
     );
 
     // save new repo rating
@@ -119,8 +120,8 @@ export async function POST(request) {
       ratings.documents.reduce((acc, cur) => acc + cur.rating, 0) /
       ratings.total;
     await new sdk.Databases(clientAdmin()).updateDocument(
-      process.env.APPWRITE_DATABASE_ID,
-      process.env.APPWRITE_COLLECTION_REPOS_ID,
+      process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
+      process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_REPOS_ID,
       repos.documents[0].$id,
       {
         ...githubRepo,
@@ -131,15 +132,15 @@ export async function POST(request) {
   } else {
     // 4a. create in repos collection
     console.info(
-      `Repo ${data.url} not found in database create repo and ratings`
+      `Repo ${urlClean} not found in database create repo and ratings`
     );
     await new sdk.Databases(clientAdmin()).createDocument(
-      process.env.APPWRITE_DATABASE_ID,
-      process.env.APPWRITE_COLLECTION_REPOS_ID,
+      process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
+      process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_REPOS_ID,
       sdk.ID.unique(),
       {
         ...githubRepo,
-        url: data.url,
+        url: urlClean,
         rating: rating,
         votes: 1,
       }
@@ -147,8 +148,8 @@ export async function POST(request) {
     // 4b. update app repo count
     console.info("Increment app total repos");
     await new sdk.Databases(clientAdmin()).updateDocument(
-      process.env.APPWRITE_DATABASE_ID,
-      process.env.APPWRITE_COLLECTION_APP_ID,
+      process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
+      process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_APP_ID,
       appTotal.$id,
       {
         repos: appTotal.repos + 1,

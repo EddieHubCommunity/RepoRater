@@ -4,10 +4,12 @@ import sdk, { Query } from "node-appwrite";
 import { clientAdmin } from "@/config/appwrite-server";
 
 export async function GET(request) {
+  const styles = ["plastic", "flat", "flat-square", "for-the-badge", "social"];
   const params = request.nextUrl.searchParams;
   const owner = params.get("owner");
   const name = params.get("name");
   const style = params.get("style");
+  const format = params.get("format");
 
   // get repo rating from database
   const repos = await new sdk.Databases(clientAdmin()).listDocuments(
@@ -29,18 +31,28 @@ export async function GET(request) {
     );
   }
 
-  const format = {
+  let message = "No votes yet";
+  if (data) {
+    switch (format) {
+      case "percentage":
+        message = `${((data.rating / 5) * 100).toFixed(0)}% (${data.votes})`;
+        break;
+      case "number":
+      default:
+        message = `${data.rating.toFixed(1)}/5 (${data.votes})`;
+    }
+  }
+
+  const config = {
+    message,
     label: "RepoRater",
-    message: data
-      ? `${data.rating.toFixed(2)} (${data.votes})`
-      : "No votes yet",
     color: "green",
-    style: style ? style : "flat", // (Optional) One of: 'plastic', 'flat', 'flat-square', 'for-the-badge' or 'social'
+    style: style && styles.includes(style) ? style : "flat",
   };
 
   let svg = "";
   try {
-    svg = makeBadge(format);
+    svg = makeBadge(config);
   } catch (e) {
     console.log(e);
     // TODO: return error badge

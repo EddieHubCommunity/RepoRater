@@ -1,48 +1,69 @@
 [![RepoRater](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater)](https://repo-rater.eddiehub.io/rate?owner=EddieHubCommunity&name=RepoRater)
 
-<img width="1032" alt="Screenshot 2023-12-13 at 11 00 00" src="https://github.com/EddieHubCommunity/RepoRater/assets/624760/2c2d9bbf-ca00-4593-9174-ebeface86dc1">
+# RepoRater
 
-<img width="458" alt="Screenshot 2023-12-13 at 09 27 37" src="https://github.com/EddieHubCommunity/RepoRater/assets/624760/ccc20975-4788-4232-b9e8-c3356b387b32">
+This project allows you to rate GitHub Repositories from the Developer Experience (DX) perspective.
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+When considering your rating here are a few points you might like to think about:
+
+- does the Repo have a helpful community?
+- does the Repo have good documentation to enable you to get started?
+- are the maintainers supportive and do they provide useful feedback?
+
+## Features
+
+- [x] Login with GitHub OAuth
+- [x] Rate a Repo
+- [x] List all Repos
+- [x] List popular Repos
+- [x] Leaderboard of most active users
+- [x] README badges
+- [ ] Search Repos (coming soon)
+
+Want to see any other features? [Open an issue](https://github.com/EddieHubCommunity/RepoRater/issues) and let us know.
+
+## Screenshots
+
+![repo-rater-laptop](https://github.com/EddieHubCommunity/RepoRater/assets/624760/6795c662-b9d2-45ee-9cbb-cf8a84064aa7)
 
 ## Technologies used
 
-- NextJS
-- Appwrite
-- DaisyUI (Tailwind)
+- [NextJS](https://nextjs.org)
+- [Appwrite](https://appwrite.io)
+- [DaisyUI](https://daisyui.com) ([Tailwind](https://tailwindcss.com))
 
-## Getting Started
+## Quickstart for development
 
 1. Sign up to Appwrite and create a project (free)
-1. Create database
-1. Create collections `app` with the attributes
+2. Create database
+3. Create collections `app` with the attributes
    - `ratings`: integer
    - `repos`: integer
    - `stars`: integer
    - create empty document with `0` for each attribute
-1. Create collections `ratings` with the attributes
+4. Create collections `ratings` with the attributes
    - `url`: url
-   - `username`: string
+   - `username`: string (128)
    - `rating`: integer
-1. Create collections `repos` with the attributes
+5. Create collections `repos` with the attributes
    - `url`: url
-   - `description`: string
-   - `name`: string
+   - `description`: string (1024)
+   - `name`: string (128, required)
    - `votes`: integer
-   - `rating`: double
-   - `owner`: string
-   - `logo`: string
-1. Copy `.env.example` template file to `.env`
-1. Get you private keys from Appwrite and add them to `.env` template (all data are required)
-1. Run the development server with:
+   - `rating`: float
+   - `owner`: string (128)
+   - `logo`: string (512)
+6. Copy `.env.example` template file to `.env`
+7. Get you private keys from Appwrite (Overview > Integrations > "API Keys" tab > "+ Create API key" button) and add them to `.env` template (all data are required)
+8. Create an OAuth app on GitHub and connect it with Appwrite Authentication
+9. Run the development server with:
 
 ```bash
 npm ci
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+10. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## RepoRater Badge in your README
 
@@ -56,9 +77,11 @@ Add the following markdown to your README to show your RepoRater badge and link 
 
 Change the `owner` and `name` parameters to your GitHub org/username and repository name.
 
-### Customise your RepoRater Badge
+### Badge Style
 
-The default badge is "flat" but there are other styles if you prefer. Here are the options with examples:
+The default badge is "flat" but there are other styles if you prefer. This is done by appending the url with the `style` parameter.
+
+Here are the options with examples:
 
 | style         | badge                                                                                                                 |
 | :------------ | :-------------------------------------------------------------------------------------------------------------------- |
@@ -68,9 +91,24 @@ The default badge is "flat" but there are other styles if you prefer. Here are t
 | plastic       | ![plastic](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater&style=plastic)             |
 | social        | ![social](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater&style=social)               |
 
+### Badge Format
+
+The default badge format is to show the average rating out of `5`. You can also show the percentage. This is done by appending the url with the `format` parameter.
+
+[![RepoRater](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater)](https://repo-rater.eddiehub.io/rate?owner=EddieHubCommunity&name=RepoRater&format=percentage)
+
+```markdown
+[![RepoRater](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater)](https://repo-rater.eddiehub.io/rate?owner=EddieHubCommunity&name=RepoRater&format=percentage)
+```
+
+| format     | badge                                                                                                                                                                                         |
+| :--------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| number     | [![RepoRater](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater&format=number)](https://repo-rater.eddiehub.io/rate?owner=EddieHubCommunity&name=RepoRater)     |
+| percentage | [![RepoRater](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater&format=percentage)](https://repo-rater.eddiehub.io/rate?owner=EddieHubCommunity&name=RepoRater) |
+
 ## GitHub Action
 
-> Automatically comment on issues and pull requests to get votes
+> Automatically comment on Issues and Pull Requests to get votes
 
 ```yml
 name: repo-rater
@@ -98,11 +136,65 @@ jobs:
 
 More details https://github.com/xkrishguptaa/action-repo-rater
 
-## Learn More
+## API (3rd party apps)
 
-To learn more about Next.js, take a look at the following resources:
+You can consume our data for your own apps.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### User Leaderboard
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+GET https://repo-rater.eddiehub.org/api/leaderboard
+
+```json
+[
+  {
+    "username": "eddiejaoude",
+    "votes": 5,
+    "stars": 13
+  },
+  {
+    "username": "SaraJaoude",
+    "votes": 3,
+    "stars": 5
+  },
+  {
+    "username": "test2",
+    "votes": 2,
+    "stars": 9
+  }
+]
+```
+
+### Popular Repos
+
+GET https://repo-rater.eddiehub.org/api/popular
+
+Optional paramater `?minimumVotes=5` (default is `5`)
+
+```json
+[
+  {
+    "url": "https://github.com/EddieHubCommunity/BioDrop",
+    "logo": "https://avatars.githubusercontent.com/u/66388388?v=4",
+    "description": "Connect to your audience with a single link. Showcase the content you create and your projects in one place. Make it easier for people to find, follow and subscribe.",
+    "rating": 4.75,
+    "votes": 49,
+    "owner": "EddieHubCommunity",
+    "name": "BioDrop",
+    "badgeViews": 143
+  },
+  {
+    "url": "https://github.com/appwrite/appwrite",
+    "logo": "https://avatars.githubusercontent.com/u/25003669?v=4",
+    "description": "Build like a team of hundreds_",
+    "rating": 4.3333333333333,
+    "votes": 310,
+    "owner": "appwrite",
+    "name": "appwrite",
+    "badgeViews": 768
+  }
+]
+```
+
+## Community
+
+Come and chat with the community in the EddieHub Discord http://discord.eddiehub.org

@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 import SideNav from "@/components/SideNav";
 import Repos from "@/components/Repos";
 import Activity from "@/components/Activity";
@@ -5,8 +9,10 @@ import Activity from "@/components/Activity";
 export const dynamic = "force-dynamic";
 
 export default function Page() {
+  const [keyword, setKeyword] = useState("");
+
   return (
-    <SideNav>
+    <SideNav setKeyword={setKeyword}>
       <>
         <main className="lg:pr-96">
           <header className="flex items-center justify-between border-b border-white/5 px-4 py-4 sm:px-6 sm:py-6 lg:px-8">
@@ -77,7 +83,7 @@ export default function Page() {
             </Menu> */}
           </header>
 
-          <Repos minimumVotes={5} />
+          <Repos minimumVotes={5} keyword={keyword} />
         </main>
 
         <aside className="bg-black/10 lg:fixed lg:bottom-0 lg:right-0 lg:top-16 lg:w-96 lg:overflow-y-auto lg:border-l lg:border-white/5">

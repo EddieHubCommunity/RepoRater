@@ -26,7 +26,6 @@ export default function Page() {
   const message = params.get("message");
   const [keyword, setKeyword] = useState("");
   const [sort, setSort] = useState(sortOptions[0].value);
-  const [showAlert, setShowAlert] = useState(false);
 
   useEffect(() => {
     if (alert) {

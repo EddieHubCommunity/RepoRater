@@ -27,7 +27,7 @@ export default function Page() {
         setShowAlert(false);
         // remove alert be
         router.push(`/?done=success&message=Rating saved!`, { scroll: false });
-      }, 3000);
+      }, 4000);
     }
   }, [alert]);
 

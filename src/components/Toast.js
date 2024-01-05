@@ -8,6 +8,7 @@ export default function Toast({ type = "info", message }) {
           "alert",
           type === "info" && "alert-info",
           type === "success" && "alert-success",
+          type === "error" && "alert-error",
         ])}
       >
         <span>{message}</span>

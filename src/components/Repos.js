@@ -33,7 +33,7 @@ const calStatus = (percentage) => {
   return "caution";
 };
 
-export default function Repos({ minimumVotes = 5, keyword }) {
+export default function Repos({ minimumVotes = 5, keyword, sort }) {
   const [repos, setRepos] = useState([]);
   const getRepos = async () => {
     const params = [];
@@ -42,6 +42,9 @@ export default function Repos({ minimumVotes = 5, keyword }) {
     }
     if (keyword) {
       params.push(`keyword=${keyword}`);
+    }
+    if (sort) {
+      params.push(`sort=${sort}`);
     }
     const res = await fetch(
       `/api/repos${params.length ? `?${params.join("&")}` : ""}`
@@ -67,7 +70,7 @@ export default function Repos({ minimumVotes = 5, keyword }) {
     ];
     client.subscribe(events, () => getRepos());
     getRepos();
-  }, [keyword]);
+  }, [keyword, sort]);
 
   return (
     <ul role="list" className="divide-y divide-white/5">

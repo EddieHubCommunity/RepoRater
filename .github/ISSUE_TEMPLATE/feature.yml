@@ -45,8 +45,8 @@ body:
   - type: textarea
     id: extrainfo
     attributes:
-      label: If "yes" to above, please explain how you would technically implement this
-      description: For example reference any existing code
+      label: If "yes" to above, please explain how you would technically implement this (issue will not be assigned if this is skipped)
+      description: For example reference any existing code or library
     validations:
       required: false
   - type: markdown

@@ -41,7 +41,6 @@ export default function Activity() {
       View all
     </a> */}
 			</header>
-			{!activity && <h1>Loading...</h1>}
 			<ul role="list" className="divide-y divide-white/5">
 				{activity.map((rating, idx) => (
 					<ActivityList key={idx} rating={rating} />

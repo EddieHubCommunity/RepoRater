@@ -1,13 +1,13 @@
 "use client";
 
-import { Fragment, useState } from "react";
+import { useEffect, useState, Fragment } from "react";
 
 import SideNav from "@/components/SideNav";
 import Repos from "@/components/Repos";
 import Activity from "@/components/Activity";
 import Stats from "@/components/Stats";
 import Toast from "@/components/Toast";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronUpDownIcon } from "@heroicons/react/24/outline";
 import { classNames } from "@/utils/classNames";
@@ -21,10 +21,17 @@ const sortOptions = [
 
 export default function Page() {
   const params = useSearchParams();
+  const router = useRouter();
   const alert = params.get("alert");
   const message = params.get("message");
   const [keyword, setKeyword] = useState("");
   const [sort, setSort] = useState(sortOptions[0].value);
+
+  useEffect(() => {
+    if (alert) {
+      setTimeout(() => router.push("/", { scroll: false }), 4000);
+    }
+  }, [alert]);
 
   return (
     <>

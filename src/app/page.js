@@ -34,7 +34,7 @@ export default function Page() {
       setTimeout(() => {
         setShowAlert(false);
         // Removed alert because it can re-render the Toast Component
-        router.push(`/?done=success&message=${message}`, { scroll: false });
+        router.push("/", { scroll: false });
       }, 4000);
     }
   }, [alert]);

@@ -30,7 +30,6 @@ export default function Page() {
   useEffect(() => {
     if (alert) {
       setTimeout(() => {
-        setShowAlert(false);
         // Removed alert because it can re-render the Toast Component
         router.push("/", { scroll: false });
       }, 4000);

@@ -91,7 +91,7 @@ export default function Page() {
           </aside>
         </>
       </SideNav>
-      {showAlert && <Toast type={alert} message={message} />}
+      {alert && <Toast type={alert} message={message} />}
     </>
   );
 }

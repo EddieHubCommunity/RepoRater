@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Fragment, useState } from "react";
+import { useEffect, useState, Fragment } from "react";
 
 import SideNav from "@/components/SideNav";
 import Repos from "@/components/Repos";
@@ -9,6 +8,9 @@ import Activity from "@/components/Activity";
 import Stats from "@/components/Stats";
 import Toast from "@/components/Toast";
 import { useRouter, useSearchParams } from "next/navigation";
+import { Menu, Transition } from "@headlessui/react";
+import { ChevronUpDownIcon } from "@heroicons/react/24/outline";
+import { classNames } from "@/utils/classNames";
 
 export const dynamic = "force-dynamic";
 
@@ -23,6 +25,7 @@ export default function Page() {
   const alert = params.get("alert");
   const message = params.get("message");
   const [keyword, setKeyword] = useState("");
+  const [sort, setSort] = useState(sortOptions[0].value);
   const [showAlert, setShowAlert] = useState(false);
 
   useEffect(() => {

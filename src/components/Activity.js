@@ -68,7 +68,12 @@ export default function Activity() {
             </div>
             <p className="mt-3 truncate text-sm text-gray-500">
               Rated{" "}
-              <Link className="text-gray-400" href={rating.url} target="_blank">
+              <Link
+                href={`/rate?owner=${
+                  rating.url.split("github.com/")[1].split("/")[0]
+                }&name=${rating.url.split("github.com/")[1].split("/")[1]}`}
+                className="text-gray-400"
+              >
                 {rating.url.split("github.com/")[1]}
               </Link>
             </p>

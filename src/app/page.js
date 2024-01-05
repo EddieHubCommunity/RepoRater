@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 
 import SideNav from "@/components/SideNav";
@@ -8,15 +8,28 @@ import Repos from "@/components/Repos";
 import Activity from "@/components/Activity";
 import Stats from "@/components/Stats";
 import Toast from "@/components/Toast";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export const dynamic = "force-dynamic";
 
 export default function Page() {
   const params = useSearchParams();
+  const router = useRouter();
   const alert = params.get("alert");
   const message = params.get("message");
   const [keyword, setKeyword] = useState("");
+  const [showAlert, setShowAlert] = useState(false);
+
+  useEffect(() => {
+    if (alert) {
+      setShowAlert(true);
+      setTimeout(() => {
+        setShowAlert(false);
+        // remove alert be
+        router.push(`/?done=success&message=Rating saved!`, { scroll: false });
+      }, 3000);
+    }
+  }, [alert]);
 
   return (
     <>
@@ -138,7 +151,7 @@ export default function Page() {
           </aside>
         </>
       </SideNav>
-      {alert && <Toast type={alert} message={message} />}
+      {showAlert && <Toast type={alert} message={message} />}
     </>
   );
 }

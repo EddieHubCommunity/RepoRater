@@ -29,7 +29,6 @@ export default function Page() {
 
   useEffect(() => {
     if (alert) {
-      setShowAlert(true);
       setTimeout(() => {
         setShowAlert(false);
         // Removed alert because it can re-render the Toast Component

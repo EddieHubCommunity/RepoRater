@@ -96,17 +96,20 @@ export default function Repos({ minimumVotes = 5, keyword, sort }) {
               >
                 <div className="h-2 w-2 rounded-full bg-current" />
               </div>
-              <h2 className="min-w-0 text-sm font-semibold leading-6 text-white">
-                <Link
-                  href={`/rate?owner=${repo.owner}&name=${repo.name}`}
-                  className="flex gap-x-2"
-                >
-                  <span className="truncate">{repo.owner}</span>
-                  <span className="text-gray-400">/</span>
-                  <span className="whitespace-nowrap">{repo.name}</span>
-                  <span className="absolute inset-0" />
-                </Link>
-              </h2>
+              <div className="flex flex-row gap-4 items-center">
+                <h2 className="min-w-0 text-sm font-semibold leading-6 text-white">
+                  <Link
+                    href={`/rate?owner=${repo.owner}&name=${repo.name}`}
+                    className="flex gap-x-2"
+                  >
+                    <span className="truncate">{repo.owner}</span>
+                    <span className="text-gray-400">/</span>
+                    <span className="whitespace-nowrap">{repo.name}</span>
+                    <span className="absolute inset-0" />
+                  </Link>
+                </h2>
+                {repo.language && <p className="text-xs">({repo.language})</p>}
+              </div>
             </div>
             <div className="mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-400">
               <p className="truncate">{repo.description}</p>

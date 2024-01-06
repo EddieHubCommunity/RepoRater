@@ -38,6 +38,8 @@ export async function POST(request) {
     owner: repoData.owner.login,
     description: repoData.description,
     logo: repoData.owner.avatar_url,
+    language: repoData.language,
+    topics: repoData.topics,
   };
   console.info(`Repo ${githubRepo.name} found on GitHub`);
 

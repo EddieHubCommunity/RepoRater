@@ -22,20 +22,23 @@ export async function GET(request) {
       filter.push(Query.orderDesc("rating"), Query.orderDesc("votes"));
   }
 
+  const fields = [
+    "url",
+    "logo",
+    "description",
+    "rating",
+    "votes",
+    "owner",
+    "name",
+    "badgeViews",
+    "language",
+    "topics",
+  ];
   const repos = await new Databases(clientAdmin()).listDocuments(
     process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
     process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_REPOS_ID,
     [
-      Query.select([
-        "url",
-        "logo",
-        "description",
-        "rating",
-        "votes",
-        "owner",
-        "name",
-        "badgeViews",
-      ]),
+      Query.select(fields),
       ...filter,
       minimumVotes && Query.greaterThanEqual("votes", parseInt(minimumVotes)),
       Query.limit(100),
@@ -43,16 +46,9 @@ export async function GET(request) {
     ]
   );
 
-  const all = repos.documents.map((repo) => ({
-    url: repo.url,
-    logo: repo.logo,
-    description: repo.description,
-    rating: repo.rating,
-    votes: repo.votes,
-    owner: repo.owner,
-    name: repo.name,
-    badgeViews: repo.badgeViews,
-  }));
+  const data = repos.documents.map((repo) =>
+    Object.fromEntries(fields.map((field) => [[field], repo[field]]))
+  );
 
-  return Response.json(all);
+  return Response.json(data);
 }

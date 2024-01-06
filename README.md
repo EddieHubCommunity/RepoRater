@@ -53,7 +53,9 @@ Want to see any other features? [Open an issue](https://github.com/EddieHubCommu
    - `rating`: float
    - `owner`: string (128)
    - `logo`: string (512)
-6. Copy `.env.example` template file to `.env`
+   - `language`: string (32)
+   - `topics`: string with option `array` (1024)
+6. Copy `.env.example` template file to `.env` (You can get these values from your Appwrite project settings)
 7. Get you private keys from Appwrite (Overview > Integrations > "API Keys" tab > "+ Create API key" button) and add them to `.env` template (all data are required)
 8. Create an OAuth app on GitHub and connect it with Appwrite Authentication
 9. On collections `ratings` and `repos` enable read permissions for `all` users

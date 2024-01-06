@@ -18,6 +18,9 @@ export async function GET(request) {
     case "popular":
       filter.push(Query.orderDesc("votes"));
       break;
+    case "stars":
+      filter.push(Query.orderDesc("stars"));
+      break;
     default:
       filter.push(Query.orderDesc("rating"), Query.orderDesc("votes"));
   }
@@ -33,6 +36,7 @@ export async function GET(request) {
     "badgeViews",
     "language",
     "topics",
+    "stars",
   ];
   const repos = await new Databases(clientAdmin()).listDocuments(
     process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,

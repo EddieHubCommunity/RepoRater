@@ -7,6 +7,7 @@ import { ChevronRightIcon } from "@heroicons/react/20/solid";
 
 import { client } from "@/config/appwrite-client";
 import { classNames } from "@/utils/classNames";
+import { abbreviateNumber } from "@/utils/abbreviateNumbers";
 
 const statuses = {
   research: "text-orange-500 bg-orange-100/10",
@@ -113,6 +114,11 @@ export default function Repos({ minimumVotes = 5, keyword, sort }) {
                   </Link>
                 </h2>
                 {repo.language && <p className="text-xs">({repo.language})</p>}
+                {repo.stars && (
+                  <p className="text-xs">
+                    ({abbreviateNumber(repo.stars)} ⭐️)
+                  </p>
+                )}
               </div>
             </div>
             <div className="mt-3 flex items-center gap-x-2.5 text-xs leading-5 text-gray-400">

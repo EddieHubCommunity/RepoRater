@@ -40,6 +40,7 @@ export async function POST(request) {
     logo: repoData.owner.avatar_url,
     language: repoData.language,
     topics: repoData.topics,
+    stars: repoData.stargazers_count,
   };
   console.info(`Repo ${githubRepo.name} found on GitHub`);
 

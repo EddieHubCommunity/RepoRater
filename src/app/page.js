@@ -17,6 +17,7 @@ export const dynamic = "force-dynamic";
 const sortOptions = [
   { name: "Highest rated", value: "rated" },
   { name: "Most popular", value: "popular" },
+  { name: "GitHub Stars", value: "stars" },
 ];
 
 export default function Page() {

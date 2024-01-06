@@ -77,7 +77,11 @@ export default function Repos({ minimumVotes = 5, keyword, sort }) {
       {repos.map((repo, idx) => (
         <li
           key={idx}
-          className="relative flex items-center space-x-4 px-4 py-4 sm:px-6 lg:px-8"
+          className={classNames([
+            "relative flex items-center space-x-4 px-4 py-4 sm:px-6 lg:px-8",
+            repo.topics.length && "tooltip",
+          ])}
+          data-tip={repo.topics.join(", ")}
         >
           <Image
             className="inline-block rounded-md h-12 w-12"

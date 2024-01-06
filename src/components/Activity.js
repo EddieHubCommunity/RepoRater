@@ -43,7 +43,9 @@ export default function Activity() {
 			</header>
 			<ul role="list" className="divide-y divide-white/5">
 				{activity.map((rating, idx) => (
-					<ActivityList key={idx} rating={rating} />
+					<li key={idx} className="w-full px-4 py-4 sm:px-6 lg:px-8">
+						<ActivityList rating={rating} />
+					</li>
 				))}
 			</ul>
 		</>

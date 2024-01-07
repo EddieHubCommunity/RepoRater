@@ -17,7 +17,7 @@ export default function Form({ name = "", owner = "" }) {
       jwt = await account.createJWT();
     } catch (e) {
       console.error(e);
-      return redirect("/");
+      return redirect("/?alert=error&message=Invalid Session");
     }
     const res = await fetch("/api/rate", {
       method: "POST",

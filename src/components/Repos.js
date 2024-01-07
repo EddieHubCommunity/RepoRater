@@ -115,7 +115,7 @@ export default function Repos({ minimumVotes = 5, keyword, sort }) {
                 </h2>
                 {repo.language && <p className="text-xs">({repo.language})</p>}
                 {repo.stars && (
-                  <p className="text-xs">
+                  <p className="text-xs hidden sm:inline-block">
                     ({abbreviateNumber(repo.stars)} ⭐️)
                   </p>
                 )}

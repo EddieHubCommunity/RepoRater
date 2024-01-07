@@ -1,6 +1,6 @@
 import { classNames } from "@/utils/classNames";
 
-export default function Toast({ type = "info", message, repo }) {
+export default function Toast({ type = "info", message }) {
   return (
     <div className="toast toast-end">
       <div
@@ -11,9 +11,9 @@ export default function Toast({ type = "info", message, repo }) {
           type === "error" && "alert-error",
         ])}
       >
-        <span className="text-black font-semibold">
-          {message}
-          <span className="text-white">{repo}</span>
+        <span className="font-bold">
+          {message.slice(0, 18)}
+          <span className="text-white ">{message.slice(18)}</span>
         </span>
       </div>
     </div>

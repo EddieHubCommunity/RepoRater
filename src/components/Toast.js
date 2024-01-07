@@ -1,6 +1,6 @@
 import { classNames } from "@/utils/classNames";
 
-export default function Toast({ type = "info", message }) {
+export default function Toast({ type = "info", message, repo }) {
   return (
     <div className="toast toast-end">
       <div
@@ -11,7 +11,10 @@ export default function Toast({ type = "info", message }) {
           type === "error" && "alert-error",
         ])}
       >
-        <span>{message}</span>
+        <span className="text-black font-semibold">
+          {message}
+          <span className="text-white">{repo}</span>
+        </span>
       </div>
     </div>
   );

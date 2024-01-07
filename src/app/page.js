@@ -25,6 +25,7 @@ export default function Page() {
   const router = useRouter();
   const alert = params.get("alert");
   const message = params.get("message");
+  const repo = params.get("repo");
   const [keyword, setKeyword] = useState("");
   const [sort, setSort] = useState(sortOptions[0].value);
 
@@ -90,7 +91,7 @@ export default function Page() {
           </aside>
         </>
       </SideNav>
-      {alert && <Toast type={alert} message={message} />}
+      {alert && <Toast type={alert} message={message} repo={repo} />}
     </>
   );
 }

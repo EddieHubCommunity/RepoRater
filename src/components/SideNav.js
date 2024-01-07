@@ -34,7 +34,7 @@ const navigation = [
     current: false,
   },
   {
-    name: "Star on GitHub",
+    name: "Star us on GitHub",
     href: "https://github.com/EddieHubCommunity/RepoRater",
     icon: StarIcon,
     current: false,

@@ -22,7 +22,7 @@ export async function POST(request) {
     const gitHubUserData = await getUser(session.providerAccessToken);
     username = gitHubUserData.login;
   } catch (e) {
-    return redirect("/auth/login");
+    return redirect("/?alert=error&message=Invalid Session");
   }
   console.info(`User ${username} submitted rating for ${data.url}`);
 

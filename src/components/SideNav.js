@@ -34,7 +34,7 @@ const navigation = [
     current: false,
   },
   {
-    name: "Star on GitHub",
+    name: "Star us on GitHub",
     href: "https://github.com/EddieHubCommunity/RepoRater",
     icon: StarIcon,
     current: false,
@@ -51,7 +51,7 @@ export default function SideNav({ setKeyword, children }) {
     account.createOAuth2Session(
       "github",
       `${process.env.NEXT_PUBLIC_BASE_URL}/`,
-      `${process.env.NEXT_PUBLIC_BASE_URL}/`
+      `${process.env.NEXT_PUBLIC_BASE_URL}/`,
     );
   };
 

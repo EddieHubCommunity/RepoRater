@@ -36,7 +36,7 @@ export default function Form({ name = "", owner = "" }) {
     if (data.success) {
       setSending(false);
       redirect(
-        `/?alert=success&message=Rating%20saved!%20for%20${owner}/${name}%20🎉🎉`
+        `/?alert=success&message=Rating saved! for ${owner}/${name} 🎉🎉`
       );
     }
 

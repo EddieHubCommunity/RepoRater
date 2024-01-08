@@ -11,10 +11,7 @@ export default function Toast({ type = "info", message }) {
           type === "error" && "alert-error",
         ])}
       >
-        <span className="font-bold">
-          {message.slice(0, 18)}
-          <span className="text-white ">{message.slice(18)}</span>
-        </span>
+        <span className="font-semibold">{message}</span>
       </div>
     </div>
   );

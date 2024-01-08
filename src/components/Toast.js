@@ -11,7 +11,7 @@ export default function Toast({ type = "info", message }) {
           type === "error" && "alert-error",
         ])}
       >
-        <span>{message}</span>
+        <span className="font-semibold">{message}</span>
       </div>
     </div>
   );

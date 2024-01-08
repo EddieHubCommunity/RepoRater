@@ -30,7 +30,7 @@ export default function Page() {
 
   useEffect(() => {
     if (alert) {
-      setTimeout(() => router.push("/", { scroll: false }), 4000);
+      setTimeout(() => router.push("/", { scroll: false }), 5000);
     }
   }, [alert]);
 

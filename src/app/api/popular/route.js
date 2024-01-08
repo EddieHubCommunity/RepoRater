@@ -22,7 +22,6 @@ export async function GET(request) {
         "name",
         "badgeViews",
       ]),
-      Query.orderDesc("rating"),
       Query.orderDesc("votes"),
       Query.greaterThanEqual("votes", parseInt(minimumVotes) || 5),
       Query.limit(100),

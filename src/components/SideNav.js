@@ -254,8 +254,8 @@ export default function SideNav({ setKeyword, children }) {
                               className="h-8 w-8 rounded-full"
                               src={user.avatar_url}
                               alt="GitHub OAuth Login"
-                              width={8}
-                              height={8}
+                              width={64}
+                              height={64}
                             />
                             <span>{user.name}</span>
                           </span>
@@ -363,8 +363,8 @@ export default function SideNav({ setKeyword, children }) {
                       className="h-8 w-8 rounded-full"
                       src={user.avatar_url}
                       alt="GitHub OAuth Login"
-                      width={8}
-                      height={8}
+                      width={64}
+                      height={64}
                     />
                     <span>{user.name}</span>
                   </span>

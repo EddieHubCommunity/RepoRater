@@ -4,7 +4,9 @@ import { redirect } from "next/navigation";
 import { useState } from "react";
 
 import { account } from "@/config/appwrite-client";
+import urlToOwnerAndName from "@/utils/github/urlToOwnerAndName";
 
+// params only when using url params for prefill form
 export default function Form({ name = "", owner = "" }) {
   const [sending, setSending] = useState(false);
   const [rating, setRating] = useState(5);
@@ -35,8 +37,9 @@ export default function Form({ name = "", owner = "" }) {
 
     if (data.success) {
       setSending(false);
+      const info = urlToOwnerAndName(formData.get("url"));
       redirect(
-        `/?alert=success&message=Rating saved for ${owner}/${name} 🎉`
+        `/?alert=success&message=Rating saved for ${info.owner}/${info.name} 🎉`
       );
     }
 

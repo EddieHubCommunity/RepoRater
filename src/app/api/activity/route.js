@@ -4,6 +4,7 @@ import TimeAgo from "javascript-time-ago";
 import { clientAdmin } from "@/config/appwrite-server";
 
 import en from "javascript-time-ago/locale/en";
+import urlToOwnerAndName from "@/utils/github/urlToOwnerAndName";
 
 TimeAgo.addDefaultLocale(en);
 const timeAgo = new TimeAgo("en-US");
@@ -17,12 +18,19 @@ export async function GET() {
     [Query.orderDesc("$updatedAt"), Query.limit(25)]
   );
 
-  ratings = ratings.documents.map((rating) => ({
-    username: rating.username,
-    url: rating.url,
-    timeAgo: timeAgo.format(Math.floor(new Date(rating.$updatedAt).getTime())),
-    updatedAt: rating.$updatedAt,
-  }));
+  ratings = ratings.documents.map((rating) => {
+    const path = urlToOwnerAndName(rating.url);
+    return {
+      username: rating.username,
+      url: rating.url,
+      owner: path.owner,
+      name: path.name,
+      timeAgo: timeAgo.format(
+        Math.floor(new Date(rating.$updatedAt).getTime())
+      ),
+      updatedAt: rating.$updatedAt,
+    };
+  });
 
   return Response.json(ratings);
 }

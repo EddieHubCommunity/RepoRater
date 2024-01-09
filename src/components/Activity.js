@@ -69,12 +69,10 @@ export default function Activity() {
             <p className="mt-3 truncate text-sm text-gray-500">
               Rated{" "}
               <Link
-                href={`/rate?owner=${
-                  rating.url.split("github.com/")[1].split("/")[0]
-                }&name=${rating.url.split("github.com/")[1].split("/")[1]}`}
+                href={`/rate?owner=${rating.owner}&name=${rating.name}`}
                 className="text-gray-400"
               >
-                {rating.url.split("github.com/")[1]}
+                {rating.owner}/{rating.name}
               </Link>
             </p>
           </li>

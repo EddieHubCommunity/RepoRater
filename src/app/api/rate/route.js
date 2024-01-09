@@ -4,6 +4,7 @@ import sdk, { Query } from "node-appwrite";
 import { client, clientAdmin } from "@/config/appwrite-server";
 import getUser from "@/utils/github/getUser";
 import getRepo from "@/utils/github/getRepo";
+import urlToOwnerAndName from "@/utils/github/urlToOwnerAndName";
 
 export async function POST(request) {
   const data = await request.json();
@@ -28,11 +29,11 @@ export async function POST(request) {
 
   // 0. get repo from github api
   const urlClean = data.url.endsWith("/") ? data.url.slice(0, -1) : data.url;
-  const repoPath = urlClean.split("github.com/");
-  if (repoPath.length !== 2) {
+  const repoPath = urlToOwnerAndName(urlClean);
+  if (!repoPath.path || !repoPath.owner || !repoPath.name) {
     return Response.json({ success: false, error: "Invalid URL" });
   }
-  const repoData = await getRepo(repoPath[1], session.providerAccessToken);
+  const repoData = await getRepo(repoPath.path, session.providerAccessToken);
   const githubRepo = {
     name: repoData.name,
     owner: repoData.owner.login,

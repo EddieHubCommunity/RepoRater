@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, Fragment, useEffect } from "react";
+import { useState, Fragment, useEffect, useMemo } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import {
   ChartBarSquareIcon,
@@ -18,34 +18,44 @@ import Logo from "@/assets/repo-rater-logo.svg";
 import GitHub from "@/assets/github-mark.svg";
 import { account } from "@/config/appwrite-client";
 import getUser from "@/utils/github/getUser";
-
-const navigation = [
-  { name: "GitHub Repos", href: "/", icon: FolderIcon, current: false },
-  {
-    name: "Popular Repos",
-    href: "/popular",
-    icon: ServerIcon,
-    current: false,
-  },
-  {
-    name: "User Rankings",
-    href: "/rankings",
-    icon: ChartBarSquareIcon,
-    current: false,
-  },
-  {
-    name: "Star us on GitHub",
-    href: "https://github.com/EddieHubCommunity/RepoRater",
-    icon: StarIcon,
-    current: false,
-    external: true,
-    css: "text-yellow-400",
-  },
-];
+import { usePathname } from "next/navigation";
 
 export default function SideNav({ setKeyword, children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [user, setUser] = useState(null);
+  const pathName = usePathname();
+
+  const navigation = useMemo(
+    () => [
+      {
+        name: "GitHub Repos",
+        href: "/",
+        icon: FolderIcon,
+        current: pathName === "/",
+      },
+      {
+        name: "Popular Repos",
+        href: "/popular",
+        icon: ServerIcon,
+        current: pathName === "/popular",
+      },
+      {
+        name: "User Rankings",
+        href: "/rankings",
+        icon: ChartBarSquareIcon,
+        current: pathName === "/rankings",
+      },
+      {
+        name: "Star us on GitHub",
+        href: "https://github.com/EddieHubCommunity/RepoRater",
+        icon: StarIcon,
+        current: false,
+        external: true,
+        css: "text-yellow-400",
+      },
+    ],
+    [pathName]
+  );
 
   const login = async () => {
     account.createOAuth2Session(
@@ -77,37 +87,40 @@ export default function SideNav({ setKeyword, children }) {
     getAppwriteUser();
   }, []);
 
-  const secure = [
-    {
-      id: 1,
-      name: "Add Rating",
-      href: "/rate",
-      initial: "+",
-      current: false,
-    },
-    // {
-    //   id: 2,
-    //   name: "Your Ratings",
-    //   href: "/account/ratings",
-    //   initial: "S",
-    //   current: false,
-    // },
-    // {
-    //   id: 3,
-    //   name: "Your Repos",
-    //   href: "/account/repos",
-    //   initial: "R",
-    //   current: false,
-    // },
-    {
-      id: 4,
-      name: "Logout",
-      href: "/",
-      onClick: logout,
-      initial: "L",
-      current: false,
-    },
-  ];
+  const secure = useMemo(
+    () => [
+      {
+        id: 1,
+        name: "Add Rating",
+        href: "/rate",
+        initial: "+",
+        current: pathName === "/rate",
+      },
+      // {
+      //   id: 2,
+      //   name: "Your Ratings",
+      //   href: "/account/ratings",
+      //   initial: "S",
+      //   current: pathName === "/account/ratings",
+      // },
+      // {
+      //   id: 3,
+      //   name: "Your Repos",
+      //   href: "/account/repos",
+      //   initial: "R",
+      //   current: pathName === "/account/repos",
+      // },
+      {
+        id: 4,
+        name: "Logout",
+        href: "/",
+        onClick: logout,
+        initial: "L",
+        current: false,
+      },
+    ],
+    [pathName]
+  );
 
   return (
     <>

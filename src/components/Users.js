@@ -99,8 +99,7 @@ export default async function Users() {
                 "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset",
               ])}
             >
-              {((user.stars / 5 / user.votes) * 100).toFixed(1)} / 5 (
-              {user.votes})
+              {((user.stars / 5 / user.votes) * 100).toFixed(1)}% ({user.votes})
             </div>
             <ChevronRightIcon
               className="h-5 w-5 flex-none text-gray-400"

@@ -20,46 +20,10 @@ import { account } from "@/config/appwrite-client";
 import getUser from "@/utils/github/getUser";
 import { usePathname } from "next/navigation";
 
-const initialNavigation = [
-  {
-    name: "GitHub Repos",
-    href: "/",
-    icon: FolderIcon,
-    current: false,
-  },
-  {
-    name: "Popular Repos",
-    href: "/popular",
-    icon: ServerIcon,
-    current: false,
-  },
-  {
-    name: "User Rankings",
-    href: "/rankings",
-    icon: ChartBarSquareIcon,
-    current: false,
-  },
-  {
-    name: "Star us on GitHub",
-    href: "https://github.com/EddieHubCommunity/RepoRater",
-    icon: StarIcon,
-    current: false,
-    external: true,
-    css: "text-yellow-400",
-  },
-];
-
 export default function SideNav({ setKeyword, children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [user, setUser] = useState(null);
   const pathName = usePathname();
-
-  const navigation = useMemo(() => {
-    return initialNavigation.map((item) => ({
-      ...item,
-      current: item.href === pathName,
-    }));
-  }, [pathName]);
 
   const login = async () => {
     account.createOAuth2Session(
@@ -90,6 +54,35 @@ export default function SideNav({ setKeyword, children }) {
   useEffect(() => {
     getAppwriteUser();
   }, []);
+
+  const navigation = [
+    {
+      name: "GitHub Repos",
+      href: "/",
+      icon: FolderIcon,
+      current: pathName === "/",
+    },
+    {
+      name: "Popular Repos",
+      href: "/popular",
+      icon: ServerIcon,
+      current: pathName === "/popular",
+    },
+    {
+      name: "User Rankings",
+      href: "/rankings",
+      icon: ChartBarSquareIcon,
+      current: pathName === "/rankings",
+    },
+    {
+      name: "Star us on GitHub",
+      href: "https://github.com/EddieHubCommunity/RepoRater",
+      icon: StarIcon,
+      current: false,
+      external: true,
+      css: "text-yellow-400",
+    },
+  ];
 
   const secure = [
     {

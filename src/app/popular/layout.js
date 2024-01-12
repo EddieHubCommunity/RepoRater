@@ -1,7 +1,7 @@
 import Page from "./page";
 
 export const metadata = {
-    title: "Popular Repos -RepoRater",
+    title: "Popular Repositories - RepoRater",
 };
 
 export default Page;

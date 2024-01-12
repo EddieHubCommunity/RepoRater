@@ -5,7 +5,7 @@ import Users from "@/components/Users";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "User Rankings -RepoRater" 
+  title: "User Rankings - RepoRater" 
 };
 
 export default function Page() {

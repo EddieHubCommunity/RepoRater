@@ -61,12 +61,12 @@ export default function Activity() {
               </Link>
               <time
                 dateTime={rating.$updatedAt}
-                className="flex-none text-xs text-gray-600"
+                className="flex-none text-xs text-white"
               >
                 {rating.timeAgo}
               </time>
             </div>
-            <p className="mt-3 truncate text-sm text-gray-500">
+            <p className="mt-3 truncate text-sm text-green-500">
               Rated{" "}
               <Link
                 href={`/rate?owner=${rating.owner}&name=${rating.name}`}

@@ -61,16 +61,16 @@ export default function Activity() {
               </Link>
               <time
                 dateTime={rating.$updatedAt}
-                className="flex-none text-xs text-green-500"
+                className="flex-none text-xs text-gray-400"
               >
                 {rating.timeAgo}
               </time>
             </div>
-            <p className="mt-3 truncate text-sm text-white">
+            <p className="mt-3 truncate text-sm text-gray-400">
               Rated{" "}
               <Link
                 href={`/rate?owner=${rating.owner}&name=${rating.name}`}
-                className="text-gray-400"
+                className="text-green-500"
               >
                 {rating.owner}/{rating.name}
               </Link>

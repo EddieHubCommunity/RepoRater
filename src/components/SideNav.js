@@ -18,12 +18,20 @@ import Logo from "@/assets/repo-rater-logo.svg";
 import GitHub from "@/assets/github-mark.svg";
 import { account } from "@/config/appwrite-client";
 import getUser from "@/utils/github/getUser";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useDebounce } from "react-use";
 
-export default function SideNav({ setKeyword, showSearch = true, children }) {
+export default function SideNav({
+  setKeyword = () => {},
+  showSearch = true,
+  children,
+}) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [searchKeyword, setSearchKeyword] = useState("");
+  const [debouncedSearchKeyword, setDebouncedSearchKeyword] = useState("");
   const [user, setUser] = useState(null);
   const pathName = usePathname();
+  const router = useRouter();
 
   const login = async () => {
     account.createOAuth2Session(
@@ -54,6 +62,23 @@ export default function SideNav({ setKeyword, showSearch = true, children }) {
   useEffect(() => {
     getAppwriteUser();
   }, []);
+
+  useDebounce(
+    () => {
+      setDebouncedSearchKeyword(searchKeyword);
+      setKeyword(searchKeyword);
+    },
+    200,
+    [searchKeyword],
+  );
+
+  useEffect(() => {
+    if (!debouncedSearchKeyword) {
+      router.push(pathName);
+    } else {
+      router.push(`?keyword=${debouncedSearchKeyword}`);
+    }
+  }, [debouncedSearchKeyword, router, pathName]);
 
   const navigation = [
     {
@@ -412,9 +437,10 @@ export default function SideNav({ setKeyword, showSearch = true, children }) {
                     placeholder="Search..."
                     type="search"
                     name="search"
+                    value={searchKeyword}
                     onChange={(e) => {
                       e.preventDefault();
-                      setKeyword(e.target.value);
+                      setSearchKeyword(e.target.value);
                     }}
                   />
                 </div>

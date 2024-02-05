@@ -19,11 +19,14 @@ const badges = {
   caution: "text-rose-400 bg-rose-400/10 ring-rose-400/20",
 };
 
-export default async function Users() {
+export default async function Users({ keyword = "" }) {
+  const query = keyword
+    ? [Query.limit(1000), Query.search("username", keyword)]
+    : [Query.limit(1000)];
   const ratings = await new Databases(clientAdmin()).listDocuments(
     process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
     process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_RATINGS_ID,
-    [Query.limit(1000)]
+    query,
   );
   const users = ratings.documents.reduce((acc, rating) => {
     if (!acc[rating.username]) {

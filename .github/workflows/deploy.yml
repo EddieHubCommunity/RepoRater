@@ -17,6 +17,6 @@ jobs:
         uses: caprover/deploy-from-github@v1.1.2
         with:
           server: "${{ secrets.CAPROVER_SERVER }}"
-          app: creators-registry
+          app: repo-rater
           token: "${{ secrets.CAPROVER_TOKEN }}"
           image: ghcr.io/eddiehubcommunity/reporater:latest

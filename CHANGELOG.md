@@ -1,3 +1,12 @@
+## [0.3.1](https://github.com/EddieHubCommunity/RepoRater/compare/v0.3.0...v0.3.1) (2024-06-30)
+
+
+### Bug Fixes
+
+* deployment app name ([e5fa00a](https://github.com/EddieHubCommunity/RepoRater/commit/e5fa00ae4d408141f4a81304e16e796fa998b0fa))
+
+
+
 # [0.3.0](https://github.com/EddieHubCommunity/RepoRater/compare/v0.2.2...v0.3.0) (2024-06-30)
 
 

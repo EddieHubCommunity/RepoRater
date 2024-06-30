@@ -1,3 +1,12 @@
+## [0.2.2](https://github.com/EddieHubCommunity/RepoRater/compare/v0.2.1...v0.2.2) (2024-06-30)
+
+
+### Bug Fixes
+
+* nextjs build command ([d9c1677](https://github.com/EddieHubCommunity/RepoRater/commit/d9c1677b8161015940d0225e213d3b5f31d6f214))
+
+
+
 ## [0.2.1](https://github.com/EddieHubCommunity/RepoRater/compare/v0.2.0...v0.2.1) (2024-06-30)
 
 

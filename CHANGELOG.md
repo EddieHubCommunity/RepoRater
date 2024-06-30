@@ -1,4 +1,13 @@
-# 0.2.0 (2024-06-30)
+## [0.2.1](https://github.com/EddieHubCommunity/RepoRater/compare/v0.2.0...v0.2.1) (2024-06-30)
+
+
+### Bug Fixes
+
+* text not visible text-gray-400 ([#138](https://github.com/EddieHubCommunity/RepoRater/issues/138)) ([0c2b088](https://github.com/EddieHubCommunity/RepoRater/commit/0c2b0881a7dc241c459745c32fb6c1003b6a5533))
+
+
+
+# [0.2.0](https://github.com/EddieHubCommunity/RepoRater/compare/1138a4592a7431f7974db18ab239cf7fde8a44ad...v0.2.0) (2024-06-30)
 
 
 ### Bug Fixes

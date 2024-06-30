@@ -1,3 +1,12 @@
+# [0.3.0](https://github.com/EddieHubCommunity/RepoRater/compare/v0.2.2...v0.3.0) (2024-06-30)
+
+
+### Features
+
+* deploy to caprover ([6356c07](https://github.com/EddieHubCommunity/RepoRater/commit/6356c07919a0a2479d6e22d65a57f380f7a544cf))
+
+
+
 ## [0.2.2](https://github.com/EddieHubCommunity/RepoRater/compare/v0.2.1...v0.2.2) (2024-06-30)
 
 

@@ -1,3 +1,12 @@
+# [0.4.0](https://github.com/EddieHubCommunity/RepoRater/compare/v0.3.1...v0.4.0) (2024-06-30)
+
+
+### Features
+
+* caprover config file ([fc13209](https://github.com/EddieHubCommunity/RepoRater/commit/fc13209bb259a59adef0c06cbc1543f2cb4fa1cb))
+
+
+
 ## [0.3.1](https://github.com/EddieHubCommunity/RepoRater/compare/v0.3.0...v0.3.1) (2024-06-30)
 
 
@@ -31,125 +40,6 @@
 ### Bug Fixes
 
 * text not visible text-gray-400 ([#138](https://github.com/EddieHubCommunity/RepoRater/issues/138)) ([0c2b088](https://github.com/EddieHubCommunity/RepoRater/commit/0c2b0881a7dc241c459745c32fb6c1003b6a5533))
-
-
-
-# [0.2.0](https://github.com/EddieHubCommunity/RepoRater/compare/1138a4592a7431f7974db18ab239cf7fde8a44ad...v0.2.0) (2024-06-30)
-
-
-### Bug Fixes
-
-* alert disappear after some time ([#89](https://github.com/EddieHubCommunity/RepoRater/issues/89)) ([1e1f025](https://github.com/EddieHubCommunity/RepoRater/commit/1e1f025c96a90e706bded5773bd67b8a6f5672a4))
-* alert message when not logged in ([a4fab7d](https://github.com/EddieHubCommunity/RepoRater/commit/a4fab7df862d1a60cdba43b263f1cbc88876796a))
-* alert repo info ([60c0e51](https://github.com/EddieHubCommunity/RepoRater/commit/60c0e5179b738690996bc0e8f417509740a53f92))
-* app stats display percentage ([55bf17b](https://github.com/EddieHubCommunity/RepoRater/commit/55bf17b10232b411ff7837a0885cf32c8933f761))
-* app stats display percentage ([4d47149](https://github.com/EddieHubCommunity/RepoRater/commit/4d47149926559553f5daef9ef79211344ffaa29c))
-* appwrite local ignore generated files ([c1e048d](https://github.com/EddieHubCommunity/RepoRater/commit/c1e048d9974e0da6f9689119a4d0f88a1f6d46f2))
-* boundary conditions ([5627486](https://github.com/EddieHubCommunity/RepoRater/commit/5627486df4684063d6b841c6896450dc7247fcf2))
-* branch name to trigger release ([116b628](https://github.com/EddieHubCommunity/RepoRater/commit/116b628c9f98eda1b2621889ac3c82d60aa9e527))
-* centered repo cards ([d8c548d](https://github.com/EddieHubCommunity/RepoRater/commit/d8c548d0f245c683f4e8b48faea218cc74ec09fd))
-* color visibility issue ([#125](https://github.com/EddieHubCommunity/RepoRater/issues/125)) ([d421f39](https://github.com/EddieHubCommunity/RepoRater/commit/d421f396d1c8e2a26af22b00da7ce9dec399cf37))
-* delete middleware redirect ([e67004b](https://github.com/EddieHubCommunity/RepoRater/commit/e67004b277ad718f15fd37d04306a81405012d9b))
-* docs from bad merge conflicts ([#83](https://github.com/EddieHubCommunity/RepoRater/issues/83)) ([e869737](https://github.com/EddieHubCommunity/RepoRater/commit/e869737d12bb81950316aaccbaea1614228a71c0))
-* env variables example ([#58](https://github.com/EddieHubCommunity/RepoRater/issues/58)) ([e7d5837](https://github.com/EddieHubCommunity/RepoRater/commit/e7d5837109c16b70d1f514a3aab7ac6b7236911d))
-* envars for appwrite ([aa0084c](https://github.com/EddieHubCommunity/RepoRater/commit/aa0084c3540498b2b4f12cf0a1b5e848f686f098))
-* feature template - technical field ([a0fcc8f](https://github.com/EddieHubCommunity/RepoRater/commit/a0fcc8f5e6ae1cee8cab807dcdf6e715f4df40ba))
-* git ignore env ([#50](https://github.com/EddieHubCommunity/RepoRater/issues/50)) ([9ab1c56](https://github.com/EddieHubCommunity/RepoRater/commit/9ab1c56810c96122c94df90b5737f32a3e0163d2))
-* GitHub sidebar text ([#103](https://github.com/EddieHubCommunity/RepoRater/issues/103)) ([cd6e310](https://github.com/EddieHubCommunity/RepoRater/commit/cd6e31059951ecda61b1df2b45475a242ea151d4))
-* hide repo stars on mobile  ([#98](https://github.com/EddieHubCommunity/RepoRater/issues/98)) ([1dd10e4](https://github.com/EddieHubCommunity/RepoRater/commit/1dd10e495716bebc5de4872a9cf2e3d943cbc6c3))
-* improve navbar and alert ([f4363d8](https://github.com/EddieHubCommunity/RepoRater/commit/f4363d85f879c38b6043cd51348e4b90855cf49f))
-* increase repo display limit ([e2411a3](https://github.com/EddieHubCommunity/RepoRater/commit/e2411a3db2967b60db8812288a81448ea43d7a77))
-* invalid GitHub url input ([#49](https://github.com/EddieHubCommunity/RepoRater/issues/49)) ([040c86f](https://github.com/EddieHubCommunity/RepoRater/commit/040c86f10a7330dc991de9d699018c0ee9898256))
-* issue template future, markdown didn't work ([d1883e1](https://github.com/EddieHubCommunity/RepoRater/commit/d1883e1f38cbe404273964b90dd0d5d0fea7f899))
-* limit user rank to top 10 ([129ba58](https://github.com/EddieHubCommunity/RepoRater/commit/129ba58756a7eb3bad66cdcac51b4cdd0b7f4495))
-* mobile nav ([4c32b57](https://github.com/EddieHubCommunity/RepoRater/commit/4c32b577023ae5dfcca5835ce5c4f620444e2e43))
-* move back navbar to nextjs links ([1138a45](https://github.com/EddieHubCommunity/RepoRater/commit/1138a4592a7431f7974db18ab239cf7fde8a44ad))
-* navbar for user rankings ([781c94f](https://github.com/EddieHubCommunity/RepoRater/commit/781c94f3f28236662223f04f6ae1bbd9b7f24c57))
-* page caching, badge page removed ([48ad956](https://github.com/EddieHubCommunity/RepoRater/commit/48ad95638b1099b0e81d58019eef6ef91324ddad))
-* page data cache ([9898e05](https://github.com/EddieHubCommunity/RepoRater/commit/9898e054572177d18158090d1011e813ea9a3b22))
-* page/route caching ([2bfa369](https://github.com/EddieHubCommunity/RepoRater/commit/2bfa3697965e04e9a639f5e822a3f73adc369651))
-* popoular repo sorting ([664ac5f](https://github.com/EddieHubCommunity/RepoRater/commit/664ac5fe100e1fa0b55f19e32e84d7c8535cd1fe))
-* popular repos minimum ([28c2561](https://github.com/EddieHubCommunity/RepoRater/commit/28c2561b8dda7d1cb12aaeefaac89cc9bfb212da))
-* popular repos with minimum votes ([b0308c3](https://github.com/EddieHubCommunity/RepoRater/commit/b0308c3bc2da8e49cdc5a55f981c272af44282b6))
-* profile image size ([e3b43a6](https://github.com/EddieHubCommunity/RepoRater/commit/e3b43a69758313715a79dfabec8125d9bacd58a4))
-* protect private page from guests ([#47](https://github.com/EddieHubCommunity/RepoRater/issues/47)) ([4ae8c02](https://github.com/EddieHubCommunity/RepoRater/commit/4ae8c024ce0a2c71bf0b9347117c962557c5467f))
-* protected route redirects with message on failure ([#101](https://github.com/EddieHubCommunity/RepoRater/issues/101)) ([84d1755](https://github.com/EddieHubCommunity/RepoRater/commit/84d17550a1ae9b2fdc98c0c91ea33bc41253a407))
-* ranking title ([4066e78](https://github.com/EddieHubCommunity/RepoRater/commit/4066e78acc842619deb1048447d75727a6995ea4))
-* rating number abbreviation ([7513047](https://github.com/EddieHubCommunity/RepoRater/commit/751304784d7f4b1784844ac2873cd3d18ea9601b))
-* rating text [#2](https://github.com/EddieHubCommunity/RepoRater/issues/2) ([19fcf98](https://github.com/EddieHubCommunity/RepoRater/commit/19fcf98a89c6c3881cae5eebdef0d7b649704202))
-* redirect with message on invalid session for rating ([#102](https://github.com/EddieHubCommunity/RepoRater/issues/102)) ([119a575](https://github.com/EddieHubCommunity/RepoRater/commit/119a575492cd0d061300efba673468e404065bf6))
-* reduce minimum popular votes to 3 ([d2437a4](https://github.com/EddieHubCommunity/RepoRater/commit/d2437a49570f76322441b34b3e9aed470469d45a))
-* remove cache ([d7d8661](https://github.com/EddieHubCommunity/RepoRater/commit/d7d86615ad4bbabd6c75f3796a9f1432ad413298))
-* remove cache on repo list page ([1a6e477](https://github.com/EddieHubCommunity/RepoRater/commit/1a6e4773ee8f3c75fd7b28c005a92bbaa06221bc))
-* removed async from form ([82d0371](https://github.com/EddieHubCommunity/RepoRater/commit/82d03715b0c4311833c469257852d14e511e87ac))
-* removed hardcoded collection id ([a1be067](https://github.com/EddieHubCommunity/RepoRater/commit/a1be06711afc13e26ce4ad3dd15737707a9359c5))
-* rename bug.yml to feature.yml ([fb5265f](https://github.com/EddieHubCommunity/RepoRater/commit/fb5265faefc1a424b35c7d2ceb4361190badf0e5))
-* repo name moved to top of card ([3111b26](https://github.com/EddieHubCommunity/RepoRater/commit/3111b268190dac2d6af2c57b1092ead10150ddf4))
-* repo rater comment gh action  ([#127](https://github.com/EddieHubCommunity/RepoRater/issues/127)) ([11f34a3](https://github.com/EddieHubCommunity/RepoRater/commit/11f34a3e918b37fb9d830e00d01f379db89d196e))
-* resolve issue with logo click not redirecting to home ([#76](https://github.com/EddieHubCommunity/RepoRater/issues/76)) ([970d182](https://github.com/EddieHubCommunity/RepoRater/commit/970d1827fb0f6d0c77b815e2ee2bf38807a5ec90))
-* search on popoular page ([aa54828](https://github.com/EddieHubCommunity/RepoRater/commit/aa548283cdefb7a53f4da5ba1c324b18e70575d6))
-* sidebar highlight when active ([#115](https://github.com/EddieHubCommunity/RepoRater/issues/115)) ([c45aca7](https://github.com/EddieHubCommunity/RepoRater/commit/c45aca721119709cc2626a20da6dff594002a89f))
-* **sidebar:** github icon color ([#108](https://github.com/EddieHubCommunity/RepoRater/issues/108)) ([a4556b8](https://github.com/EddieHubCommunity/RepoRater/commit/a4556b876bca8e0a750c5a8a503891f63be072d8))
-* sort by rating and then votes ([6749bcf](https://github.com/EddieHubCommunity/RepoRater/commit/6749bcf47204d1c237fb2b43deb30c4fa5e6c31f))
-* switch text colors around ([1211384](https://github.com/EddieHubCommunity/RepoRater/commit/1211384641fbccc0be5852dfd899927e6af86b3e))
-* timeline colors ([c6a1375](https://github.com/EddieHubCommunity/RepoRater/commit/c6a1375470fcd306b9fcad81e6f98d8fcb8750a7))
-* title metadata to pages ([#118](https://github.com/EddieHubCommunity/RepoRater/issues/118)) ([f23c93e](https://github.com/EddieHubCommunity/RepoRater/commit/f23c93eafda277f946e1e47d9d8386ca7610e9e0))
-* toast alert to have repo name ([#95](https://github.com/EddieHubCommunity/RepoRater/issues/95)) ([3fe65f6](https://github.com/EddieHubCommunity/RepoRater/commit/3fe65f6e98e915801da572d08bd5c10d0187c445))
-* trailing url slash ([486de92](https://github.com/EddieHubCommunity/RepoRater/commit/486de92e85f3f4e24ee20d920e35287a4ffff94d))
-* unescaped string in gh action message ([#128](https://github.com/EddieHubCommunity/RepoRater/issues/128)) ([7c6d94a](https://github.com/EddieHubCommunity/RepoRater/commit/7c6d94a42f905c8a8121c436587338a5008c201e))
-* update copyright year ([#69](https://github.com/EddieHubCommunity/RepoRater/issues/69)) ([10e2796](https://github.com/EddieHubCommunity/RepoRater/commit/10e27960c715de6c1a10ea380ff6a45225e71b80))
-* url trailiing slash ([bfb2fc8](https://github.com/EddieHubCommunity/RepoRater/commit/bfb2fc807bf1393c747bed268816baac06afc0fa))
-* user leaderboard average rating ([4c64622](https://github.com/EddieHubCommunity/RepoRater/commit/4c64622381d6dccfdab74a87236ca8c6494c8a20))
-* user limit on rank page ([a1c796a](https://github.com/EddieHubCommunity/RepoRater/commit/a1c796a252ad261308df0965caf45c0fd09927fb))
-* user rank data limit ([91f29a0](https://github.com/EddieHubCommunity/RepoRater/commit/91f29a054315bea75ae626204807314d33be3547))
-* using main branch ([b15b80f](https://github.com/EddieHubCommunity/RepoRater/commit/b15b80f808bffbf698f5eaf4354625637bf41019))
-
-
-### Features
-
-* activity click to repo ([0591eaa](https://github.com/EddieHubCommunity/RepoRater/commit/0591eaaacca6f7bf101d060881daff9580cad103))
-* activity click to user ([071fc90](https://github.com/EddieHubCommunity/RepoRater/commit/071fc90b0bd6a8fcc7e0b5c6c3ac72faae7696ac))
-* activity to naviagte to rating form ([861f392](https://github.com/EddieHubCommunity/RepoRater/commit/861f3929ba36fd4338de1c327c988bab623d4f31))
-* badge data form number/percentage ([32ec21f](https://github.com/EddieHubCommunity/RepoRater/commit/32ec21f68cf676908c77a8826ef1dc4dd841bd64))
-* badge now has different styles ([51b8609](https://github.com/EddieHubCommunity/RepoRater/commit/51b86093353bc355a09d8dba22214ed1e715a7df))
-* badge to show percentage ([9d222b4](https://github.com/EddieHubCommunity/RepoRater/commit/9d222b41a64f47d79369e92e48284eba2097d52d))
-* badge views ([909e15a](https://github.com/EddieHubCommunity/RepoRater/commit/909e15a7392d39a27ebc295146e20c635fd0ad7f))
-* badges change on percentage ([bc2b443](https://github.com/EddieHubCommunity/RepoRater/commit/bc2b443077e89fb580c921e10d866e6566647466))
-* click on repo to rate ([7547d9b](https://github.com/EddieHubCommunity/RepoRater/commit/7547d9bde3e5df917a0457085df7a44d56d72e5b))
-* custom favicon ([27c183e](https://github.com/EddieHubCommunity/RepoRater/commit/27c183e7107f62c0fc7c9daa22fe809b2eb5fcd9))
-* display app stats ([a49a421](https://github.com/EddieHubCommunity/RepoRater/commit/a49a4211d78a2cc718bd4e14e0ff075119fc235e))
-* github repo in side nav ([5b6482f](https://github.com/EddieHubCommunity/RepoRater/commit/5b6482f06c01b684cc0021e9206d6c8981e69b28))
-* GitHub request uses user's token ([#31](https://github.com/EddieHubCommunity/RepoRater/issues/31)) ([3781de2](https://github.com/EddieHubCommunity/RepoRater/commit/3781de2039f980876d87df13f6af3e1455c7902d))
-* hero section on homepage ([cfa721f](https://github.com/EddieHubCommunity/RepoRater/commit/cfa721f5a7d2e2486ec10414e21d7bc6c44374ab))
-* icon set used for repo card ([cff4949](https://github.com/EddieHubCommunity/RepoRater/commit/cff494937d2d81e036243cb28f12f374425b21b5))
-* increment app stats ([2f32eb7](https://github.com/EddieHubCommunity/RepoRater/commit/2f32eb77189254f151e701be7bfe5fd3cec5a571))
-* leaderboard api ([#65](https://github.com/EddieHubCommunity/RepoRater/issues/65)) ([4e67a63](https://github.com/EddieHubCommunity/RepoRater/commit/4e67a63cd5587fcb1bd70ef431a3a0ed3b659ba0))
-* link to EddieHub Org ([230bfbe](https://github.com/EddieHubCommunity/RepoRater/commit/230bfbe0e903568a98e84fa6a0e362eea2321450))
-* list users who vote the most ([0f9f78b](https://github.com/EddieHubCommunity/RepoRater/commit/0f9f78b2b899be5b369451336714408e9127917a))
-* maintenance page ([099dfac](https://github.com/EddieHubCommunity/RepoRater/commit/099dfac13104aadfa76333a03e574273c4150c4f))
-* more to dashboard design ([2ac68b7](https://github.com/EddieHubCommunity/RepoRater/commit/2ac68b742a58881b98b3d69af5fb22f852251501))
-* popular dashboard page ([f74a9cf](https://github.com/EddieHubCommunity/RepoRater/commit/f74a9cf53b6554bd1110b0bce227c61f305ccf93))
-* popular rated repos page ([2a4b39b](https://github.com/EddieHubCommunity/RepoRater/commit/2a4b39ba7126d675f9f9bbc1050a650e5ef357d7))
-* popular repos api ([380be72](https://github.com/EddieHubCommunity/RepoRater/commit/380be7210a5b351b98e19efd7fdd55d9271b693a))
-* progress spinner after form submit ([9fa1717](https://github.com/EddieHubCommunity/RepoRater/commit/9fa17176675f3eb2103bc83583c7e2d0a7cf1fc5))
-* project repo rater logo ([ee5f3e6](https://github.com/EddieHubCommunity/RepoRater/commit/ee5f3e61ec1bd7676f02af93d4f3d0e3e3122c57))
-* rating form and stats ([168cd30](https://github.com/EddieHubCommunity/RepoRater/commit/168cd30bfe55161de1614e8cfb9aab4bad4c550e))
-* realtime user stats ([571c9d7](https://github.com/EddieHubCommunity/RepoRater/commit/571c9d77505ea284ec51c17f970456c6bc6b6760))
-* release + docker container ([#136](https://github.com/EddieHubCommunity/RepoRater/issues/136)) ([a9ecb94](https://github.com/EddieHubCommunity/RepoRater/commit/a9ecb94f8098e813f96607d091c50f6a39105afe))
-* repo list sort by rating ([dee9ea2](https://github.com/EddieHubCommunity/RepoRater/commit/dee9ea263b90900e8858eb3e21ec3f19cbb8108b))
-* repo main language ([0a9e7d2](https://github.com/EddieHubCommunity/RepoRater/commit/0a9e7d248177035fc47d1fa2d90a7dacfc1a3916))
-* repo stars and sort ([f2cceb0](https://github.com/EddieHubCommunity/RepoRater/commit/f2cceb0938e726e59462665f9607fffeeb41cab6))
-* RepoRater GitHub Action ([#119](https://github.com/EddieHubCommunity/RepoRater/issues/119)) ([405383e](https://github.com/EddieHubCommunity/RepoRater/commit/405383ef8ff296d2ced9259f0e011abe807612cb))
-* server component to api ([1650d3c](https://github.com/EddieHubCommunity/RepoRater/commit/1650d3c521bf4f19cf9aca6e318e951e5330c53a))
-* sheild badge for readme ([87e60a4](https://github.com/EddieHubCommunity/RepoRater/commit/87e60a41434c68642e49f2107d9cb8e008bd8530))
-* sort repos list ([#87](https://github.com/EddieHubCommunity/RepoRater/issues/87)) ([2adfbe7](https://github.com/EddieHubCommunity/RepoRater/commit/2adfbe7e89ce7cdffe1585f4b7f7e7e576aef709))
-* star on github yellow ([076a539](https://github.com/EddieHubCommunity/RepoRater/commit/076a539d282e81906971596c3a1fc78c81d9ac75))
-* star repo banner ([1d0d7e8](https://github.com/EddieHubCommunity/RepoRater/commit/1d0d7e894fb4fbdd75226c3aaa09f61248ee4ce8))
-* stats added to popular page ([9acb1d8](https://github.com/EddieHubCommunity/RepoRater/commit/9acb1d8ec01acdc1882f8a4e9e5a06d0fb116ff9))
-* toast alert message ([72b8a8f](https://github.com/EddieHubCommunity/RepoRater/commit/72b8a8f2c453adbeaadcb5bdb8d31085e2ce362c))
-* tooltip with repo topics ([320c415](https://github.com/EddieHubCommunity/RepoRater/commit/320c415b5f70cfb9b22013467e92236cffb46326))
-* user profile links to their github ([0711429](https://github.com/EddieHubCommunity/RepoRater/commit/0711429d8312d14dabdf1dd60ef4d67c3eec0159))
-* vercel analytics ([fe98e3f](https://github.com/EddieHubCommunity/RepoRater/commit/fe98e3f70ec32d83f76095af6de7554b453db3d9))
 
 
 

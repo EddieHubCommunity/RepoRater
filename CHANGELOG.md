@@ -1,3 +1,12 @@
+# [0.5.0](https://github.com/EddieHubCommunity/RepoRater/compare/v0.4.0...v0.5.0) (2024-07-14)
+
+
+### Features
+
+* run linter pre commit + gh action ([44d4a8b](https://github.com/EddieHubCommunity/RepoRater/commit/44d4a8b0de51b8064893ee69e7f6af6015bb7e72))
+
+
+
 # [0.4.0](https://github.com/EddieHubCommunity/RepoRater/compare/v0.3.1...v0.4.0) (2024-06-30)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * nextjs build command ([d9c1677](https://github.com/EddieHubCommunity/RepoRater/commit/d9c1677b8161015940d0225e213d3b5f31d6f214))
-
-
-
-## [0.2.1](https://github.com/EddieHubCommunity/RepoRater/compare/v0.2.0...v0.2.1) (2024-06-30)
-
-
-### Bug Fixes
-
-* text not visible text-gray-400 ([#138](https://github.com/EddieHubCommunity/RepoRater/issues/138)) ([0c2b088](https://github.com/EddieHubCommunity/RepoRater/commit/0c2b0881a7dc241c459745c32fb6c1003b6a5533))
 
 
 

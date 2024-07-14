@@ -1,0 +1,19 @@
+name: Linter
+on:
+  push:
+    branches: main
+  pull_request:
+    branches: main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: latest
+      - name: install dependencies
+        run: npm ci
+      - name: run linter
+        run: npm run lint

@@ -10,6 +10,7 @@ import {
   ServerIcon,
   StarIcon,
   XMarkIcon,
+  PuzzlePieceIcon
 } from "@heroicons/react/24/outline";
 import { Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 
@@ -82,6 +83,14 @@ export default function SideNav({ setKeyword, children }) {
       external: true,
       css: "text-yellow-400",
     },
+    {
+      name: "Download Browser Extension",
+      href: "https://github.com/EddieHubCommunity/RepoRater-Chrome",
+      current:false,
+      external: true,
+      icon: PuzzlePieceIcon,
+      
+    }
   ];
 
   const secure = [

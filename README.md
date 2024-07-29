@@ -1,4 +1,4 @@
-[![RepoRater](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater)](https://repo-rater.eddiehub.io/rate?owner=EddieHubCommunity&name=RepoRater)
+[![RepoRater](https://repo-rater.eddiehub.org/api/badge?owner=EddieHubCommunity&name=RepoRater)](https://repo-rater.eddiehub.org/rate?owner=EddieHubCommunity&name=RepoRater)
 
 # RepoRater
 

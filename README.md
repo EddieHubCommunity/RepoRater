@@ -1,4 +1,4 @@
-[![RepoRater](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater)](https://repo-rater.eddiehub.io/rate?owner=EddieHubCommunity&name=RepoRater)
+[![RepoRater](https://repo-rater.eddiehub.org/api/badge?owner=EddieHubCommunity&name=RepoRater)](https://repo-rater.eddiehub.org/rate?owner=EddieHubCommunity&name=RepoRater)
 
 # RepoRater
 
@@ -74,10 +74,10 @@ npm run dev
 
 Add the following markdown to your README to show your RepoRater badge and link to rate your repository.
 
-[![RepoRater](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater)](https://repo-rater.eddiehub.io/rate?owner=EddieHubCommunity&name=RepoRater)
+[![RepoRater](https://repo-rater.eddiehub.org/api/badge?owner=EddieHubCommunity&name=RepoRater)](https://repo-rater.eddiehub.org/rate?owner=EddieHubCommunity&name=RepoRater)
 
 ```markdown
-[![RepoRater](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater)](https://repo-rater.eddiehub.io/rate?owner=EddieHubCommunity&name=RepoRater)
+[![RepoRater](https://repo-rater.eddiehub.org/api/badge?owner=EddieHubCommunity&name=RepoRater)](https://repo-rater.eddiehub.org/rate?owner=EddieHubCommunity&name=RepoRater)
 ```
 
 Change the `owner` and `name` parameters to your GitHub org/username and repository name.
@@ -90,26 +90,26 @@ Here are the options with examples:
 
 | style         | badge                                                                                                                 |
 | :------------ | :-------------------------------------------------------------------------------------------------------------------- |
-| flat          | ![flat](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater&style=flat)                   |
-| flat-square   | ![flat-square](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater&style=flat-square)     |
-| for-the-badge | ![for-the-badge](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater&style=for-the-badge) |
-| plastic       | ![plastic](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater&style=plastic)             |
-| social        | ![social](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater&style=social)               |
+| flat          | ![flat](https://repo-rater.eddiehub.org/api/badge?owner=EddieHubCommunity&name=RepoRater&style=flat)                   |
+| flat-square   | ![flat-square](https://repo-rater.eddiehub.org/api/badge?owner=EddieHubCommunity&name=RepoRater&style=flat-square)     |
+| for-the-badge | ![for-the-badge](https://repo-rater.eddiehub.org/api/badge?owner=EddieHubCommunity&name=RepoRater&style=for-the-badge) |
+| plastic       | ![plastic](https://repo-rater.eddiehub.org/api/badge?owner=EddieHubCommunity&name=RepoRater&style=plastic)             |
+| social        | ![social](https://repo-rater.eddiehub.org/api/badge?owner=EddieHubCommunity&name=RepoRater&style=social)               |
 
 ### Badge Format
 
 The default badge format is to show the average rating out of `5`. You can also show the percentage. This is done by appending the url with the `format` parameter.
 
-[![RepoRater](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater)](https://repo-rater.eddiehub.io/rate?owner=EddieHubCommunity&name=RepoRater&format=percentage)
+[![RepoRater](https://repo-rater.eddiehub.org/api/badge?owner=EddieHubCommunity&name=RepoRater)](https://repo-rater.eddiehub.org/rate?owner=EddieHubCommunity&name=RepoRater&format=percentage)
 
 ```markdown
-[![RepoRater](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater)](https://repo-rater.eddiehub.io/rate?owner=EddieHubCommunity&name=RepoRater&format=percentage)
+[![RepoRater](https://repo-rater.eddiehub.org/api/badge?owner=EddieHubCommunity&name=RepoRater)](https://repo-rater.eddiehub.org/rate?owner=EddieHubCommunity&name=RepoRater&format=percentage)
 ```
 
 | format     | badge                                                                                                                                                                                         |
 | :--------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| number     | [![RepoRater](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater&format=number)](https://repo-rater.eddiehub.io/rate?owner=EddieHubCommunity&name=RepoRater)     |
-| percentage | [![RepoRater](https://repo-rater.eddiehub.io/api/badge?owner=EddieHubCommunity&name=RepoRater&format=percentage)](https://repo-rater.eddiehub.io/rate?owner=EddieHubCommunity&name=RepoRater) |
+| number     | [![RepoRater](https://repo-rater.eddiehub.org/api/badge?owner=EddieHubCommunity&name=RepoRater&format=number)](https://repo-rater.eddiehub.org/rate?owner=EddieHubCommunity&name=RepoRater)     |
+| percentage | [![RepoRater](https://repo-rater.eddiehub.org/api/badge?owner=EddieHubCommunity&name=RepoRater&format=percentage)](https://repo-rater.eddiehub.org/rate?owner=EddieHubCommunity&name=RepoRater) |
 
 ## GitHub Action
 
@@ -147,7 +147,7 @@ You can consume our data for your own apps.
 
 ### User Leaderboard
 
-GET https://repo-rater.eddiehub.io/api/leaderboard
+GET https://repo-rater.eddiehub.org/api/leaderboard
 
 ```json
 [
@@ -171,7 +171,7 @@ GET https://repo-rater.eddiehub.io/api/leaderboard
 
 ### Popular Repos
 
-GET https://repo-rater.eddiehub.io/api/popular
+GET https://repo-rater.eddiehub.org/api/popular
 
 Optional paramater `?minimumVotes=5` (default is `5`)
 
@@ -202,7 +202,7 @@ Optional paramater `?minimumVotes=5` (default is `5`)
 
 ### All Repos with Search
 
-GET https://repo-rater.eddiehub.io/api/repos
+GET https://repo-rater.eddiehub.org/api/repos
 
 Optional paramater `?keyword=EddieHub`
 
@@ -233,7 +233,7 @@ Optional paramater `?keyword=EddieHub`
 
 ### App stats
 
-GET https://repo-rater.eddiehub.io/api/stats
+GET https://repo-rater.eddiehub.org/api/stats
 
 ```json
 {

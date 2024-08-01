@@ -1,3 +1,12 @@
+# [0.6.0](https://github.com/EddieHubCommunity/RepoRater/compare/v0.5.1...v0.6.0) (2024-08-01)
+
+
+### Features
+
+* chrome extension button ([#148](https://github.com/EddieHubCommunity/RepoRater/issues/148)) ([39129bd](https://github.com/EddieHubCommunity/RepoRater/commit/39129bd0e80a829a248fb3eee3ed032d8d10f482))
+
+
+
 ## [0.5.1](https://github.com/EddieHubCommunity/RepoRater/compare/v0.5.0...v0.5.1) (2024-07-30)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * deployment app name ([e5fa00a](https://github.com/EddieHubCommunity/RepoRater/commit/e5fa00ae4d408141f4a81304e16e796fa998b0fa))
-
-
-
-# [0.3.0](https://github.com/EddieHubCommunity/RepoRater/compare/v0.2.2...v0.3.0) (2024-06-30)
-
-
-### Features
-
-* deploy to caprover ([6356c07](https://github.com/EddieHubCommunity/RepoRater/commit/6356c07919a0a2479d6e22d65a57f380f7a544cf))
 
 
 

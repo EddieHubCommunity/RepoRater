@@ -10,7 +10,7 @@ import {
   ServerIcon,
   StarIcon,
   XMarkIcon,
-  PuzzlePieceIcon
+  PuzzlePieceIcon,
 } from "@heroicons/react/24/outline";
 import { Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 
@@ -30,7 +30,7 @@ export default function SideNav({ setKeyword, children }) {
     account.createOAuth2Session(
       "github",
       `${process.env.NEXT_PUBLIC_BASE_URL}/`,
-      `${process.env.NEXT_PUBLIC_BASE_URL}/`
+      `${process.env.NEXT_PUBLIC_BASE_URL}/`,
     );
   };
 
@@ -86,11 +86,10 @@ export default function SideNav({ setKeyword, children }) {
     {
       name: "Download Browser Extension",
       href: "https://github.com/EddieHubCommunity/RepoRater-Chrome",
-      current:false,
+      current: false,
       external: true,
       icon: PuzzlePieceIcon,
-      
-    }
+    },
   ];
 
   const secure = [

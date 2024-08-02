@@ -39,7 +39,7 @@ export default function Form({ name = "", owner = "" }) {
       setSending(false);
       const info = urlToOwnerAndName(formData.get("url"));
       redirect(
-        `/?alert=success&message=Rating saved for ${info.owner}/${info.name} 🎉`
+        `/?alert=success&message=Rating saved for ${info.owner}/${info.name} 🎉`,
       );
     }
 

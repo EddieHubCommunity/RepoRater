@@ -15,7 +15,7 @@ export async function GET() {
   let ratings = await new Databases(clientAdmin()).listDocuments(
     process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
     process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_RATINGS_ID,
-    [Query.orderDesc("$updatedAt"), Query.limit(25)]
+    [Query.orderDesc("$updatedAt"), Query.limit(25)],
   );
 
   ratings = ratings.documents.map((rating) => {
@@ -26,7 +26,7 @@ export async function GET() {
       owner: path.owner,
       name: path.name,
       timeAgo: timeAgo.format(
-        Math.floor(new Date(rating.$updatedAt).getTime())
+        Math.floor(new Date(rating.$updatedAt).getTime()),
       ),
       updatedAt: rating.$updatedAt,
     };

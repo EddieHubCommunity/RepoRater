@@ -26,11 +26,11 @@ export async function GET(request) {
       Query.orderDesc("votes"),
       Query.greaterThanEqual("votes", parseInt(minimumVotes) || 5),
       Query.limit(100),
-    ]
+    ],
   );
 
   const data = repos.documents.map((repo) =>
-    Object.fromEntries(fields.map((field) => [[field], repo[field]]))
+    Object.fromEntries(fields.map((field) => [[field], repo[field]])),
   );
 
   return Response.json(data);

@@ -28,8 +28,8 @@ body:
     id: steps
     attributes:
       label: Steps to Reproduce
-      description:  To help us recreate the bug, provide a numbered list of the exact steps taken to trigger the buggy behavior.
-      value:  | 
+      description: To help us recreate the bug, provide a numbered list of the exact steps taken to trigger the buggy behavior.
+      value: |
         If you know the steps, follow the below format and provide steps to reproduce
 
         For example:

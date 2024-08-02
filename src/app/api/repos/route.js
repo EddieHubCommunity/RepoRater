@@ -47,11 +47,11 @@ export async function GET(request) {
       minimumVotes && Query.greaterThanEqual("votes", parseInt(minimumVotes)),
       Query.limit(100),
       keyword && Query.search("url", keyword),
-    ]
+    ],
   );
 
   const data = repos.documents.map((repo) =>
-    Object.fromEntries(fields.map((field) => [[field], repo[field]]))
+    Object.fromEntries(fields.map((field) => [[field], repo[field]])),
   );
 
   return Response.json(data);

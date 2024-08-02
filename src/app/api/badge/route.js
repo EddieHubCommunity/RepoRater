@@ -17,7 +17,11 @@ export async function GET(request) {
   const repos = await new sdk.Databases(clientAdmin()).listDocuments(
     process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
     process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_REPOS_ID,
-    [Query.equal("owner", [owner]), Query.equal("name", [name]), Query.limit(1)]
+    [
+      Query.equal("owner", [owner]),
+      Query.equal("name", [name]),
+      Query.limit(1),
+    ],
   );
   const data = repos.documents[0];
 
@@ -29,7 +33,7 @@ export async function GET(request) {
       data.$id,
       {
         badgeViews: data.badgeViews + 1,
-      }
+      },
     );
   }
 

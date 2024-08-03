@@ -1,3 +1,12 @@
+## [0.6.1](https://github.com/EddieHubCommunity/RepoRater/compare/v0.6.0...v0.6.1) (2024-08-03)
+
+
+### Bug Fixes
+
+* prettier ignore file for generated changelog ([e0400b6](https://github.com/EddieHubCommunity/RepoRater/commit/e0400b6cdb136946089e4b9f18323fc18eb4ccc8))
+
+
+
 # [0.6.0](https://github.com/EddieHubCommunity/RepoRater/compare/v0.5.1...v0.6.0) (2024-08-01)
 
 
@@ -31,15 +40,6 @@
 ### Features
 
 * caprover config file ([fc13209](https://github.com/EddieHubCommunity/RepoRater/commit/fc13209bb259a59adef0c06cbc1543f2cb4fa1cb))
-
-
-
-## [0.3.1](https://github.com/EddieHubCommunity/RepoRater/compare/v0.3.0...v0.3.1) (2024-06-30)
-
-
-### Bug Fixes
-
-* deployment app name ([e5fa00a](https://github.com/EddieHubCommunity/RepoRater/commit/e5fa00ae4d408141f4a81304e16e796fa998b0fa))
 
 
 

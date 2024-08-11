@@ -1,23 +1,23 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import { ChevronRightIcon } from '@heroicons/react/20/solid';
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { ChevronRightIcon } from "@heroicons/react/20/solid";
 
-import { client } from '@/config/appwrite-client';
-import { classNames } from '@/utils/classNames';
-import { abbreviateNumber } from '@/utils/abbreviateNumbers';
+import { client } from "@/config/appwrite-client";
+import { classNames } from "@/utils/classNames";
+import { abbreviateNumber } from "@/utils/abbreviateNumbers";
 
 const statuses = {
-  research: 'text-orange-500 bg-orange-100/10',
-  recommend: 'text-green-400 bg-green-400/10',
-  caution: 'text-rose-400 bg-rose-400/10',
+  research: "text-orange-500 bg-orange-100/10",
+  recommend: "text-green-400 bg-green-400/10",
+  caution: "text-rose-400 bg-rose-400/10",
 };
 const badges = {
-  research: 'text-orange-500 bg-orange-100/10 ring-orange-400/20',
-  recommend: 'text-green-400 bg-green-400/10 ring-green-400/20',
-  caution: 'text-rose-400 bg-rose-400/10 ring-rose-400/20',
+  research: "text-orange-500 bg-orange-100/10 ring-orange-400/20",
+  recommend: "text-green-400 bg-green-400/10 ring-green-400/20",
+  caution: "text-rose-400 bg-rose-400/10 ring-rose-400/20",
 };
 const groups = {
   recommend: 70,
@@ -26,12 +26,12 @@ const groups = {
 
 const calStatus = (percentage) => {
   if (percentage >= groups.recommend) {
-    return 'recommend';
+    return "recommend";
   }
   if (percentage >= groups.research && percentage < groups.recommend) {
-    return 'research';
+    return "research";
   }
-  return 'caution';
+  return "caution";
 };
 
 export default function Repos({ minimumVotes = 5, keyword, sort }) {
@@ -48,7 +48,7 @@ export default function Repos({ minimumVotes = 5, keyword, sort }) {
       params.push(`sort=${sort}`);
     }
     const res = await fetch(
-      `/api/repos${params.length ? `?${params.join('&')}` : ''}`
+      `/api/repos${params.length ? `?${params.join("&")}` : ""}`
     );
 
     const data = await res.json();
@@ -79,10 +79,10 @@ export default function Repos({ minimumVotes = 5, keyword, sort }) {
         <li
           key={idx}
           className={classNames([
-            'relative sm:flex items-center w-full sm:w-auto space-y-4 sm:space-x-4 space-x-0 sm:space-y-0 px-4 py-4 sm:px-6 lg:px-8',
-            repo.topics.length && 'tooltip',
+            "relative sm:flex items-center w-full sm:w-auto space-y-4 sm:space-x-4 space-x-0 sm:space-y-0 px-4 py-4 sm:px-6 lg:px-8",
+            repo.topics.length && "tooltip",
           ])}
-          data-tip={repo.topics.join(', ')}
+          data-tip={repo.topics.join(", ")}
         >
           <Image
             className="hidden w-12 h-12 rounded-md sm:block"
@@ -96,7 +96,7 @@ export default function Repos({ minimumVotes = 5, keyword, sort }) {
               <div
                 className={classNames([
                   statuses[repo.status],
-                  'flex-none mt-1 rounded-full p-1',
+                  "flex-none mt-1 rounded-full p-1",
                 ])}
               >
                 <div className="w-2 h-2 bg-current rounded-full" />
@@ -128,7 +128,7 @@ export default function Repos({ minimumVotes = 5, keyword, sort }) {
 
             <div className="mt-3 flex items-center gap-x-2.5 text-xs flex-wrap leading-5 text-gray-400">
               <p className="text-left md:text-center">
-                {repo.description}{' '}
+                {repo.description}{" "}
                 <svg
                   viewBox="0 0 2 2"
                   className="h-0.5 w-0.5  inline-block mx-2 fill-gray-300"
@@ -143,7 +143,7 @@ export default function Repos({ minimumVotes = 5, keyword, sort }) {
           <div
             className={classNames([
               badges[repo.status],
-              'rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset',
+              "rounded-full flex-none py-1 px-2 text-xs font-medium ring-1 ring-inset",
             ])}
           >
             {repo.rating.toFixed(1)} / 5 ({repo.votes})

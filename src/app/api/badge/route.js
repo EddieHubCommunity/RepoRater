@@ -39,6 +39,7 @@ export async function GET(request) {
     );
   }
 
+  let message = "No votes yet";
   if (data && data.votes > 0) {
     switch (format) {
       case "percentage":

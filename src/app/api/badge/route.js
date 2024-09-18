@@ -1,6 +1,5 @@
 import { makeBadge } from "badge-maker";
 import sdk, { Query } from "node-appwrite";
-
 import { clientAdmin } from "@/config/appwrite-server";
 
 export const dynamic = "force-dynamic";
@@ -13,19 +12,26 @@ export async function GET(request) {
   const style = params.get("style");
   const format = params.get("format");
 
+  const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
+  const collectionId = process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_REPOS_ID;
+
+  if (!databaseId || !collectionId) {
+    throw new Error("Database or Collection ID is missing in environment variables");
+  }
+
   // get repo rating from database
   const repos = await new sdk.Databases(clientAdmin()).listDocuments(
-    process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
-    process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_REPOS_ID,
+    databaseId,
+    collectionId,
     [Query.equal("owner", [owner]), Query.equal("name", [name]), Query.limit(1)]
   );
-  const data = repos.documents[0];
+  const data = repos.documents.length > 0 ? repos.documents[0] : null;
 
   // increment views using badge
   if (data) {
     await new sdk.Databases(clientAdmin()).updateDocument(
-      process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
-      process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_REPOS_ID,
+      databaseId,
+      collectionId,
       data.$id,
       {
         badgeViews: data.badgeViews + 1,
@@ -34,7 +40,7 @@ export async function GET(request) {
   }
 
   let message = "No votes yet";
-  if (data) {
+  if (data && data.votes > 0) {
     switch (format) {
       case "percentage":
         message = `${((data.rating / 5) * 100).toFixed(0)}% (${data.votes})`;
@@ -45,19 +51,26 @@ export async function GET(request) {
     }
   }
 
+  const chosenStyle = style && styles.includes(style) ? style : "flat";
   const config = {
     message,
     label: "RepoRater",
     color: "green",
-    style: style && styles.includes(style) ? style : "flat",
+    style: chosenStyle,
   };
 
   let svg = "";
   try {
     svg = makeBadge(config);
   } catch (e) {
-    console.log(e);
-    // TODO: return error badge
+    console.error("Error generating badge:", e);
+    const errorConfig = {
+      message: "Error",
+      label: "RepoRater",
+      color: "red",
+      style: "flat",
+    };
+    svg = makeBadge(errorConfig);
   }
 
   return new Response(svg, {

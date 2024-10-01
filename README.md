@@ -1,3 +1,7 @@
+> [!IMPORTANT]
+> This project is now archived. Thank you for your contributions to this project. The free rate limit on the hosting provider has been reached and it is not financially sustainable to continue this project.
+> 
+
 [![RepoRater](https://repo-rater.eddiehub.org/api/badge?owner=EddieHubCommunity&name=RepoRater)](https://repo-rater.eddiehub.org/rate?owner=EddieHubCommunity&name=RepoRater)
 
 # RepoRater

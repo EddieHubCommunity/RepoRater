@@ -1,3 +1,12 @@
+# [0.7.0](https://github.com/EddieHubCommunity/RepoRater/compare/v0.6.1...v0.7.0) (2024-10-01)
+
+
+### Features
+
+* prettier Integration  ([#154](https://github.com/EddieHubCommunity/RepoRater/issues/154)) ([fac084f](https://github.com/EddieHubCommunity/RepoRater/commit/fac084f3851259e798f1f7a224a3337e7f6e55f9))
+
+
+
 ## [0.6.1](https://github.com/EddieHubCommunity/RepoRater/compare/v0.6.0...v0.6.1) (2024-08-03)
 
 
@@ -31,15 +40,6 @@
 ### Features
 
 * run linter pre commit + gh action ([44d4a8b](https://github.com/EddieHubCommunity/RepoRater/commit/44d4a8b0de51b8064893ee69e7f6af6015bb7e72))
-
-
-
-# [0.4.0](https://github.com/EddieHubCommunity/RepoRater/compare/v0.3.1...v0.4.0) (2024-06-30)
-
-
-### Features
-
-* caprover config file ([fc13209](https://github.com/EddieHubCommunity/RepoRater/commit/fc13209bb259a59adef0c06cbc1543f2cb4fa1cb))
 
 
 

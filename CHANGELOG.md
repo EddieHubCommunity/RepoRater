@@ -1,3 +1,12 @@
+## [0.7.2](https://github.com/EddieHubCommunity/RepoRater/compare/v0.7.1...v0.7.2) (2024-10-01)
+
+
+### Bug Fixes
+
+* responsiveness of repository component ([#157](https://github.com/EddieHubCommunity/RepoRater/issues/157)) ([d24b970](https://github.com/EddieHubCommunity/RepoRater/commit/d24b970be8a831f3586432fd5bcffb1b95b624b7))
+
+
+
 ## [0.7.1](https://github.com/EddieHubCommunity/RepoRater/compare/v0.7.0...v0.7.1) (2024-10-01)
 
 
@@ -31,15 +40,6 @@
 ### Features
 
 * chrome extension button ([#148](https://github.com/EddieHubCommunity/RepoRater/issues/148)) ([39129bd](https://github.com/EddieHubCommunity/RepoRater/commit/39129bd0e80a829a248fb3eee3ed032d8d10f482))
-
-
-
-## [0.5.1](https://github.com/EddieHubCommunity/RepoRater/compare/v0.5.0...v0.5.1) (2024-07-30)
-
-
-### Bug Fixes
-
-* badges ([#149](https://github.com/EddieHubCommunity/RepoRater/issues/149)) ([88c2bac](https://github.com/EddieHubCommunity/RepoRater/commit/88c2bac75352d5002865c2a08ddeac5601968264))
 
 
 

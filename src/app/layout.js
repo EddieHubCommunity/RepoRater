@@ -7,7 +7,7 @@ import { classNames } from "@/utils/classNames";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "RepoRater: Rate GitHub Repos for Developer Experience"
+  title: "RepoRater: Rate GitHub Repos for Developer Experience",
 };
 
 export default function RootLayout({ children }) {

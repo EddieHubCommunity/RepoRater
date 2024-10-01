@@ -61,7 +61,8 @@ Want to see any other features? [Open an issue](https://github.com/EddieHubCommu
 8. Create an OAuth app on GitHub and connect it with Appwrite Authentication
 9. On collections `ratings` and `repos` enable read permissions for `all` users
 10. Create index on collection `repos`, named `url_search` with the attribute `url` and type `fulltext`
-11. Run the development server with:
+11. Create index on collection `ratings`, named `username_search`with the attribute `username`and type`fulltext`
+12. Run the development server with:
 
 ```bash
 npm ci

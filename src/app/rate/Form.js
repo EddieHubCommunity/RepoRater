@@ -39,7 +39,7 @@ export default function Form({ name = "", owner = "" }) {
       setSending(false);
       const info = urlToOwnerAndName(formData.get("url"));
       redirect(
-        `/?alert=success&message=Rating saved for ${info.owner}/${info.name} 🎉`
+        `/?alert=success&message=Rating saved for ${info.owner}/${info.name} 🎉`,
       );
     }
 
@@ -111,35 +111,35 @@ export default function Form({ name = "", owner = "" }) {
                   type="radio"
                   name="rating"
                   value="1"
-                  className="mask mask-star-2 bg-green-500"
+                  className="mask mask-star-2 bg-yellow-500 !text-yellow-500"
                   onChange={(e) => setRating(e.target.value)}
                 />
                 <input
                   type="radio"
                   name="rating"
                   value="2"
-                  className="mask mask-star-2 bg-green-500"
+                  className="mask mask-star-2 bg-yellow-500 !text-yellow-500"
                   onChange={(e) => setRating(e.target.value)}
                 />
                 <input
                   type="radio"
                   name="rating"
                   value="3"
-                  className="mask mask-star-2 bg-green-500"
+                  className="mask mask-star-2 bg-yellow-500 !text-yellow-500"
                   onChange={(e) => setRating(e.target.value)}
                 />
                 <input
                   type="radio"
                   name="rating"
                   value="4"
-                  className="mask mask-star-2 bg-green-500"
+                  className="mask mask-star-2 bg-yellow-500 !text-yellow-500"
                   onChange={(e) => setRating(e.target.value)}
                 />
                 <input
                   type="radio"
                   name="rating"
                   value="5"
-                  className="mask mask-star-2 bg-green-500"
+                  className="mask mask-star-2 bg-yellow-500 !text-yellow-500"
                   onChange={(e) => setRating(e.target.value)}
                   defaultChecked
                 />

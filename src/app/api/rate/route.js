@@ -50,7 +50,7 @@ export async function POST(request) {
     await new sdk.Databases(clientAdmin()).listDocuments(
       process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
       process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_APP_ID,
-      [Query.limit(1)]
+      [Query.limit(1)],
     )
   ).documents[0];
 
@@ -58,7 +58,7 @@ export async function POST(request) {
   const userRepoRating = await new sdk.Databases(clientAdmin()).listDocuments(
     process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
     process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_RATINGS_ID,
-    [Query.equal("url", [urlClean]), Query.equal("username", [username])]
+    [Query.equal("url", [urlClean]), Query.equal("username", [username])],
   );
 
   // 2a. update in ratings collection
@@ -72,7 +72,7 @@ export async function POST(request) {
         username: username,
         url: urlClean,
         rating: rating,
-      }
+      },
     );
   } else {
     // 2b. create in ratings collection
@@ -85,7 +85,7 @@ export async function POST(request) {
         username: username,
         url: urlClean,
         rating: rating,
-      }
+      },
     );
   }
 
@@ -98,7 +98,7 @@ export async function POST(request) {
     {
       ratings: appTotal.ratings + 1,
       stars: appTotal.stars + rating,
-    }
+    },
   );
 
   // 3. check if repo exists
@@ -106,7 +106,7 @@ export async function POST(request) {
   const repos = await new sdk.Databases(clientAdmin()).listDocuments(
     process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
     process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_REPOS_ID,
-    [Query.equal("url", [urlClean])]
+    [Query.equal("url", [urlClean])],
   );
 
   // 4a. update in repos collection + calculate new rating
@@ -116,7 +116,7 @@ export async function POST(request) {
     const ratings = await new sdk.Databases(clientAdmin()).listDocuments(
       process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
       process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_RATINGS_ID,
-      [Query.equal("url", [urlClean])]
+      [Query.equal("url", [urlClean])],
     );
 
     // save new repo rating
@@ -131,12 +131,12 @@ export async function POST(request) {
         ...githubRepo,
         rating: averageRating,
         votes: ratings.total,
-      }
+      },
     );
   } else {
     // 4a. create in repos collection
     console.info(
-      `Repo ${urlClean} not found in database create repo and ratings`
+      `Repo ${urlClean} not found in database create repo and ratings`,
     );
     await new sdk.Databases(clientAdmin()).createDocument(
       process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID,
@@ -147,7 +147,7 @@ export async function POST(request) {
         url: urlClean,
         rating: rating,
         votes: 1,
-      }
+      },
     );
     // 4b. update app repo count
     console.info("Increment app total repos");
@@ -157,7 +157,7 @@ export async function POST(request) {
       appTotal.$id,
       {
         repos: appTotal.repos + 1,
-      }
+      },
     );
   }
 

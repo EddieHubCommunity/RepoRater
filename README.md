@@ -88,8 +88,8 @@ The default badge is "flat" but there are other styles if you prefer. This is do
 
 Here are the options with examples:
 
-| style         | badge                                                                                                                 |
-| :------------ | :-------------------------------------------------------------------------------------------------------------------- |
+| style         | badge                                                                                                                  |
+| :------------ | :--------------------------------------------------------------------------------------------------------------------- |
 | flat          | ![flat](https://repo-rater.eddiehub.org/api/badge?owner=EddieHubCommunity&name=RepoRater&style=flat)                   |
 | flat-square   | ![flat-square](https://repo-rater.eddiehub.org/api/badge?owner=EddieHubCommunity&name=RepoRater&style=flat-square)     |
 | for-the-badge | ![for-the-badge](https://repo-rater.eddiehub.org/api/badge?owner=EddieHubCommunity&name=RepoRater&style=for-the-badge) |
@@ -106,8 +106,8 @@ The default badge format is to show the average rating out of `5`. You can also 
 [![RepoRater](https://repo-rater.eddiehub.org/api/badge?owner=EddieHubCommunity&name=RepoRater)](https://repo-rater.eddiehub.org/rate?owner=EddieHubCommunity&name=RepoRater&format=percentage)
 ```
 
-| format     | badge                                                                                                                                                                                         |
-| :--------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| format     | badge                                                                                                                                                                                           |
+| :--------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | number     | [![RepoRater](https://repo-rater.eddiehub.org/api/badge?owner=EddieHubCommunity&name=RepoRater&format=number)](https://repo-rater.eddiehub.org/rate?owner=EddieHubCommunity&name=RepoRater)     |
 | percentage | [![RepoRater](https://repo-rater.eddiehub.org/api/badge?owner=EddieHubCommunity&name=RepoRater&format=percentage)](https://repo-rater.eddiehub.org/rate?owner=EddieHubCommunity&name=RepoRater) |
 

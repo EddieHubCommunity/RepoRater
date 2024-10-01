@@ -48,7 +48,7 @@ export default function Repos({ minimumVotes = 5, keyword, sort }) {
       params.push(`sort=${sort}`);
     }
     const res = await fetch(
-      `/api/repos${params.length ? `?${params.join("&")}` : ""}`
+      `/api/repos${params.length ? `?${params.join("&")}` : ""}`,
     );
 
     const data = await res.json();
@@ -115,10 +115,10 @@ export default function Repos({ minimumVotes = 5, keyword, sort }) {
                 </h2>
                 <div className="flex gap-4">
                   {repo.language && (
-                    <p className="text-xs">({repo.language})</p>
+                    <p className="text-xs text-gray-400">({repo.language})</p>
                   )}
                   {repo.stars && (
-                    <p className="text-xs">
+                    <p className="text-xs hidden sm:inline-block text-gray-400">
                       ({abbreviateNumber(repo.stars)} ⭐️)
                     </p>
                   )}

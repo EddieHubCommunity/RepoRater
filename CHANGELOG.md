@@ -1,3 +1,12 @@
+## [0.7.1](https://github.com/EddieHubCommunity/RepoRater/compare/v0.7.0...v0.7.1) (2024-10-01)
+
+
+### Bug Fixes
+
+* star colors ([#156](https://github.com/EddieHubCommunity/RepoRater/issues/156)) ([3b63d64](https://github.com/EddieHubCommunity/RepoRater/commit/3b63d640718612baad23cfa435c011d1f68113aa))
+
+
+
 # [0.7.0](https://github.com/EddieHubCommunity/RepoRater/compare/v0.6.1...v0.7.0) (2024-10-01)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * badges ([#149](https://github.com/EddieHubCommunity/RepoRater/issues/149)) ([88c2bac](https://github.com/EddieHubCommunity/RepoRater/commit/88c2bac75352d5002865c2a08ddeac5601968264))
-
-
-
-# [0.5.0](https://github.com/EddieHubCommunity/RepoRater/compare/v0.4.0...v0.5.0) (2024-07-14)
-
-
-### Features
-
-* run linter pre commit + gh action ([44d4a8b](https://github.com/EddieHubCommunity/RepoRater/commit/44d4a8b0de51b8064893ee69e7f6af6015bb7e72))
 
 
 
